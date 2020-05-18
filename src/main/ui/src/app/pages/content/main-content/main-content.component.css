@@ -1,0 +1,14 @@
+.app-main-container {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.mat-drawer {
+  width: 15%;
+  height: 100%;
+}
+
+.mat-drawer-content {
+  overflow-y: scroll;
+}
