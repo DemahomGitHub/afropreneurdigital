@@ -1,18 +1,1 @@
-.ad-card-title {
-  width: 90%;
-  text-align: center;
-  margin-left: 5%;
-  margin-top: 20px;
-}
 
-.ad-card-article {
-  width: 90%;
-  text-align: left;
-  margin-left: 5%;
-  margin-top: 20px;
-}
-
-.ad-article-avatar {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
-}
