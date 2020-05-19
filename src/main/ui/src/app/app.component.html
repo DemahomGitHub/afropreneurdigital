@@ -1,4 +1,4 @@
 <div id="app">
-  <app-header></app-header>
-  <app-main-content></app-main-content>
+  <app-header (menuToggle)="onMenuToggle()" [menuOpened]="menuOpened"></app-header>
+  <app-main-content [menuOpened]="menuOpened"></app-main-content>
 </div>

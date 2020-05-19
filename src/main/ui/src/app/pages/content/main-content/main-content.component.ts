@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
-import { } from '@angular/core';
 
 @Component({
   selector: 'app-main-content',
@@ -8,13 +7,12 @@ import { } from '@angular/core';
   styleUrls: ['./main-content.component.css']
 })
 export class MainContentComponent implements OnInit {
-
+  @Input() menuOpened: boolean;
 
   constructor() {
   }
 
   ngOnInit() {
+    console.log('Menu opened ', this.menuOpened);
   }
-
-
 }
