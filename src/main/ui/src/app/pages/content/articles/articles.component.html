@@ -3,20 +3,30 @@
     <mat-card-title>Tous les articles</mat-card-title>
   </mat-card>
 
-  <div style="align-content: center;">
-    <mat-form-field style="width: 25vw;">
-      <mat-label>Filtrer</mat-label>
-      <mat-select [formControl]="filterControl">
-        <mat-option>-- Aucun --</mat-option>
-        <mat-optgroup *ngFor="let group of filterGroups" [label]="group.name"
-                      [disabled]="group.disabled">
-          <mat-option *ngFor="let pokemon of group.pokemon" [value]="pokemon.value">
-            {{pokemon.viewValue}}
+  <mat-grid-list cols="3" rowHeight="7:1">
+    <mat-grid-tile>
+      <mat-form-field style="width: 100%;">
+        <mat-label>Filtrer par date </mat-label>
+        <mat-select [formControl]="dateFilterControl">
+          <mat-option *ngFor="let criteria of dateFilter" [value]="criteria.value">
+            {{criteria.viewValue}}
           </mat-option>
-        </mat-optgroup>
-      </mat-select>
-    </mat-form-field>
-  </div>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field style="width: 100%;">
+        <mat-label>Filtrer par thématique </mat-label>
+        <mat-select [formControl]="topicFilterControl" multiple>
+          <mat-option *ngFor="let criteria of topicFilter" [value]="criteria.value">
+            {{criteria.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+
 
   <mat-card class="ad-card-article">
     <mat-card-header>
