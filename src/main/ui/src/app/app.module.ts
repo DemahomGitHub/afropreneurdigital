@@ -21,6 +21,7 @@ import { HomePageComponent } from './pages/content/home-page/home-page.component
 import { AboutComponent } from './pages/content/about/about.component';
 import { ArticlesComponent } from './pages/content/articles/articles.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { ArticlesDetailsComponent } from './pages/content/articles/articles-details/articles-details.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     MainContentComponent,
     HomePageComponent,
     AboutComponent,
-    ArticlesComponent
+    ArticlesComponent,
+    ArticlesDetailsComponent
   ],
   imports: [
     BrowserModule,
