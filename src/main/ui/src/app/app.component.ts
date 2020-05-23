@@ -7,8 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   menuOpened = true;
-
-  onMenuToggle() {
-    this.menuOpened = !this.menuOpened;
-  }
 }

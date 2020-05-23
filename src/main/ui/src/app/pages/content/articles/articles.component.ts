@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
+import {ArticlesServices} from '../../../services/ArticlesServices';
+import {Article} from '../../../model/Article';
 
 interface Filter {
   value: string;
   viewValue: string;
 }
-
 
 @Component({
   selector: 'app-articles',
@@ -15,17 +16,20 @@ interface Filter {
 })
 export class ArticlesComponent implements OnInit {
 
+  articles: Article[];
   dateFilterControl = new FormControl();
   dateFilter: Filter[] = [
       {value: 'bulbasaur-0', viewValue: 'Les plus récents d\'abord'},
       {value: 'oddish-1', viewValue: 'Les plus anciens d\'abord'}
   ];
-
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private articlesServices: ArticlesServices
+  ) {
   }
 
   ngOnInit() {
-    console.log(this.activatedRoute.snapshot.params.name);
+    this.articles = this.articlesServices.getAllArticles();
   }
 
 }

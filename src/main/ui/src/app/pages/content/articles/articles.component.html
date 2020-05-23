@@ -4,7 +4,7 @@
       Bienvenu sur Afroproneur Digital
     </mat-card-title>
     <mat-card-content>
-      <h3>Le blog de l'afropreneur du web</h3>
+      <h3>Le blog des afropreneurs du web</h3>
     </mat-card-content>
   </mat-card>
 
@@ -21,114 +21,20 @@
     </mat-grid-tile>
   </mat-grid-list>
 
-
-  <mat-card class="ad-card-article">
+  <mat-card class="ad-card-article" *ngFor="let article of articles">
     <mat-card-header>
       <div mat-card-avatar class="ad-article-avatar"></div>
-      <mat-card-title>Les enjeux de l'entrepreneuriat sur le continent africain </mat-card-title>
-      <mat-card-subtitle>Publié le 22/05/2020 par Mo Touré</mat-card-subtitle>
+      <mat-card-title> {{article.title}} </mat-card-title>
+      <mat-card-subtitle>
+        <span> Publié le {{article.releaseDate}} par {{article.author}} - Thématique: </span>
+        <span *ngFor="let topic of article.topic"> {{topic.label}} </span>
+      </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.
-      Duis vulputate commodo lectus, ac blandit elit tincidunt id.
-      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.
-      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.
-      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.
-      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.
-      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.
-      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.
+      {{article.content | slice: 0 : 140 }} ...
     </mat-card-content>
     <mat-card-actions>
-      <a mat-stroked-button routerLink="/articles"> Lire l'article </a>
-    </mat-card-actions>
-  </mat-card>
-
-  <mat-card class="ad-card-article">
-    <mat-card-header>
-      <div mat-card-avatar class="ad-article-avatar"></div>
-      <mat-card-title>Les enjeux de l'entrepreneuriat sur le continent africain </mat-card-title>
-      <mat-card-subtitle>Publié le 22/05/2020 par Mo Touré</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.
-      Duis vulputate commodo lectus, ac blandit elit tincidunt id.
-      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.
-      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.
-      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.
-      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.
-      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.
-      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.
-    </mat-card-content>
-    <mat-card-actions>
-      <a mat-stroked-button routerLink="/articles"> Lire l'article </a>
-    </mat-card-actions>
-  </mat-card>
-
-  <mat-card class="ad-card-article">
-    <mat-card-header>
-      <div mat-card-avatar class="ad-article-avatar"></div>
-      <mat-card-title>Les enjeux de l'entrepreneuriat sur le continent africain </mat-card-title>
-      <mat-card-subtitle>Publié le 22/05/2020 par Mo Touré</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.
-      Duis vulputate commodo lectus, ac blandit elit tincidunt id.
-      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.
-      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.
-      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.
-      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.
-      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.
-      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.
-    </mat-card-content>
-    <mat-card-actions>
-      <a mat-stroked-button routerLink="/articles"> Lire l'article </a>
-    </mat-card-actions>
-  </mat-card>
-
-  <mat-card class="ad-card-article">
-    <mat-card-header>
-      <div mat-card-avatar class="ad-article-avatar"></div>
-      <mat-card-title>Le numérique dans l'éducation en Afrique </mat-card-title>
-      <mat-card-subtitle>Publié le 22/05/2020 par Mo Touré</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.
-      Duis vulputate commodo lectus, ac blandit elit tincidunt id.
-      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.
-      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.
-      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.
-      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.
-      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.
-      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.
-    </mat-card-content>
-    <mat-card-actions>
-      <a mat-stroked-button routerLink="/articles"> Lire l'article </a>
-    </mat-card-actions>
-  </mat-card>
-
-  <mat-card class="ad-card-article">
-    <mat-card-header>
-      <div mat-card-avatar class="ad-article-avatar"></div>
-      <mat-card-title>Le numérique peut-il sauver l'agriculture africaine? </mat-card-title>
-      <mat-card-subtitle>Publié le 22/05/2020 par Mo Touré</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.
-      Duis vulputate commodo lectus, ac blandit elit tincidunt id.
-      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.
-      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.
-      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.
-      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.
-      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.
-      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.
-    </mat-card-content>
-    <mat-card-actions>
-      <a mat-stroked-button routerLink="/articles"> Lire l'article </a>
+      <a mat-button routerLink="/articles/{{article.id}}"> Lire l'article </a>
     </mat-card-actions>
   </mat-card>
 </div>

@@ -12,7 +12,5 @@ export class MainContentComponent implements OnInit {
   constructor() {
   }
 
-  ngOnInit() {
-    console.log('Menu opened ', this.menuOpened);
-  }
+  ngOnInit() {}
 }

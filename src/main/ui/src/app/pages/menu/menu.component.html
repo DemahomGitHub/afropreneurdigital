@@ -12,19 +12,19 @@
     <div mat-line> A propos </div>
   </mat-list-item>
   <div mat-subheader class="blog-left-menu-subheader">Les thématiques </div>
-  <mat-list-item [routerLink]="['/articles', 'topic', 'education']"
+  <mat-list-item [routerLink]="['/articles/topic', 'education']"
                  routerLinkActive="link-active"
                  [routerLinkActiveOptions]="{exact: true}">
     <mat-icon mat-list-icon>school</mat-icon>
     <div mat-line>Education</div>
   </mat-list-item>
-  <mat-list-item routerLink="/articles/topic/healthcare"
+  <mat-list-item [routerLink]="['/articles/topic', 'healthcare']"
                  routerLinkActive="link-active"
                  [routerLinkActiveOptions]="{exact: true}">
     <mat-icon mat-list-icon>local_hospital</mat-icon>
     <div mat-line>Santé</div>
   </mat-list-item>
-  <mat-list-item routerLink="/articles/topic/fintech"
+  <mat-list-item [routerLink]="['/articles/topic', 'fintech']"
                  routerLinkActive="link-active"
                  [routerLinkActiveOptions]="{exact: true}">
     <mat-icon mat-list-icon>trending_up</mat-icon>
