@@ -1,7 +1,16 @@
 .link-active {
-  background-color: #f0f0f0;
+  background-color: #002935;
 }
 
 .mat-list-item:hover {
-  background-color: #f0f0f0;
+  background-color: #002935;
+}
+
+.blog-left-menu-content .mat-list-item, .blog-left-menu-subheader {
+  color: whitesmoke;
+}
+
+#logo {
+  width: 100%;
+  text-align: center;
 }

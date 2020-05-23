@@ -1,13 +1,18 @@
-.app-main-container {
+.blog-main-container {
   width: 100vw;
   height: 100vh;
-  overflow-x: hidden;
-  background-color: #ebebeb;
+  overflow: hidden;
 }
 
-.mat-drawer {
+.blog-left-section {
   width: 15%;
   height: 100%;
+  color: whitesmoke;
+  background-color: #003748;
+}
+
+.blog-right-section {
+  background-color: whitesmoke;
 }
 
 .mat-drawer-content {

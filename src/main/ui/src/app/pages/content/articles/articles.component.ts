@@ -20,14 +20,6 @@ export class ArticlesComponent implements OnInit {
       {value: 'oddish-1', viewValue: 'Les plus anciens d\'abord'}
   ];
 
-  topicFilterControl = new FormControl();
-  topicFilter: Filter[] = [
-    {value: 'squirtle-3', viewValue: 'Education'},
-    {value: 'psyduck-4', viewValue: 'Santé'},
-    {value: 'psyduck-5', viewValue: 'Agriculture'},
-    {value: 'psyduck-6', viewValue: 'Fintech'}
-  ];
-
   constructor() { }
 
   ngOnInit() {

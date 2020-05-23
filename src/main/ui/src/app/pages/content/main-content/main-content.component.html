@@ -1,8 +1,8 @@
-<mat-drawer-container class="app-main-container">
-  <mat-drawer mode="side" opened="{{menuOpened}}">
+<mat-drawer-container class="blog-main-container">
+  <mat-drawer class="blog-left-section" mode="side" opened>
     <app-menu></app-menu>
   </mat-drawer>
-  <mat-drawer-content>
+  <mat-drawer-content class="blog-right-section">
     <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>

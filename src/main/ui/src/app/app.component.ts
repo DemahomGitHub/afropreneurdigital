@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  menuOpened = false;
+  menuOpened = true;
 
   onMenuToggle() {
     this.menuOpened = !this.menuOpened;
