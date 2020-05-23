@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
 
 interface Filter {
   value: string;
@@ -20,9 +21,11 @@ export class ArticlesComponent implements OnInit {
       {value: 'oddish-1', viewValue: 'Les plus anciens d\'abord'}
   ];
 
-  constructor() { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit() {
+    console.log(this.activatedRoute.snapshot.params.name);
   }
 
 }

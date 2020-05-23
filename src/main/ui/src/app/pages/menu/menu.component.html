@@ -3,7 +3,7 @@
     <img alt="Logo" mat-card-lg-image src="assets/logo.jpg">
   </div>
   <div mat-subheader class="blog-left-menu-subheader">Le blog</div>
-  <mat-list-item routerLink="/articles" routerLinkActive="link-active">
+  <mat-list-item routerLink="/articles" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact: true}">
     <mat-icon mat-list-icon>home</mat-icon>
     <div mat-line> Accueil </div>
   </mat-list-item>
@@ -12,15 +12,21 @@
     <div mat-line> A propos </div>
   </mat-list-item>
   <div mat-subheader class="blog-left-menu-subheader">Les thématiques </div>
-  <mat-list-item routerLink="/articles?topic=education" routerLinkActive="link-active">
+  <mat-list-item [routerLink]="['/articles', 'topic', 'education']"
+                 routerLinkActive="link-active"
+                 [routerLinkActiveOptions]="{exact: true}">
     <mat-icon mat-list-icon>school</mat-icon>
     <div mat-line>Education</div>
   </mat-list-item>
-  <mat-list-item routerLink="/articles?topic=education" routerLinkActive="link-active">
+  <mat-list-item routerLink="/articles/topic/healthcare"
+                 routerLinkActive="link-active"
+                 [routerLinkActiveOptions]="{exact: true}">
     <mat-icon mat-list-icon>local_hospital</mat-icon>
     <div mat-line>Santé</div>
   </mat-list-item>
-  <mat-list-item routerLink="/articles?topic=education" routerLinkActive="link-active">
+  <mat-list-item routerLink="/articles/topic/fintech"
+                 routerLinkActive="link-active"
+                 [routerLinkActiveOptions]="{exact: true}">
     <mat-icon mat-list-icon>trending_up</mat-icon>
     <div mat-line>FinTech</div>
   </mat-list-item>
