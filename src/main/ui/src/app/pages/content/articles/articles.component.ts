@@ -30,11 +30,13 @@ export class ArticlesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.articles = this.articlesServices.getAllArticles();
+    if (this.articles === undefined) {
+      this.articles = this.articlesServices.getAllArticles();
+    }
+    this.articles = this.articlesServices.sortArticlesByDateDescending();
   }
 
   onFilterChange() {
-    console.log(this.dateFilterControl.value);
     const selected = this.dateFilterControl.value;
     if (selected === this.ORDER_ASC) {
       this.articles = this.articlesServices.sortArticlesByDateAscending();
