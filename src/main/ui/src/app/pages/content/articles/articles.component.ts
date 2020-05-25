@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Data} from '@angular/router';
+import {Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {ActivatedRoute} from '@angular/router';
 import {ArticlesServices} from '../../../services/ArticlesServices';
 import {Article} from '../../../model/Article';
 
@@ -15,12 +15,13 @@ interface Filter {
   styleUrls: ['./articles.component.css', '../main-content/main-content.component.css']
 })
 export class ArticlesComponent implements OnInit {
-
+  ORDER_ASC = 'ASC';
+  ORDER_DESC = 'DESC';
   articles: Article[];
   dateFilterControl = new FormControl();
   dateFilter: Filter[] = [
-      {value: 'bulbasaur-0', viewValue: 'Les plus récents d\'abord'},
-      {value: 'oddish-1', viewValue: 'Les plus anciens d\'abord'}
+      {value: this.ORDER_DESC, viewValue: 'Les plus récents d\'abord'},
+      {value: this.ORDER_ASC, viewValue: 'Les plus anciens d\'abord'}
   ];
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -32,4 +33,14 @@ export class ArticlesComponent implements OnInit {
     this.articles = this.articlesServices.getAllArticles();
   }
 
+  onFilterChange() {
+    console.log(this.dateFilterControl.value);
+    const selected = this.dateFilterControl.value;
+    if (selected === this.ORDER_ASC) {
+      this.articles = this.articlesServices.sortArticlesByDateAscending();
+    }
+    if (selected === this.ORDER_DESC) {
+      this.articles = this.articlesServices.sortArticlesByDateDescending();
+    }
+  }
 }
