@@ -1,5 +1,5 @@
-import {ActivatedRoute, Data} from '@angular/router';
-import {Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {ArticlesServices} from '../../../services/ArticlesServices';
 import {Article} from '../../../model/Article';
@@ -23,11 +23,13 @@ export class ArticlesComponent implements OnInit {
       {value: this.ORDER_DESC, viewValue: 'Les plus récents d\'abord'},
       {value: this.ORDER_ASC, viewValue: 'Les plus anciens d\'abord'}
   ];
+  displayArticleDetails = false;
+  articleDetails: Article;
   constructor(
+    private router: Router,
     private activatedRoute: ActivatedRoute,
     private articlesServices: ArticlesServices
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     if (this.articles === undefined) {
@@ -44,5 +46,18 @@ export class ArticlesComponent implements OnInit {
     if (selected === this.ORDER_DESC) {
       this.articles = this.articlesServices.sortArticlesByDateDescending();
     }
+  }
+
+  onShowArticleDetails(id: number) {
+    this.articleDetails = this.articlesServices
+      .getAllArticles()
+      .filter(a => a.id === id)
+      .shift();
+    this.displayArticleDetails = !this.displayArticleDetails;
+  }
+
+  onNavigateBack() {
+    this.displayArticleDetails = !this.displayArticleDetails;
+    this.router.navigate(['/articles']);
   }
 }
