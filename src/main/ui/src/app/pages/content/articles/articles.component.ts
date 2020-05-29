@@ -1,8 +1,9 @@
-import {ActivatedRoute, Router} from '@angular/router';
-import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, ActivationEnd, ActivationStart, NavigationEnd, Router} from '@angular/router';
+import {Component, DoCheck, Input, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {ArticlesServices} from '../../../services/ArticlesServices';
 import {Article} from '../../../model/Article';
+import {Topics} from '../../../enums/ArticlesTopics';
 
 interface Filter {
   value: string;
@@ -14,7 +15,7 @@ interface Filter {
   templateUrl: './articles.component.html',
   styleUrls: ['./articles.component.css', '../main-content/main-content.component.css']
 })
-export class ArticlesComponent implements OnInit {
+export class ArticlesComponent implements OnInit, DoCheck {
   ORDER_ASC = 'ASC';
   ORDER_DESC = 'DESC';
   articles: Article[];
@@ -31,11 +32,20 @@ export class ArticlesComponent implements OnInit {
     private articlesServices: ArticlesServices
   ) {}
 
+
   ngOnInit() {
     if (this.articles === undefined) {
-      this.articles = this.articlesServices.getAllArticles();
+      this.articles = this.articlesServices.findAll();
     }
     this.articles = this.articlesServices.sortArticlesByDateDescending();
+  }
+
+  ngDoCheck() {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.articles = this.articlesServices.filterResultsBasedOnTopic(this.articlesServices.getTopicBasedOnUrl(event.url));
+      }
+    });
   }
 
   onFilterChange() {
@@ -49,15 +59,19 @@ export class ArticlesComponent implements OnInit {
   }
 
   onShowArticleDetails(id: number) {
-    this.articleDetails = this.articlesServices
-      .getAllArticles()
-      .filter(a => a.id === id)
-      .shift();
+    this.articleDetails = this.articlesServices.findArticleById(id);
     this.displayArticleDetails = !this.displayArticleDetails;
   }
 
   onNavigateBack() {
     this.displayArticleDetails = !this.displayArticleDetails;
-    this.router.navigate(['/articles']);
+    this.router
+      .navigate(['/articles'])
+      .then(value => {
+        console.log('navigation succeed');
+      })
+      .catch(reason => {
+        console.log('Something went wrong during the navigation. Reason [' + reason + ']');
+      });
   }
 }

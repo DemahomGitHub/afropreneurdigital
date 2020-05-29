@@ -28,7 +28,7 @@
         <mat-card-title> {{article.title}} </mat-card-title>
         <mat-card-subtitle>
           <span> Publié le {{article.releaseDate}} par {{article.author}} - Thématique: </span>
-          <span *ngFor="let topic of article.topic"> {{topic.label}} </span>
+          <span *ngFor="let topic of article.topics"> {{topic.label}} </span>
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
@@ -47,7 +47,7 @@
         <mat-card-title> {{articleDetails.title}} </mat-card-title>
         <mat-card-subtitle>
           <span> Publié le {{articleDetails.releaseDate}} par {{articleDetails.author}} - Thématique: </span>
-          <span *ngFor="let topic of articleDetails.topic"> {{topic.label}} </span>
+          <span *ngFor="let topic of articleDetails.topics"> {{topic.label}} </span>
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
@@ -55,7 +55,8 @@
       </mat-card-content>
       <mat-card-actions>
         <a mat-button (click)="onNavigateBack()">
-          <mat-icon mat-list-icon>navigate_before</mat-icon> <span>Retour</span>
+          <mat-icon mat-list-icon>arrow_back</mat-icon>
+          <span> Retour </span>
         </a>
       </mat-card-actions>
     </mat-card>

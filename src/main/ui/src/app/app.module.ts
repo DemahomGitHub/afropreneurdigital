@@ -17,7 +17,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './pages/header/header.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { MainContentComponent } from './pages/content/main-content/main-content.component';
-import { HomePageComponent } from './pages/content/home-page/home-page.component';
 import { AboutComponent } from './pages/content/about/about.component';
 import { ArticlesComponent } from './pages/content/articles/articles.component';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -28,7 +27,6 @@ import {ReactiveFormsModule} from '@angular/forms';
     HeaderComponent,
     MenuComponent,
     MainContentComponent,
-    HomePageComponent,
     AboutComponent,
     ArticlesComponent
   ],

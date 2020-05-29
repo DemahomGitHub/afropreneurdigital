@@ -3,11 +3,11 @@ export interface Article {
   title: string;
   releaseDate: string;
   author: string;
-  topic: Topic[];
+  topics: Topic[];
   content: string;
 }
 
-interface Topic {
+export interface Topic {
   label: string;
   value: string;
 }
