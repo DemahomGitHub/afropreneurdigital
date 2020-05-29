@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,16 +7,14 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Output() menuToggle = new EventEmitter<null>();
-  @Input() menuOpened: boolean;
+  toolbarMenuOpened: boolean;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onMenuToggle() {
-    console.log(this.menuOpened);
-    this.menuToggle.emit();
+    this.toolbarMenuOpened = !this.toolbarMenuOpened;
   }
+
 }

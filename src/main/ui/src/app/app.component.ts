@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  menuOpened = true;
+  leftMenuOpened = true;
+  constructor(phoneAnsTableObserver: BreakpointObserver) {
+    phoneAnsTableObserver
+      .observe([Breakpoints.Handset, Breakpoints.Tablet, Breakpoints.WebPortrait])
+      .subscribe(result => {
+        this.leftMenuOpened = !result.matches;
+      });
+  }
 }

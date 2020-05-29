@@ -3,6 +3,53 @@
     <button mat-icon-button (click)="onMenuToggle()">
       <mat-icon mat-list-icon>menu</mat-icon>
     </button>
-    <h1><span> Afropreneur </span> <span style="font-style: italic;">Digital</span></h1>
+    <div id="logo">
+      <a mat-button routerLink="/"><h2>Afropreneur <span style="color: orange;">Digital</span></h2></a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-toolbar *ngIf="toolbarMenuOpened">
+  <mat-toolbar-row style="font-size: small;">Le blog</mat-toolbar-row>
+  <mat-toolbar-row mat-line>
+    <mat-icon mat-list-icon>home</mat-icon>
+    <a mat-button routerLink="/articles"
+       routerLinkActive="link-active"
+       [routerLinkActiveOptions]="{exact: true}">
+      Accueil
+    </a>
+  </mat-toolbar-row>
+  <mat-toolbar-row mat-line>
+    <mat-icon mat-list-icon>info</mat-icon>
+    <a mat-button routerLink="/infos"
+       routerLinkActive="link-active"
+       [routerLinkActiveOptions]="{exact: true}">
+      A propos
+    </a>
+  </mat-toolbar-row>
+  <mat-toolbar-row style="font-size: small;">Les thématiques</mat-toolbar-row>
+  <mat-toolbar-row mat-line>
+    <mat-icon mat-list-icon>school</mat-icon>
+    <a mat-button [routerLink]="['/articles', 'education']"
+       routerLinkActive="link-active"
+       [routerLinkActiveOptions]="{exact: true}">
+      Education
+    </a>
+  </mat-toolbar-row>
+  <mat-toolbar-row mat-line>
+    <mat-icon mat-list-icon>local_hospital</mat-icon>
+    <a mat-button [routerLink]="['/articles', 'healthcare']"
+       routerLinkActive="link-active"
+       [routerLinkActiveOptions]="{exact: true}">
+      Santé
+    </a>
+  </mat-toolbar-row>
+  <mat-toolbar-row mat-line>
+    <mat-icon mat-list-icon>trending_up</mat-icon>
+    <a mat-button [routerLink]="['/articles', 'fintech']"
+       routerLinkActive="link-active"
+       [routerLinkActiveOptions]="{exact: true}">
+      FinTech
+    </a>
   </mat-toolbar-row>
 </mat-toolbar>

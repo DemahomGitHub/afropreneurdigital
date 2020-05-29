@@ -8,12 +8,8 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class MainContentComponent implements OnInit {
   @Input() menuOpened: boolean;
-  lastVisitedPage: string;
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-    this.lastVisitedPage = '/articles';
-  }
+  ngOnInit() {}
 }

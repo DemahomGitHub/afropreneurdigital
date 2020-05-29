@@ -1,5 +1,5 @@
 <mat-drawer-container class="blog-main-container">
-  <mat-drawer class="blog-left-section" mode="side" opened>
+  <mat-drawer class="blog-left-section" mode="side" [opened]="menuOpened">
     <app-menu></app-menu>
   </mat-drawer>
   <mat-drawer-content class="blog-right-section">
