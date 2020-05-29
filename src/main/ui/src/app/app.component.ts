@@ -8,8 +8,8 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 })
 export class AppComponent {
   leftMenuOpened = true;
-  constructor(phoneAnsTableObserver: BreakpointObserver) {
-    phoneAnsTableObserver
+  constructor(mobileDevicesObserver: BreakpointObserver) {
+    mobileDevicesObserver
       .observe([Breakpoints.Handset, Breakpoints.Tablet, Breakpoints.WebPortrait])
       .subscribe(result => {
         this.leftMenuOpened = !result.matches;

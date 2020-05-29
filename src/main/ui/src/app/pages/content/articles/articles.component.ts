@@ -4,6 +4,7 @@ import {FormControl} from '@angular/forms';
 import {ArticlesServices} from '../../../services/ArticlesServices';
 import {Article} from '../../../model/Article';
 import {Topics} from '../../../enums/ArticlesTopics';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 
 interface Filter {
   value: string;
@@ -26,11 +27,26 @@ export class ArticlesComponent implements OnInit, DoCheck {
   ];
   displayArticleDetails = false;
   articleDetails: Article;
+  dateFilterCols: number;
+  dateFilterRows: string;
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private articlesServices: ArticlesServices
-  ) {}
+    private articlesServices: ArticlesServices,
+    private mobileDevicesObserver: BreakpointObserver
+  ) {
+    mobileDevicesObserver
+      .observe([Breakpoints.Handset, Breakpoints.Tablet, Breakpoints.WebPortrait])
+      .subscribe(results => {
+        if (results.matches) {
+          this.dateFilterCols = 1;
+          this.dateFilterRows = '5:1';
+        } else {
+          this.dateFilterCols = 3;
+          this.dateFilterRows = '3:1';
+        }
+      });
+  }
 
 
   ngOnInit() {
