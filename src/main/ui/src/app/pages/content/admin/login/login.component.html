@@ -1,0 +1,26 @@
+<form [formGroup]="loginFormGroup" (ngSubmit)="onLogin()" [ngStyle]="formStyle">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Connexion à la console d'aministation</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="outline" class="blog-admin-form-field">
+        <mat-label>Login</mat-label>
+        <input matInput placeholder="Saisir l'identifiant" [formControl]="loginControl" required>
+        <mat-error *ngIf="loginControl.invalid">{{handleLoginErrors()}}</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline" class="blog-admin-form-field">
+        <mat-label>Mot de passe</mat-label>
+        <input matInput placeholder="Saisir le mot de passe" [type]="hide ? 'password' : 'text'" [formControl]="passwordControl" required>
+        <mat-error *ngIf="passwordControl.invalid">{{handlePasswordErrors()}}</mat-error>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Cachez le mot de pass'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="submit" mat-raised-button color="accent" style="width: 96%; margin: 2%;"> Valider </button>
+    </mat-card-actions>
+  </mat-card>
+</form>

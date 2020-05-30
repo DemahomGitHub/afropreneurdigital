@@ -10,16 +10,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+
+import { AppComponent } from './app.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { MainContentComponent } from './pages/content/main-content/main-content.component';
 import { AboutComponent } from './pages/content/about/about.component';
 import { ArticlesComponent } from './pages/content/articles/articles.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import { LoginComponent } from './pages/content/admin/login/login.component';
+import { ArticleCreationComponent } from './pages/content/admin/article-creation/article-creation.component';
+import { ArticleUpdateDeletionComponent } from './pages/content/admin/article-update-deletion/article-update-deletion.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,10 @@ import {ReactiveFormsModule} from '@angular/forms';
     MenuComponent,
     MainContentComponent,
     AboutComponent,
-    ArticlesComponent
+    ArticlesComponent,
+    LoginComponent,
+    ArticleCreationComponent,
+    ArticleUpdateDeletionComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +51,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatDividerModule,
-    MatGridListModule
+    MatGridListModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
