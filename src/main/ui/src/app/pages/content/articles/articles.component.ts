@@ -40,7 +40,7 @@ export class ArticlesComponent implements OnInit, DoCheck {
       .subscribe(results => {
         if (results.matches) {
           this.dateFilterCols = 1;
-          this.dateFilterRows = '5:1';
+          this.dateFilterRows = '4:1';
         } else {
           this.dateFilterCols = 3;
           this.dateFilterRows = '3:1';

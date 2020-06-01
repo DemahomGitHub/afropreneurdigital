@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 import {AuthenticationServices} from '../../../../services/AuthenticationServices';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {log} from 'util';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,21 +14,24 @@ export class LoginComponent implements OnInit {
   loginControl = new FormControl('', [Validators.required]);
   passwordControl = new FormControl('', [Validators.required, Validators.minLength(10)]);
   hide = true;
-  loginFormGroup: FormGroup;
+  formOptions: FormGroup;
   hideRequiredControl = new FormControl(false);
   floatLabelControl = new FormControl('auto');
   formStyle: {width: string; 'margin-left': string; 'margin-top': string};
+  connected = false;
+  connectionResponse = '';
   private mobileFormStyle = {width: '90%', 'margin-left': '5%', 'margin-top': '10%'};
   private desktopFormStyle = {width: '30%', 'margin-left': '30%', 'margin-top': '10%'};
 
   constructor(
     private fb: FormBuilder,
     private authenticationServices: AuthenticationServices,
-    mobileDeviceObserver: BreakpointObserver
+    private mobileDeviceObserver: BreakpointObserver,
+    private router: Router
   ) {
-    this.loginFormGroup = fb.group({
+    this.formOptions = fb.group({
       hideRequired: this.hideRequiredControl,
-      floatLabel: this.floatLabelControl,
+      floatLabel: this.floatLabelControl
     });
     mobileDeviceObserver
       .observe([Breakpoints.Handset, Breakpoints.Tablet, Breakpoints.WebPortrait])
@@ -57,7 +62,27 @@ export class LoginComponent implements OnInit {
     return '';
   }
 
-  onLogin() {
-    this.authenticationServices.login();
+  onSubmit() {
+    const login = this.loginControl.value;
+    const password = this.passwordControl.value;
+
+    if (!this.loginControl.invalid && !this.passwordControl.invalid) {
+      const response = this.authenticationServices.login(login, password);
+      if (response.ok) {
+        this.connected = true;
+        this.connectionResponse = response.message;
+        this.router
+          .navigate(['/articles'])
+          .then(res => {
+            console.log('Navigation succeed: ' + res);
+          })
+          .catch(err => {
+            console.log('Navigation failed: ' + err);
+          });
+      } else {
+        this.connected = false;
+        this.connectionResponse = response.message;
+      }
+    }
   }
 }
