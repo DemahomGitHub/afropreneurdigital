@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
+import {AppServices} from '../../services/AppServices';
 
 @Component({
   selector: 'app-header',
@@ -8,8 +9,15 @@ import {NavigationEnd, Router} from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   toolbarMenuOpened: boolean;
+  switchToAdminMenu: boolean;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private appServices: AppServices) {
+    appServices
+      .getAppMenuObserver()
+      .subscribe(canSwitch => {
+        this.switchToAdminMenu = canSwitch;
+      });
+  }
 
   ngOnInit() {}
 

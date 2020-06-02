@@ -5,6 +5,7 @@ import {ArticlesServices} from '../../../services/ArticlesServices';
 import {Article} from '../../../model/Article';
 import {Topics} from '../../../enums/ArticlesTopics';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {AuthenticationServices} from '../../../services/AuthenticationServices';
 
 interface Filter {
   value: string;
@@ -33,7 +34,8 @@ export class ArticlesComponent implements OnInit, DoCheck {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private articlesServices: ArticlesServices,
-    private mobileDevicesObserver: BreakpointObserver
+    private mobileDevicesObserver: BreakpointObserver,
+    private authenticationServices: AuthenticationServices
   ) {
     mobileDevicesObserver
       .observe([Breakpoints.Handset, Breakpoints.Tablet, Breakpoints.WebPortrait])
@@ -46,6 +48,7 @@ export class ArticlesComponent implements OnInit, DoCheck {
           this.dateFilterRows = '3:1';
         }
       });
+    authenticationServices.switchToAdminConsole(false);
   }
 
 

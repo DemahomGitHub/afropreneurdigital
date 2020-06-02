@@ -4,6 +4,7 @@ import {AuthenticationServices} from '../../../../services/AuthenticationService
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {log} from 'util';
 import {Router} from '@angular/router';
+import {AppServices} from '../../../../services/AppServices';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +28,8 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private authenticationServices: AuthenticationServices,
     private mobileDeviceObserver: BreakpointObserver,
-    private router: Router
+    private router: Router,
+    private appServices: AppServices
   ) {
     this.formOptions = fb.group({
       hideRequired: this.hideRequiredControl,
@@ -38,12 +40,15 @@ export class LoginComponent implements OnInit {
       .subscribe(results => {
         if (results.matches) {
           this.formStyle = this.mobileFormStyle;
+          this.appServices.switchToAdminMenu(true);
         } else {
           this.formStyle = this.desktopFormStyle;
         }
       });
   }
-  ngOnInit() {}
+  ngOnInit() {
+    this.authenticationServices.switchToAdminConsole(true);
+  }
 
   handleLoginErrors() {
     if (this.loginControl.hasError('required')) {
@@ -72,7 +77,7 @@ export class LoginComponent implements OnInit {
         this.connected = true;
         this.connectionResponse = response.message;
         this.router
-          .navigate(['/articles'])
+          .navigate(['/admin', 'new-article'])
           .then(res => {
             console.log('Navigation succeed: ' + res);
           })

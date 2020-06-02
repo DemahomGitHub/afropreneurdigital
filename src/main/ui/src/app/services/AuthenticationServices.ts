@@ -1,13 +1,15 @@
 import {Injectable} from '@angular/core';
 import * as fromUsers from './user.json';
 import {User} from '../model/User';
+import {Observable, Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationServices {
-  admin: User;
-  result = {ok: false, code: '', message: ''};
+  private admin: User;
+  private result = {ok: false, code: '', message: ''};
+  private authServiceMessage = new Subject<any>();
 
   login(login: string, password: string): {ok: boolean, code: string, message: string} {
     const user = this.findUser();
@@ -39,5 +41,13 @@ export class AuthenticationServices {
       this.admin = fromUsers[Object.keys(fromUsers).shift()].shift() as User;
     }
     return this.admin;
+  }
+
+  switchToAdminConsole(canSwitch: boolean) {
+    this.authServiceMessage.next(canSwitch);
+  }
+
+  getAuthServiceMessage(): Observable<any> {
+    return this.authServiceMessage.asObservable();
   }
 }
