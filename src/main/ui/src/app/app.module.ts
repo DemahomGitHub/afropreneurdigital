@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './pages/header/header.component';
@@ -52,7 +53,8 @@ import { ArticleUpdateDeletionComponent } from './pages/content/admin/article-up
     ReactiveFormsModule,
     MatDividerModule,
     MatGridListModule,
-    MatInputModule
+    MatInputModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

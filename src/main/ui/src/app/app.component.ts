@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {AppServices} from './services/AppServices';
 
 @Component({
   selector: 'app-root',

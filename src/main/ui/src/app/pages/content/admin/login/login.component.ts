@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthenticationServices} from '../../../../services/AuthenticationServices';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {log} from 'util';
 import {Router} from '@angular/router';
 import {AppServices} from '../../../../services/AppServices';
 

@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   { path: 'infos', component: AboutComponent },
   { path: 'admin', component: LoginComponent },
-  { path: 'admin/new-article', component: ArticleCreationComponent}
+  { path: 'admin/new-article', component: ArticleCreationComponent }
 ];
 
 @NgModule({
