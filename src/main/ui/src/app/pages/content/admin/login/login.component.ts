@@ -76,7 +76,7 @@ export class LoginComponent implements OnInit {
         this.connected = true;
         this.connectionResponse = response.message;
         this.router
-          .navigate(['/admin', 'new-article'])
+          .navigate(['/admin', 'articles', 'add'])
           .then(res => {
             console.log('Navigation succeed: ' + res);
           })

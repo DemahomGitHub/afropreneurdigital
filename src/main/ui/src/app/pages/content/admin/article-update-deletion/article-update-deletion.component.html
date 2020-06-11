@@ -1,1 +1,48 @@
-<p>article-update-deletion works!</p>
+<div class="ad-page-content">
+  <mat-card class="ad-card-article">
+    <mat-card-title class="ad-card-title">
+      Tous les articles
+    </mat-card-title>
+  </mat-card>
+
+  <div *ngIf="allArticles.length > 0">
+    <mat-card style="width: 65%; float: right;">
+      <form [formGroup]="formOptions" (ngSubmit)="onUpdate()" #form>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Titre</mat-label>
+          <input matInput
+                 [formControl]="titleControl"
+                 autocomplete="on"
+                 value="{{articleToUpdate.title}}">
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Contenu</mat-label>
+          <textarea rows="30"
+                    matInput
+                    [formControl]="contentControl"
+                    value="{{articleToUpdate.content}}"
+                    autocomplete="on">
+          </textarea>
+        </mat-form-field>
+        <button [disabled]="!(titleChanged || contentChange)" type="submit" mat-raised-button color="accent" style="width: 100%;"> Mettre à jour </button>
+      </form>
+    </mat-card>
+  </div>
+
+  <div>
+    <mat-card style="width: 25%;">
+      <mat-list>
+        <mat-list-item *ngFor="let article of allArticles" (click)="onSelect(article.id)">
+          <div mat-line>
+            {{article.title}}
+          </div>
+          <div mat-line>
+            {{article.content}}
+          </div>
+          <mat-icon>keyboard_arrow_right</mat-icon>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+  </div>
+</div>
