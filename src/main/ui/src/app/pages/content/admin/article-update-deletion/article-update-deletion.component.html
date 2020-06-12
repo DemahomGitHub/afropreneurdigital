@@ -30,19 +30,14 @@
   </div>
 
   <div>
-    <mat-card class="content-articles-list">
-      <mat-list>
-        <mat-list-item *ngFor="let article of allArticles" (click)="onSelect(article.id)">
-          <div mat-line>
-            {{article.title}}
-          </div>
-          <div mat-line>
-            {{article.content}}
-          </div>
-          <mat-icon>keyboard_arrow_right</mat-icon>
-          <mat-divider></mat-divider>
-        </mat-list-item>
-      </mat-list>
+    <mat-card class="content-articles-list"
+              tabindex="0"
+              role="region"
+              *ngFor="let article of allArticles" (click)="onSelect(article.id)">
+      <mat-card-title>{{article.title}}</mat-card-title>
+      <mat-card-content>
+        {{article.content | slice: 0 : 80 }} ...
+      </mat-card-content>
     </mat-card>
   </div>
 </div>

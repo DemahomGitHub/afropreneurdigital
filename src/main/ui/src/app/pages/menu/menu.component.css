@@ -9,3 +9,9 @@
 .blog-left-menu-content .mat-list-item, .blog-left-menu-subheader {
   color: whitesmoke;
 }
+
+.admin-page-user-infos {
+  list-style-type: none;
+  position: fixed;
+  bottom: 25px;
+}
