@@ -1,0 +1,13 @@
+.content-articles-list {
+  width: 25%;
+}
+
+.content-article-update-form {
+  width: 65%;
+  float: right;
+}
+
+.content-articles-list .mat-list-item:hover {
+  background-color: whitesmoke;
+  cursor: pointer;
+}

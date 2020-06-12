@@ -6,7 +6,7 @@
   </mat-card>
 
   <div *ngIf="allArticles.length > 0">
-    <mat-card style="width: 65%; float: right;">
+    <mat-card class="content-article-update-form">
       <form [formGroup]="formOptions" (ngSubmit)="onUpdate()" #form>
         <mat-form-field appearance="outline" style="width: 100%;">
           <mat-label>Titre</mat-label>
@@ -30,7 +30,7 @@
   </div>
 
   <div>
-    <mat-card style="width: 25%;">
+    <mat-card class="content-articles-list">
       <mat-list>
         <mat-list-item *ngFor="let article of allArticles" (click)="onSelect(article.id)">
           <div mat-line>
