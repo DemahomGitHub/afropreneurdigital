@@ -55,8 +55,8 @@ export class ArticleUpdateDeletionComponent implements OnInit {
   onUpdate() {
     const newTitle = this.titleChanged ? this.titleControl.value : this.articleToUpdate.title;
     const newContent = this.contentChange ? this.contentControl.value : this.articleToUpdate.content;
-
-    Object.assign(this.articleToUpdate, {
+    const updateIndex = this.allArticles.findIndex((a) => a.id === this.articleToUpdate.id);
+    Object.assign(this.allArticles[updateIndex], {
       id: this.articleToUpdate.id,
       title: newTitle,
       releaseDate: this.articleToUpdate.releaseDate,
@@ -64,8 +64,6 @@ export class ArticleUpdateDeletionComponent implements OnInit {
       topics: this.articleToUpdate.topics,
       content: newContent
     });
-    this.allArticles = this.allArticles.filter((a) => a.id !== this.articleToUpdate.id);
-    this.allArticles.push(this.articleToUpdate);
   }
 
 }
