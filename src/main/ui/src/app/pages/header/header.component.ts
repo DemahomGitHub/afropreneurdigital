@@ -8,8 +8,8 @@ import {AppServices} from '../../services/AppServices';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  toolbarMenuOpened: boolean;
-  switchToAdminMenu: boolean;
+  toolbarMenuOpened = undefined;
+  switchToAdminMenu = false;
 
   constructor(private router: Router, private appServices: AppServices) {
     appServices
@@ -19,7 +19,13 @@ export class HeaderComponent implements OnInit {
       });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.router.events.subscribe(value => {
+      if (value instanceof NavigationEnd) {
+        this.toolbarMenuOpened = false;
+      }
+    });
+  }
 
   onMenuToggle() {
     this.toolbarMenuOpened = !this.toolbarMenuOpened;
