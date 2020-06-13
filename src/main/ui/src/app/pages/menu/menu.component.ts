@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationServices} from '../../services/AuthenticationServices';
 import {User} from '../../model/User';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +11,10 @@ import {User} from '../../model/User';
 export class MenuComponent implements OnInit {
   switchToAdminDashboard = false;
   user: User;
-  constructor(private authenticationServices: AuthenticationServices) { }
+  constructor(
+    private authenticationServices: AuthenticationServices,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.authenticationServices
@@ -19,6 +23,11 @@ export class MenuComponent implements OnInit {
         this.switchToAdminDashboard = canSwitch;
         this.user = this.authenticationServices.findUser();
       });
+  }
+
+  onDisconnect() {
+    this.authenticationServices.disconnect();
+    this.router.navigate(['/admin']).then(r => console.log(r));
   }
 
 }

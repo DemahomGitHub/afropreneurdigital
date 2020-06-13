@@ -10,6 +10,7 @@ export class AuthenticationServices {
   private admin: User;
   private result = {ok: false, code: '', message: ''};
   private authServiceMessage = new Subject<any>();
+  private loggedIn = false;
 
   login(login: string, password: string): {ok: boolean, code: string, message: string} {
     const user = this.findUser();
@@ -32,6 +33,7 @@ export class AuthenticationServices {
         code: 'CONNECTION_SUCCEED',
         message: 'Connexion réussie !'
       };
+      this.loggedIn = true;
     }
     return this.result;
   }
@@ -49,5 +51,16 @@ export class AuthenticationServices {
 
   getAuthServiceMessage(): Observable<any> {
     return this.authServiceMessage.asObservable();
+  }
+
+  connected(): boolean {
+    return this.loggedIn;
+  }
+
+  disconnect() {
+    this.loggedIn = false;
+    this.admin = null;
+    this.result = null;
+    this.switchToAdminConsole(false);
   }
 }

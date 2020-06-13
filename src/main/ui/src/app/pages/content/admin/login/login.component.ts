@@ -39,14 +39,14 @@ export class LoginComponent implements OnInit {
       .subscribe(results => {
         if (results.matches) {
           this.formStyle = this.mobileFormStyle;
-          this.appServices.switchToAdminMenu(true);
+          this.appServices.switchToAdminMenu(this.connected);
         } else {
           this.formStyle = this.desktopFormStyle;
         }
       });
   }
   ngOnInit() {
-    this.authenticationServices.switchToAdminConsole(true);
+    this.authenticationServices.switchToAdminConsole(this.connected);
   }
 
   handleLoginErrors() {

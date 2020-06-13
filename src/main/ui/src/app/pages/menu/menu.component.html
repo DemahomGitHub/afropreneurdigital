@@ -53,7 +53,7 @@
   <ul class="admin-page-user-infos">
     <li>{{user.fullName}}</li>
     <li>
-      <a mat-button routerLink="#">Déconnexion</a>
+      <a mat-button (click)="onDisconnect()">Déconnexion</a>
     </li>
   </ul>
 </div>
