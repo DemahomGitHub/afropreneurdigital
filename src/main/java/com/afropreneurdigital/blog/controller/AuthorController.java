@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/resources/authors")
+@RequestMapping("/admin")
 @Slf4j
 public class AuthorController {
     private final AuthorService authorService;
