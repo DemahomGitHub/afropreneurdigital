@@ -19,6 +19,6 @@ public class AuthorService {
     }
 
     public Author findOne(Long id) throws Exception {
-        return repository.findById(id).orElseThrow(() -> new Exception("AUTHOR_NOT_EXCEPTION"));
+        return repository.findById(id).orElseThrow(() -> new Exception("AUTHOR_NOT_FOUND_EXCEPTION"));
     }
 }
