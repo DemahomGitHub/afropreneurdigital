@@ -1,8 +1,8 @@
 package com.afropreneurdigital.blog.repository;
 
-import com.afropreneurdigital.blog.model.Article;
+import com.afropreneurdigital.blog.model.Entities;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ArticleRepository extends JpaRepository<Article, Long> {}
+public interface EntitiesRepository extends JpaRepository<Entities, Long> {}
