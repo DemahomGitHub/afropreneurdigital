@@ -16,6 +16,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatExpansionModule } from '@angular/material/expansion';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './pages/header/header.component';
@@ -57,7 +58,8 @@ import { ArticleUpdateDeletionComponent } from './pages/content/admin/article-up
     MatInputModule,
     MatTabsModule,
     MatExpansionModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

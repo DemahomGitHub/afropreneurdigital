@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Entity(name = "ENTITIES")
 public class Entities {
     @Id
-    private Long entityOid;
+    private Long id;
     private String group;
     private String key;
     private String value;

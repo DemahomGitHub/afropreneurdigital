@@ -2,6 +2,7 @@ package com.afropreneurdigital.blog.model;
 
 import lombok.Data;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,26 +10,18 @@ import javax.persistence.Id;
 @Data
 @Entity(name = "AUTHOR")
 public class Author {
-    private @Id Long authorOid;
+    @Id
+    @Column(name = "ID", nullable = false, unique = true)
+    private Long id;
+
+    @Column(name = "FULL_NAME")
     private String fullName;
+
+    @Column(name = "LOGIN")
     private String login;
+
+    @Column(name = "DESCRIPTION")
     private String description;
 
     public Author() {}
-    public Author (String fullName, String login, String description) {
-        this.fullName = fullName;
-        this.login = login;
-        this.description = description;
-    }
-
-    public Author (Long id, String fullName, String login, String description) {
-        this.authorOid = id;
-        this.fullName = fullName;
-        this.login = login;
-        this.description = description;
-    }
-
-    public Author (String fullName) {
-        this.fullName = fullName;
-    }
 }
