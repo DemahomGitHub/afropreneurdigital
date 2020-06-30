@@ -27,6 +27,7 @@ import { ArticlesComponent } from './pages/content/articles/articles.component';
 import { LoginComponent } from './pages/content/admin/login/login.component';
 import { ArticleCreationComponent } from './pages/content/admin/article-creation/article-creation.component';
 import { ArticleUpdateDeletionComponent } from './pages/content/admin/article-update-deletion/article-update-deletion.component';
+import { ArticleDetailsComponent } from './pages/content/article-details/article-details.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ArticleUpdateDeletionComponent } from './pages/content/admin/article-up
     ArticlesComponent,
     LoginComponent,
     ArticleCreationComponent,
-    ArticleUpdateDeletionComponent
+    ArticleUpdateDeletionComponent,
+    ArticleDetailsComponent
   ],
   imports: [
     BrowserModule,

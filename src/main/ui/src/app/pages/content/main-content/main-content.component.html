@@ -1,8 +1,12 @@
-<mat-drawer-container class="blog-main-container">
-  <mat-drawer class="blog-left-section" mode="side" [opened]="menuOpened">
-    <app-menu></app-menu>
-  </mat-drawer>
-  <mat-drawer-content class="blog-right-section">
+<div id="main" *ngIf="!smallScreen">
+  <div></div>
+  <div style="width: 50%;">
     <router-outlet></router-outlet>
-  </mat-drawer-content>
-</mat-drawer-container>
+  </div>
+  <div></div>
+</div>
+
+<div *ngIf="smallScreen">
+  <router-outlet></router-outlet>
+</div>
+

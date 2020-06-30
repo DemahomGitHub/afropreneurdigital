@@ -37,3 +37,15 @@
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
 }
+
+
+#main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: whitesmoke;
+}
+
+#main div {
+  flex: auto;
+}

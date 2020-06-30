@@ -1,62 +1,25 @@
-<div class="ad-page-content">
-  <mat-card class="ad-card-title">
-    <mat-card-title>
-      Afroproneur Digital
-    </mat-card-title>
-    <mat-card-content>
-      <h3>Le blog des afropreneurs du web</h3>
-    </mat-card-content>
-  </mat-card>
-
-  <div *ngIf="!displayArticleDetails">
-    <mat-grid-list [cols]="dateFilterCols" [rowHeight]="dateFilterRows">
-      <mat-grid-tile>
-        <mat-form-field style="width: 100%;">
-          <mat-label>Filtrer par date</mat-label>
-          <mat-select [formControl]="dateFilterControl" (ngModelChange)="onFilterChange()">
-            <mat-option *ngFor="let criteria of dateFilter" [value]="criteria.value">
-              {{criteria.viewValue}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </mat-grid-tile>
-    </mat-grid-list>
-
+<div>
+  <h2 style="text-align: center;"> Les derniers articles</h2>
+  <div>
     <mat-grid-list cols="{{articlesGridListCols}}" rowHeight="{{articlesGridListRows}}">
       <mat-grid-tile  *ngFor="let article of articles">
         <mat-card style="width: 90%;">
-          <mat-card-title> {{article.title}} </mat-card-title>
-          <mat-card-subtitle>
-            <span> Publié le {{article.releaseDate}} par {{article.author}} - Thématiques: </span>
-            <span *ngFor="let topic of article.topics"> {{topic.label}} </span>
-          </mat-card-subtitle>
+          <mat-card-header>
+            <div mat-card-avatar class="avatar-image"></div>
+            <mat-card-title> {{article.title}} </mat-card-title>
+            <mat-card-subtitle>
+              <span> Publié le {{article.releaseDate}} par {{article.author}} - Thématiques: </span>
+              <span *ngFor="let topic of article.topics"> {{topic.label}} </span>
+            </mat-card-subtitle>
+          </mat-card-header>
           <mat-card-content>
-            {{article.content | slice: 0 : 240 }} ...
+            <p> {{article.content | slice: 0 : 240 }} ... </p>
           </mat-card-content>
           <mat-card-actions>
-            <a mat-button [routerLink]="['/articles', article.id]" (click)="onShowArticleDetails(article.id)"> Lire l'article </a>
+            <a mat-button [routerLink]="['/articles', article.id]"> Lire l'article </a>
           </mat-card-actions>
         </mat-card>
       </mat-grid-tile>
     </mat-grid-list>
-  </div>
-
-  <div *ngIf="displayArticleDetails">
-    <mat-card class="ad-card-article">
-      <mat-card-title> {{articleDetails.title}} </mat-card-title>
-      <mat-card-subtitle>
-        <span> Publié le {{articleDetails.releaseDate}} par {{articleDetails.author}} - Thématiques: </span>
-        <span *ngFor="let topic of articleDetails.topics"> {{topic.label}} </span>
-      </mat-card-subtitle>
-      <mat-card-content>
-        {{articleDetails.content}}
-      </mat-card-content>
-      <mat-card-actions>
-        <a mat-button (click)="onNavigateBack()">
-          <mat-icon mat-list-icon>arrow_back</mat-icon>
-          <span> Retour </span>
-        </a>
-      </mat-card-actions>
-    </mat-card>
   </div>
 </div>

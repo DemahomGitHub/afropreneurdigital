@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
 import {AppServices} from '../../services/AppServices';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +11,18 @@ import {AppServices} from '../../services/AppServices';
 export class HeaderComponent implements OnInit {
   toolbarMenuOpened = undefined;
   switchToAdminMenu = false;
+  smallScreen = false;
 
-  constructor(private router: Router, private appServices: AppServices) {
+  constructor(
+    private router: Router,
+    private appServices: AppServices,
+    private mobileDevicesObserver: BreakpointObserver,
+  ) {
+    mobileDevicesObserver
+      .observe([Breakpoints.Handset, Breakpoints.TabletPortrait, Breakpoints.WebPortrait])
+      .subscribe(res => {
+        this.smallScreen = res.matches;
+      });
     appServices
       .getAppMenuObserver()
       .subscribe(canSwitch => {

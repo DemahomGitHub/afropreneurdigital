@@ -1,5 +1,13 @@
-.mat-toolbar {
+.header-styles {
   color: white;
-  background-color: #003748;
+  background-color: #0050a5; /* another color: #003748 */
 }
 
+.header-content-alignment {
+  width: 100vw;
+  display: flex;
+}
+
+.header-content-alignment div {
+  flex: auto;
+}
