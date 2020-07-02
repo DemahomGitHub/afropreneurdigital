@@ -1,10 +1,13 @@
-<!--
-
-<div>
-  <app-header *ngIf="!leftMenuOpened"></app-header>
-  <app-main-content [menuOpened]="leftMenuOpened"></app-main-content>
-</div>
--->
-
-<app-header></app-header>
-<app-main-content></app-main-content>
+<mat-drawer-container>
+  <mat-drawer [opened]="leftMenuOpened" mode="over" (closed)="onMenuClosed()">
+    <ul>
+      <li>Articles</li>
+      <li>Infos</li>
+      <li>Contact</li>
+    </ul>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-header [mobileDeviceMenuOpened]="leftMenuOpened"></app-header>
+    <app-main-content></app-main-content>
+  </mat-drawer-content>
+</mat-drawer-container>

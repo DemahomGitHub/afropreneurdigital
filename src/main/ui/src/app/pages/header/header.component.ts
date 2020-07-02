@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
 import {AppServices} from '../../services/AppServices';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   toolbarMenuOpened = undefined;
   switchToAdminMenu = false;
   smallScreen = false;
-
+  @Input() mobileDeviceMenuOpened = false;
   constructor(
     private router: Router,
     private appServices: AppServices,
@@ -39,7 +39,8 @@ export class HeaderComponent implements OnInit {
   }
 
   onMenuToggle() {
-    this.toolbarMenuOpened = !this.toolbarMenuOpened;
+    this.mobileDeviceMenuOpened = !this.mobileDeviceMenuOpened;
+    this.appServices.openMenuForMobileDevices(this.mobileDeviceMenuOpened);
   }
 
 }
