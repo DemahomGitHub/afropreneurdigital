@@ -10,16 +10,7 @@ import {AppServices} from './services/AppServices';
 })
 export class AppComponent implements OnInit {
   leftMenuOpened = false;
-  constructor(
-    private mobileDevicesObserver: BreakpointObserver,
-    private appServices: AppServices
-  ) {
-    mobileDevicesObserver
-      .observe([Breakpoints.Handset, Breakpoints.Tablet, Breakpoints.WebPortrait])
-      .subscribe(res => {
-        console.log('ok');
-      });
-  }
+  constructor(private appServices: AppServices) {}
 
   ngOnInit() {
     this.appServices
@@ -32,5 +23,4 @@ export class AppComponent implements OnInit {
   onMenuClosed() {
     this.leftMenuOpened = !this.leftMenuOpened;
   }
-
 }
