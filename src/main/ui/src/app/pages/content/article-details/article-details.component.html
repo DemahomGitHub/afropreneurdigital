@@ -1,16 +1,21 @@
 <div>
-  <h2 style="text-align: center;"> Détails </h2>
+  <mat-card style="margin: 25px 0;">
+    <ul class="breadcrumb">
+      <li><a routerLink="/articles"> Articles </a></li>
+      <li>{{articleDetails.title}}</li>
+    </ul>
+  </mat-card>
   <mat-card class="ad-card-article">
     <mat-card-title> {{articleDetails.title}} </mat-card-title>
     <mat-card-subtitle>
       <span> Publié le {{articleDetails.releaseDate}} par {{articleDetails.author}} - Thématiques: </span>
-      <!--<span *ngFor="let topic of articleDetails.topics"> {{topic.label}} </span>-->
+      <span *ngFor="let topic of articleDetails.topics"> {{topic.label}} </span>
     </mat-card-subtitle>
     <mat-card-content>
       {{articleDetails.content}}
     </mat-card-content>
     <mat-card-actions>
-      <a mat-button routerLink="/articles/all">
+      <a mat-button routerLink="/articles">
         <mat-icon mat-list-icon>arrow_back</mat-icon>
         <span> Retour </span>
       </a>

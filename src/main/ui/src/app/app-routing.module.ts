@@ -10,8 +10,8 @@ import {ArticleDetailsComponent} from './pages/content/article-details/article-d
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'articles/all', pathMatch: 'full' },
-  { path: 'articles/all', component: ArticlesComponent },
+  { path: '', redirectTo: 'articles', pathMatch: 'full' },
+  { path: 'articles', component: ArticlesComponent },
   { path: 'articles/:id', component: ArticleDetailsComponent },
   { path: 'infos', component: AboutComponent },
   { path: 'admin/login', component: LoginComponent },

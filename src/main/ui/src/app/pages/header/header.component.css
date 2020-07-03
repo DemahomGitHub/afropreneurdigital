@@ -1,4 +1,5 @@
 .header-styles {
+  overflow-scrolling: unset;
   color: white;
   background-color: #0050a5; /* another color: #003748 */
 }
