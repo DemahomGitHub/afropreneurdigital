@@ -1,3 +1,13 @@
 .logo {
   text-align: left;
 }
+
+.mobile-devices-left-menu {
+  width: 60vw;
+  height: 100vh;
+  background-color: #0050a5;
+}
+
+.mobile-devices-left-menu li,  a {
+  color: white;
+}
