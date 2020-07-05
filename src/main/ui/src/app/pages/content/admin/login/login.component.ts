@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   connected = false;
   connectionResponse = '';
   private mobileFormStyle = {width: '90%', 'margin-left': '5%', 'margin-top': '10%'};
-  private desktopFormStyle = {width: '30%', 'margin-left': '30%', 'margin-top': '10%'};
+  private desktopFormStyle = {width: '40%', margin: '10% 30%'};
 
   constructor(
     private fb: FormBuilder,
