@@ -1,9 +1,9 @@
 <mat-drawer-container>
-  <mat-drawer class="mobile-devices-left-menu" [opened]="leftMenuOpened" mode="over" (closed)="onMenuClosed()">
+  <mat-drawer class="mobile-devices-left-menu" [opened]="leftMenuOpened" mode="over">
     <ul>
-      <li><a mat-button routerLink="/articles">ARTICLES</a></li>
-      <li><a mat-button routerLink="/infos">A PROPOS</a></li>
-      <li><a mat-button routerLink="/infos">CONTACT</a></li>
+      <li><a mat-button routerLink="/articles" (click)="leftMenuOpened = !leftMenuOpened">Articles</a></li>
+      <li><a mat-button routerLink="/infos" (click)="leftMenuOpened = !leftMenuOpened">A propos</a></li>
+      <li><a mat-button routerLink="/contact" (click)="leftMenuOpened = !leftMenuOpened">Contact</a></li>
     </ul>
   </mat-drawer>
   <mat-drawer-content>

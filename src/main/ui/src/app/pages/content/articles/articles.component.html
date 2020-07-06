@@ -1,5 +1,6 @@
-<div>
+<div style="height: 100vh;">
   <h2 style="text-align: center;"> Les derniers articles</h2>
+  <mat-divider></mat-divider>
   <div>
     <mat-grid-list cols="{{articlesGridListCols}}" rowHeight="{{articlesGridListRows}}">
       <mat-grid-tile  *ngFor="let article of articles">

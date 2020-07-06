@@ -7,6 +7,7 @@ import {ArticleCreationComponent} from './pages/content/admin/article-creation/a
 import {ArticleUpdateDeletionComponent} from './pages/content/admin/article-update-deletion/article-update-deletion.component';
 import {CanActivateAdmin} from './services/CanActivateAdmin';
 import {ArticleDetailsComponent} from './pages/content/article-details/article-details.component';
+import {ContactComponent} from './pages/content/contact/contact.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'articles', component: ArticlesComponent },
   { path: 'articles/:id', component: ArticleDetailsComponent },
   { path: 'infos', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
   { path: 'admin/login', component: LoginComponent },
   { path: 'admin/articles/add', component: ArticleCreationComponent, canActivate: [CanActivateAdmin] },
   { path: 'admin/articles/all', component: ArticleUpdateDeletionComponent, canActivate: [CanActivateAdmin] }

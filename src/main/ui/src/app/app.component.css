@@ -3,9 +3,13 @@
 }
 
 .mobile-devices-left-menu {
-  width: 60vw;
+  width: 100vw;
   height: 100vh;
   background-color: #0050a5;
+}
+
+.menu-link-active {
+  background-color: #014794;
 }
 
 .mobile-devices-left-menu li,  a {
