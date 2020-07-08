@@ -7,7 +7,7 @@ import {FormBuilder, FormControl, FormGroup, NgForm, Validators} from '@angular/
 @Component({
   selector: 'app-article-update-deletion',
   templateUrl: './article-update-deletion.component.html',
-  styleUrls: ['./article-update-deletion.component.css', '../../main-content/main-content.component.css']
+  styleUrls: ['./article-update-deletion.component.css', '../../main-content/main-content.component.css', '../../../../app.component.css']
 })
 export class ArticleUpdateDeletionComponent implements OnInit {
   public allArticles: Article[];

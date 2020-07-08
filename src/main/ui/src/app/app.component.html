@@ -1,13 +1,65 @@
-<mat-drawer-container>
-  <mat-drawer class="mobile-devices-left-menu" [opened]="leftMenuOpened" mode="over">
-    <ul>
-      <li><a mat-button routerLink="/articles" (click)="leftMenuOpened = !leftMenuOpened">Articles</a></li>
-      <li><a mat-button routerLink="/infos" (click)="leftMenuOpened = !leftMenuOpened">A propos</a></li>
-      <li><a mat-button routerLink="/contact" (click)="leftMenuOpened = !leftMenuOpened">Contact</a></li>
-    </ul>
-  </mat-drawer>
-  <mat-drawer-content>
+<div id="myApp">
+  <mat-drawer-container *ngIf="!isAdminConsole">
+    <mat-drawer class="mobile-devices-left-menu" [opened]="leftMenuOpened" mode="over">
+      <mat-list>
+        <div mat-subheader style="width: 100%; color: white;">
+          <span style="width: 50%; text-align: left;">Menu</span>
+          <span style="width: 50%; text-align: right;">
+          <button mat-button (click)="onMenuClosed()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </span>
+        </div>
+        <mat-list-item routerLink="/articles"
+                       routerLinkActive="link-active"
+                       class="mat-list-web-item"
+                       [routerLinkActiveOptions]="{exact: true}" (click)="onMenuClosed()">
+          <mat-icon mat-list-icon>home</mat-icon>
+          <div mat-line> Articles </div>
+        </mat-list-item>
+        <mat-list-item routerLink="/infos" routerLinkActive="link-active" (click)="onMenuClosed()" class="mat-list-web-item">
+          <mat-icon mat-list-icon>info</mat-icon>
+          <div mat-line> A propos </div>
+        </mat-list-item>
+        <mat-list-item routerLink="/contact" routerLinkActive="link-active" (click)="onMenuClosed()" class="mat-list-web-item">
+          <mat-icon mat-list-icon>mail</mat-icon>
+          <div mat-line> Contact </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-drawer>
+    <mat-drawer-content>
+      <app-header [mobileDeviceMenuOpened]="leftMenuOpened"></app-header>
+      <app-main-content></app-main-content>
+    </mat-drawer-content>
+  </mat-drawer-container>
+
+  <div *ngIf="isAdminConsole">
     <app-header [mobileDeviceMenuOpened]="leftMenuOpened"></app-header>
-    <app-main-content></app-main-content>
-  </mat-drawer-content>
-</mat-drawer-container>
+    <mat-drawer-container style="height: 100vh;">
+      <mat-drawer [opened]="true" mode="side" class="desktop-devices-left-menu">
+        <mat-list>
+          <div mat-subheader style="width: 100%; color: black;">Console d'administration</div>
+          <mat-list-item routerLink="/admin/articles/add" class="mat-list-admin-item"
+                         routerLinkActive="link-active" [routerLinkActiveOptions]="{exact: true}">
+            <mat-icon mat-list-icon>article</mat-icon>
+            <div mat-line> Nouvel article </div>
+          </mat-list-item>
+          <mat-list-item routerLink="/admin/articles/all" class="mat-list-admin-item"
+                         routerLinkActive="link-active" [routerLinkActiveOptions]="{exact: true}">
+            <mat-icon mat-list-icon>update</mat-icon>
+            <div mat-line> Modifier article </div>
+          </mat-list-item>
+        </mat-list>
+        <ul class="admin-page-user-infos">
+          <li>Mohamed Toure</li>
+          <li>
+            <a mat-button (click)="onDisconnect()">Déconnexion</a>
+          </li>
+        </ul>
+      </mat-drawer>
+      <mat-drawer-content>
+        <router-outlet></router-outlet>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </div>
+</div>

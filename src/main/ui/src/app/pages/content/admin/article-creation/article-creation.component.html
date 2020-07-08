@@ -1,4 +1,4 @@
-<mat-tab-group animationDuration="0ms">
+<mat-tab-group animationDuration="0ms" style="height: 100vh;">
   <mat-tab label="Creation">
     <form [formGroup]="formOptions" (ngSubmit)="onSubmit()" [ngStyle]="formStyle">
       <mat-card>
@@ -18,7 +18,7 @@
           <br>
           <mat-form-field appearance="outline" class="blog-admin-creation-form-field">
             <mat-label>Contenu de l'article</mat-label>
-            <textarea matInput rows="30"
+            <textarea matInput rows="20"
                       placeholder="Ecrire le contenu de l'article ici"
                       [formControl]="contentControl"
                       autocomplete="content"
@@ -28,14 +28,17 @@
           </mat-form-field>
         </mat-card-content>
         <mat-card-actions>
-          <button type="submit" mat-raised-button color="accent" style="width: 96%; margin: 2%;"> Soumettre </button>
+          <button type="submit" mat-raised-button
+                  class="button-primary-color">
+            Soumettre
+          </button>
         </mat-card-actions>
         <mat-error *ngIf="!connected" style="text-align: center;">{{connectionResponse}}</mat-error>
       </mat-card>
     </form>
   </mat-tab>
   <mat-tab label="Prévisualisation">
-    <mat-card [ngStyle]="formStyle">
+    <mat-card [ngStyle]="formStyle" *ngIf="titleControl.valid || contentControl.valid">
       <mat-card-header>
         <mat-card-title *ngIf="titleControl.valid">
           {{titleControl.value}}

@@ -10,24 +10,10 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 })
 export class HeaderComponent implements OnInit {
   toolbarMenuOpened = undefined;
-  switchToAdminMenu = false;
   smallScreen = false;
   @Input() mobileDeviceMenuOpened = false;
-  constructor(
-    private router: Router,
-    private appServices: AppServices,
-    private mobileDevicesObserver: BreakpointObserver,
-  ) {
-    mobileDevicesObserver
-      .observe([Breakpoints.Handset, Breakpoints.TabletPortrait, Breakpoints.WebPortrait])
-      .subscribe(res => {
-        this.smallScreen = res.matches;
-      });
-    appServices
-      .getAppMenuObserver()
-      .subscribe(canSwitch => {
-        this.switchToAdminMenu = canSwitch;
-      });
+  constructor(private router: Router, private appServices: AppServices) {
+    appServices.observerMobileDevices().subscribe(res => this.smallScreen = res.matches);
   }
 
   ngOnInit() {

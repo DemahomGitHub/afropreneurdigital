@@ -1,17 +1,58 @@
 .logo {
   text-align: left;
 }
-
+#myApp {
+  overflow-x: hidden;
+}
 .mobile-devices-left-menu {
   width: 100vw;
   height: 100vh;
   background-color: #0050a5;
 }
 
+.desktop-devices-left-menu {
+  width: 15%;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
 .menu-link-active {
   background-color: #014794;
 }
 
-.mobile-devices-left-menu li,  a {
+.mat-list-web-item {
   color: white;
+}
+
+.mat-list-admin-item {
+  color: black;
+}
+
+.link-active {
+  background-color: #dddddd;
+}
+
+.mat-list-item:hover {
+  background-color: #dddddd;
+}
+
+.blog-left-menu-content .mat-list-item, .blog-left-menu-subheader {
+  color: whitesmoke;
+}
+
+.admin-page-user-infos {
+  list-style-type: none;
+  position: fixed;
+  bottom: 25px;
+}
+
+.button-primary-color {
+  width: 98%;
+  margin: 1%;
+  background-color: #0050a5;
+  color: white;
+}
+
+.button-primary-color:hover {
+  background-color: #00438f;
 }

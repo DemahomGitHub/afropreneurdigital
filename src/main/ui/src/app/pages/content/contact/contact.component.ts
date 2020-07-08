@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {AuthenticationServices} from '../../../services/AuthenticationServices';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {Router} from '@angular/router';
 import {AppServices} from '../../../services/AppServices';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.css', '../../../app.component.css']
 })
 export class ContactComponent implements OnInit {
   emailControl = new FormControl('', [Validators.required, Validators.email]);
@@ -21,22 +19,15 @@ export class ContactComponent implements OnInit {
   private mobileFormStyle = {width: '100%', 'margin-top': '3%'};
   private desktopFormStyle = {width: '100%',  'margin-top': '3%'};
 
-  constructor(
-    private fb: FormBuilder,
-    private mobileDeviceObserver: BreakpointObserver
-  ) {
+  constructor(private fb: FormBuilder, private appServices: AppServices) {
     this.formOptions = fb.group({
       hideRequired: this.hideRequiredControl,
       floatLabel: this.floatLabelControl
     });
-    mobileDeviceObserver
-      .observe([Breakpoints.Handset, Breakpoints.Tablet, Breakpoints.WebPortrait])
+    appServices
+      .observerMobileDevices()
       .subscribe(results => {
-        if (results.matches) {
-          this.formStyle = this.mobileFormStyle;
-        } else {
-          this.formStyle = this.desktopFormStyle;
-        }
+        this.formStyle = results.matches ? this.mobileFormStyle : this.desktopFormStyle;
       });
   }
 
@@ -49,7 +40,7 @@ export class ContactComponent implements OnInit {
 
   handleEmailError() {
     if (this.emailControl.hasError('required')) {
-      return 'Votre email est obligatoire';
+      return 'Email obligatoire';
     }
     if (this.emailControl.hasError('email')) {
       return 'Format email non valide';

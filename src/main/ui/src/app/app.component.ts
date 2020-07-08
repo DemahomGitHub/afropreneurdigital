@@ -10,6 +10,8 @@ import {AppServices} from './services/AppServices';
 })
 export class AppComponent implements OnInit {
   leftMenuOpened = false;
+  isAdminConsole = false;
+
   constructor(private appServices: AppServices) {}
 
   ngOnInit() {
@@ -18,9 +20,19 @@ export class AppComponent implements OnInit {
         .subscribe(opened => {
             this.leftMenuOpened = opened;
         });
+    this.appServices
+        .getOpenAdminConsoleSubjectObserver()
+        .subscribe(opened => {
+          this.isAdminConsole = opened;
+          if (this.isAdminConsole) {
+            console.log('Admin Console Opened');
+          }
+        });
   }
 
   onMenuClosed() {
     this.leftMenuOpened = !this.leftMenuOpened;
   }
+
+  onDisconnect() {}
 }

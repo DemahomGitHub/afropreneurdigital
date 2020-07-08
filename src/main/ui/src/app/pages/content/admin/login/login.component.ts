@@ -8,11 +8,11 @@ import {AppServices} from '../../../../services/AppServices';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css', '../../../../app.component.css']
 })
 export class LoginComponent implements OnInit {
   loginControl = new FormControl('', [Validators.required]);
-  passwordControl = new FormControl('', [Validators.required, Validators.minLength(10)]);
+  passwordControl = new FormControl('', [Validators.required, Validators.minLength(1)]);
   hide = true;
   formOptions: FormGroup;
   hideRequiredControl = new FormControl(false);
@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
       .subscribe(results => {
         if (results.matches) {
           this.formStyle = this.mobileFormStyle;
-          this.appServices.switchToAdminMenu(this.connected);
         } else {
           this.formStyle = this.desktopFormStyle;
         }
@@ -75,6 +74,7 @@ export class LoginComponent implements OnInit {
       if (response.ok) {
         this.connected = true;
         this.connectionResponse = response.message;
+        this.appServices.enableAdminConsole(true);
         this.router
           .navigate(['/admin', 'articles', 'add'])
           .then(res => {

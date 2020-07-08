@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthenticationServices} from '../../../../services/AuthenticationServices';
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {Router} from '@angular/router';
 import {AppServices} from '../../../../services/AppServices';
 
 @Component({
   selector: 'app-article-creation',
   templateUrl: './article-creation.component.html',
-  styleUrls: ['./article-creation.component.css', '../../main-content/main-content.component.css']
+  styleUrls: ['./article-creation.component.css', '../../main-content/main-content.component.css', '../../../../app.component.css']
 })
 export class ArticleCreationComponent implements OnInit {
   titleControl = new FormControl('', [Validators.required]);
@@ -25,23 +23,15 @@ export class ArticleCreationComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authenticationServices: AuthenticationServices,
-    private mobileDeviceObserver: BreakpointObserver,
-    private router: Router,
     private appServices: AppServices
   ) {
     this.formOptions = fb.group({
       hideRequired: this.hideRequiredControl,
       floatLabel: this.floatLabelControl
     });
-    mobileDeviceObserver
-      .observe([Breakpoints.Handset, Breakpoints.Tablet, Breakpoints.WebPortrait])
-      .subscribe(results => {
-        if (results.matches) {
-          this.formStyle = this.mobileFormStyle;
-        } else {
-          this.formStyle = this.desktopFormStyle;
-        }
-      });
+    appServices.observerMobileDevices().subscribe(results => {
+      this.formStyle = results.matches ? this.mobileFormStyle : this.desktopFormStyle;
+    });
   }
   ngOnInit() {
     this.authenticationServices.switchToAdminConsole(true);

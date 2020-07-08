@@ -29,7 +29,10 @@
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions>
-      <button type="submit" mat-raised-button color="accent" style="width: 96%; margin: 2%;"> Connexion </button>
+      <button type="submit" mat-raised-button
+              class="button-primary-color">
+        Connexion
+      </button>
     </mat-card-actions>
     <mat-error *ngIf="!connected" style="text-align: center;">{{connectionResponse}}</mat-error>
   </mat-card>

@@ -1,11 +1,10 @@
 <div class="ad-page-content">
-  <mat-card class="ad-card-article">
-    <mat-card-title class="ad-card-title">
-      Mettre à jour un article
-    </mat-card-title>
-  </mat-card>
+  <div style="text-align: center;">
+    <h2> Mettre à jour un articles </h2>
+  </div>
+  <mat-divider></mat-divider>
 
-  <div *ngIf="allArticles.length > 0">
+  <div *ngIf="allArticles.length > 0" style="margin-top: 3%;">
     <mat-card class="content-article-update-form">
       <form [formGroup]="formOptions" (ngSubmit)="onUpdate()" #form>
         <mat-form-field appearance="outline" style="width: 100%;">
@@ -24,7 +23,12 @@
                     autocomplete="on">
           </textarea>
         </mat-form-field>
-        <button [disabled]="!(titleChanged || contentChange)" type="submit" mat-raised-button color="accent" style="width: 100%;"> Mettre à jour </button>
+        <button [disabled]="!(titleChanged || contentChange)"
+                type="submit"
+                mat-raised-button
+                class="button-primary-color">
+          Mettre à jour
+        </button>
       </form>
     </mat-card>
   </div>
