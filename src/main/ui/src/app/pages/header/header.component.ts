@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   smallScreen = false;
   @Input() mobileDeviceMenuOpened = false;
   constructor(private router: Router, private appServices: AppServices) {
-    appServices.observerMobileDevices().subscribe(res => this.smallScreen = res.matches);
+    appServices.observeMobileDevices().subscribe(res => this.smallScreen = res.matches);
   }
 
   ngOnInit() {

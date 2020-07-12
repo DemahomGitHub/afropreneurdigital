@@ -8,8 +8,12 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 export class AppServices {
   private openAdminConsoleSubject = new Subject<any>();
   private mobileDevicesMenuSubject = new Subject<boolean>();
-  
-  constructor(private mobileDeviceObserver: BreakpointObserver) {}
+
+  constructor(
+    private mobileDeviceObserver: BreakpointObserver,
+    private phoneObserver: BreakpointObserver,
+    private tabletObserver: BreakpointObserver,
+    private webLandscapeObserver: BreakpointObserver) {}
 
   getOpenAdminConsoleSubjectObserver(): Observable<any> {
     return this.openAdminConsoleSubject.asObservable();
@@ -26,7 +30,19 @@ export class AppServices {
     this.mobileDevicesMenuSubject.next(opened);
   }
 
-  observerMobileDevices() {
+  observeMobileDevices() {
     return this.mobileDeviceObserver.observe([Breakpoints.Handset, Breakpoints.Tablet, Breakpoints.WebPortrait]);
+  }
+
+  observePhone() {
+    return this.phoneObserver.observe([Breakpoints.Handset]);
+  }
+
+  observeTablet() {
+    return this.tabletObserver.observe([Breakpoints.Tablet, Breakpoints.WebPortrait]);
+  }
+
+  observeWebLandscape() {
+    return this.webLandscapeObserver.observe([Breakpoints.WebLandscape]);
   }
 }

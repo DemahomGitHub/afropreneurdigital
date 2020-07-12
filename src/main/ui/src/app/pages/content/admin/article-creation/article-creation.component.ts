@@ -29,7 +29,7 @@ export class ArticleCreationComponent implements OnInit {
       hideRequired: this.hideRequiredControl,
       floatLabel: this.floatLabelControl
     });
-    appServices.observerMobileDevices().subscribe(results => {
+    appServices.observeMobileDevices().subscribe(results => {
       this.formStyle = results.matches ? this.mobileFormStyle : this.desktopFormStyle;
     });
   }

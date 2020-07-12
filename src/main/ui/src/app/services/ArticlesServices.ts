@@ -44,22 +44,6 @@ export class ArticlesServices {
     return articles;
   }
 
-  filterResultsBasedOnURL(url: string) {
-    if (url === '/articles') {
-      this.articles = this.findAll();
-    }
-    if (url === '/articles/education') {
-      this.articles = this.findAll().filter(a => a.topics.find(tpc => tpc.value === Topics.EDUCATION) !== undefined);
-    }
-    if (url === '/articles/healthcare') {
-      this.articles = this.findAll().filter(a => a.topics.find(tpc => tpc.value === Topics.HEALTHCARE) !== undefined);
-    }
-    if (url === '/articles/fintech') {
-      this.articles = this.findAll().filter(a => a.topics.find(tpc => tpc.value === Topics.FINTECH) !== undefined);
-    }
-    return this.articles;
-  }
-
   findArticleById(id: number): Article {
     return this.findAll().find(article => article.id === id);
   }

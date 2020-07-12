@@ -29,6 +29,7 @@ import { ArticleCreationComponent } from './pages/content/admin/article-creation
 import { ArticleUpdateDeletionComponent } from './pages/content/admin/article-update-deletion/article-update-deletion.component';
 import { ArticleDetailsComponent } from './pages/content/article-details/article-details.component';
 import { ContactComponent } from './pages/content/contact/contact.component';
+import {MatTableModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -44,27 +45,28 @@ import { ContactComponent } from './pages/content/contact/contact.component';
     ArticleDetailsComponent,
     ContactComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatCardModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    MatDividerModule,
-    MatGridListModule,
-    MatInputModule,
-    MatTabsModule,
-    MatExpansionModule,
-    FormsModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatListModule,
+        MatCardModule,
+        MatButtonModule,
+        MatSelectModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        MatDividerModule,
+        MatGridListModule,
+        MatInputModule,
+        MatTabsModule,
+        MatExpansionModule,
+        FormsModule,
+        HttpClientModule,
+        MatTableModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

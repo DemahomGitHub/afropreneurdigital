@@ -2,17 +2,14 @@
   <h2 style="text-align: center;"> Les derniers articles</h2>
   <mat-divider></mat-divider>
   <div style="margin-top: 3%;">
-    <mat-grid-list cols="{{articlesGridListCols}}" rowHeight="{{articlesGridListRows}}">
+    <mat-grid-list cols="{{cols}}" rowHeight="{{rowHeight}}">
       <mat-grid-tile  *ngFor="let article of articles">
-        <mat-card style="width: 90%;">
-          <mat-card-header>
-            <div mat-card-avatar class="avatar-image"></div>
-            <mat-card-title> {{article.title}} </mat-card-title>
-            <mat-card-subtitle>
-              <span> Publié le {{article.releaseDate}} par {{article.author}} - Thématiques: </span>
-              <span *ngFor="let topic of article.topics"> {{topic.label}} </span>
-            </mat-card-subtitle>
-          </mat-card-header>
+        <mat-card style="width: 90%; height: 90%;">
+          <mat-card-title> {{article.title}} </mat-card-title>
+          <mat-card-subtitle>
+            <span> par {{article.author}} le {{article.releaseDate}} | </span>
+            <span *ngFor="let topic of article.topics"> {{topic.label}} </span>
+          </mat-card-subtitle>
           <mat-card-content>
             <p> {{article.content | slice: 0 : 240 }} ... </p>
           </mat-card-content>

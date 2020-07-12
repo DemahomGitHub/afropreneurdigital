@@ -11,17 +11,17 @@
         </span>
         </div>
         <mat-list-item routerLink="/articles"
-                       routerLinkActive="link-active"
+                       routerLinkActive="menu-link-active"
                        class="mat-list-web-item"
                        [routerLinkActiveOptions]="{exact: true}" (click)="onMenuClosed()">
           <mat-icon mat-list-icon>home</mat-icon>
           <div mat-line> Articles </div>
         </mat-list-item>
-        <mat-list-item routerLink="/infos" routerLinkActive="link-active" (click)="onMenuClosed()" class="mat-list-web-item">
+        <mat-list-item routerLink="/infos" routerLinkActive="menu-link-active" (click)="onMenuClosed()" class="mat-list-web-item">
           <mat-icon mat-list-icon>info</mat-icon>
           <div mat-line> A propos </div>
         </mat-list-item>
-        <mat-list-item routerLink="/contact" routerLinkActive="link-active" (click)="onMenuClosed()" class="mat-list-web-item">
+        <mat-list-item routerLink="/contact" routerLinkActive="menu-link-active" (click)="onMenuClosed()" class="mat-list-web-item">
           <mat-icon mat-list-icon>mail</mat-icon>
           <div mat-line> Contact </div>
         </mat-list-item>

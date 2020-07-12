@@ -25,7 +25,7 @@ export class ContactComponent implements OnInit {
       floatLabel: this.floatLabelControl
     });
     appServices
-      .observerMobileDevices()
+      .observeMobileDevices()
       .subscribe(results => {
         this.formStyle = results.matches ? this.mobileFormStyle : this.desktopFormStyle;
       });
