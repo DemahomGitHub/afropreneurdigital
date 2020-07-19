@@ -1,0 +1,20 @@
+-- AUTHOR
+INSERT IGNORE INTO `afropreneurdigital`.`AUTHOR` (`ID`, `FULL_NAME`, `LOGIN`, `PASSWORD`, `DESCRIPTION`, `CREATED_AT`) VALUES ('657823983', 'Mohamed Toure', 'tourem', 'FHcc3Hjr', 'Administrateur', '2020/06/16');
+
+
+-- ENTITIES
+INSERT IGNORE INTO `afropreneurdigital`.`ENTITIES` (`ID`, `GROUP`, `KEY`, `VALUE`, `DESCRIPTION`) VALUES ('345652987', 'ARTICLE', 'TOPIC', 'education', 'Education');
+INSERT IGNORE INTO `afropreneurdigital`.`ENTITIES` (`ID`, `GROUP`, `KEY`, `VALUE`, `DESCRIPTION`) VALUES ('129726823', 'ARTICLE', 'TOPIC', 'healthcare', 'Healthcare');
+INSERT IGNORE INTO `afropreneurdigital`.`ENTITIES` (`ID`, `GROUP`, `KEY`, `VALUE`, `DESCRIPTION`) VALUES ('876412018', 'ARTICLE', 'TOPIC', 'fintech', 'FinTech');
+
+
+-- ARTICLE
+INSERT IGNORE INTO `afropreneurdigital`.`ARTICLE` (`ID`, `TITLE`, `CONTENT`, `RELEASE_DATE`, `AUTHOR_ID`) VALUES ('378123902', 'Les enjeux de l\'entrepreneuriat sur le continent africain', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. la quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</p>', '2020/06/16', '657823983');
+INSERT IGNORE INTO `afropreneurdigital`.`ARTICLE` (`ID`, `TITLE`, `CONTENT`, `RELEASE_DATE`, `AUTHOR_ID`) VALUES ('370123902', 'Le numérique peut-il révolutionner le continent africain?', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. la quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</p>', '2020/06/16', '657823983');
+INSERT IGNORE INTO `afropreneurdigital`.`ARTICLE` (`ID`, `TITLE`, `CONTENT`, `RELEASE_DATE`, `AUTHOR_ID`) VALUES ('378163902', 'Comment peut-on changer l\'Afrique grace aux numérique?', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. la quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</p>', '2020/06/16', '657823983');
+
+
+-- ARTICLE_ENTITY_COMP
+INSERT IGNORE INTO `afropreneurdigital`.`ARTICLE_ENTITY_COMP` (`ID`, `ARTICLE_ID`, `ENTITY_ID`) VALUES ('370003902', '370123902', '345652987');
+INSERT IGNORE INTO `afropreneurdigital`.`ARTICLE_ENTITY_COMP` (`ID`, `ARTICLE_ID`, `ENTITY_ID`) VALUES ('371923902', '378123902', '345652987');
+INSERT IGNORE INTO `afropreneurdigital`.`ARTICLE_ENTITY_COMP` (`ID`, `ARTICLE_ID`, `ENTITY_ID`) VALUES ('378163802', '378163902', '876412018');

@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div>\n  <app-header *ngIf=\"!leftMenuOpened\"></app-header>\n  <app-main-content [menuOpened]=\"leftMenuOpened\"></app-main-content>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"myApp\">\n  <mat-drawer-container *ngIf=\"!isAdminConsole\">\n    <mat-drawer class=\"mobile-devices-left-menu\" [opened]=\"leftMenuOpened\" mode=\"over\">\n      <mat-list>\n        <div mat-subheader style=\"width: 100%; color: white;\">\n          <span style=\"width: 50%; text-align: left;\">Menu</span>\n          <span style=\"width: 50%; text-align: right;\">\n          <button mat-button (click)=\"onMenuClosed()\">\n            <mat-icon>close</mat-icon>\n          </button>\n        </span>\n        </div>\n        <mat-list-item routerLink=\"/articles\"\n                       routerLinkActive=\"menu-link-active\"\n                       class=\"mat-list-web-item\"\n                       [routerLinkActiveOptions]=\"{exact: true}\" (click)=\"onMenuClosed()\">\n          <mat-icon mat-list-icon>home</mat-icon>\n          <div mat-line> Articles </div>\n        </mat-list-item>\n        <mat-list-item routerLink=\"/infos\" routerLinkActive=\"menu-link-active\" (click)=\"onMenuClosed()\" class=\"mat-list-web-item\">\n          <mat-icon mat-list-icon>info</mat-icon>\n          <div mat-line> A propos </div>\n        </mat-list-item>\n        <mat-list-item routerLink=\"/contact\" routerLinkActive=\"menu-link-active\" (click)=\"onMenuClosed()\" class=\"mat-list-web-item\">\n          <mat-icon mat-list-icon>mail</mat-icon>\n          <div mat-line> Contact </div>\n        </mat-list-item>\n      </mat-list>\n    </mat-drawer>\n    <mat-drawer-content>\n      <app-header [mobileDeviceMenuOpened]=\"leftMenuOpened\"></app-header>\n      <app-main-content></app-main-content>\n    </mat-drawer-content>\n  </mat-drawer-container>\n\n  <div *ngIf=\"isAdminConsole\">\n    <app-header [mobileDeviceMenuOpened]=\"leftMenuOpened\"></app-header>\n    <mat-drawer-container style=\"height: 100vh;\">\n      <mat-drawer [opened]=\"true\" mode=\"side\" class=\"desktop-devices-left-menu\">\n        <mat-list>\n          <div mat-subheader style=\"width: 100%; color: black;\">Console d'administration</div>\n          <mat-list-item routerLink=\"/admin/articles/add\" class=\"mat-list-admin-item\"\n                         routerLinkActive=\"link-active\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <mat-icon mat-list-icon>article</mat-icon>\n            <div mat-line> Nouvel article </div>\n          </mat-list-item>\n          <mat-list-item routerLink=\"/admin/articles/all\" class=\"mat-list-admin-item\"\n                         routerLinkActive=\"link-active\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <mat-icon mat-list-icon>update</mat-icon>\n            <div mat-line> Modifier article </div>\n          </mat-list-item>\n        </mat-list>\n        <ul class=\"admin-page-user-infos\">\n          <li>Mohamed Toure</li>\n          <li>\n            <a mat-button (click)=\"onDisconnect()\">Déconnexion</a>\n          </li>\n        </ul>\n      </mat-drawer>\n      <mat-drawer-content>\n        <router-outlet></router-outlet>\n      </mat-drawer-content>\n    </mat-drawer-container>\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"ad-page-content\">\n  <mat-card class=\"ad-card-title\">\n    <mat-card-title>A propos de ce blog et de son auteur</mat-card-title>\n  </mat-card>\n\n  <mat-card class=\"ad-card-article\">\n    <mat-card-title style=\"text-align: center;\"> Qui suis-je et pourquoi ai-je créé ce blog? </mat-card-title>\n    <mat-card-content>\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n      Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.\n      Duis vulputate commodo lectus, ac blandit elit tincidunt id.\n      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.\n      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.\n      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.\n      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.\n      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.\n      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.\n    </mat-card-content>\n  </mat-card>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"height: 100vh;\">\n  <div style=\"text-align: center;\">\n    <h2> A propos de ce blog </h2>\n  </div>\n  <mat-divider></mat-divider>\n <div style=\"background-color: white; width: 100%; margin-top: 3%;\">\n   <mat-card>\n     <p>\n       Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n       Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.\n       Duis vulputate commodo lectus, ac blandit elit tincidunt id.\n       Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.\n       Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.\n       Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.\n       Vivamus varius pretium ligula, a aliquam odio euismod sit amet.\n       Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.\n       Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.\n     </p>\n   </mat-card>\n </div>\n</div>\n");
 
 /***/ }),
 
@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-tab-group animationDuration=\"0ms\">\n  <mat-tab label=\"Creation\">\n    <form [formGroup]=\"formOptions\" (ngSubmit)=\"onSubmit()\" [ngStyle]=\"formStyle\">\n      <mat-card>\n        <mat-card-header>\n          <mat-card-title>Ecrire un nouvel article</mat-card-title>\n        </mat-card-header>\n        <mat-card-content>\n          <mat-form-field appearance=\"outline\" class=\"blog-admin-creation-form-field\">\n            <mat-label>Intitulé de l'article</mat-label>\n            <input matInput\n                   placeholder=\"Saisir le titre de l'article\"\n                   [formControl]=\"titleControl\"\n                   autocomplete=\"title\"\n                   required>\n            <mat-error *ngIf=\"titleControl.invalid\">{{handleLoginErrors()}}</mat-error>\n          </mat-form-field>\n          <br>\n          <mat-form-field appearance=\"outline\" class=\"blog-admin-creation-form-field\">\n            <mat-label>Contenu de l'article</mat-label>\n            <textarea matInput rows=\"30\"\n                      placeholder=\"Ecrire le contenu de l'article ici\"\n                      [formControl]=\"contentControl\"\n                      autocomplete=\"content\"\n                      required>\n            </textarea>\n            <mat-error *ngIf=\"contentControl.invalid\">{{handlePasswordErrors()}}</mat-error>\n          </mat-form-field>\n        </mat-card-content>\n        <mat-card-actions>\n          <button type=\"submit\" mat-raised-button color=\"accent\" style=\"width: 96%; margin: 2%;\"> Soumettre </button>\n        </mat-card-actions>\n        <mat-error *ngIf=\"!connected\" style=\"text-align: center;\">{{connectionResponse}}</mat-error>\n      </mat-card>\n    </form>\n  </mat-tab>\n  <mat-tab label=\"Prévisualisation\">\n    <mat-card [ngStyle]=\"formStyle\">\n      <mat-card-header>\n        <mat-card-title *ngIf=\"titleControl.valid\">\n          {{titleControl.value}}\n        </mat-card-title>\n      </mat-card-header>\n      <mat-card-content *ngIf=\"contentControl.valid\" [innerHTML]=\"contentControl.value\"></mat-card-content>\n    </mat-card>\n  </mat-tab>\n</mat-tab-group>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-tab-group animationDuration=\"0ms\" style=\"height: 100vh;\">\n  <mat-tab label=\"Creation\">\n    <form [formGroup]=\"formOptions\" (ngSubmit)=\"onSubmit()\" [ngStyle]=\"formStyle\">\n      <mat-card>\n        <mat-card-header>\n          <mat-card-title>Ecrire un nouvel article</mat-card-title>\n        </mat-card-header>\n        <mat-card-content>\n          <mat-form-field appearance=\"outline\" class=\"blog-admin-creation-form-field\">\n            <mat-label>Intitulé de l'article</mat-label>\n            <input matInput\n                   placeholder=\"Saisir le titre de l'article\"\n                   [formControl]=\"titleControl\"\n                   autocomplete=\"title\"\n                   required>\n            <mat-error *ngIf=\"titleControl.invalid\">{{handleLoginErrors()}}</mat-error>\n          </mat-form-field>\n          <br>\n          <mat-form-field appearance=\"outline\" class=\"blog-admin-creation-form-field\">\n            <mat-label>Contenu de l'article</mat-label>\n            <textarea matInput rows=\"20\"\n                      placeholder=\"Ecrire le contenu de l'article ici\"\n                      [formControl]=\"contentControl\"\n                      autocomplete=\"content\"\n                      required>\n            </textarea>\n            <mat-error *ngIf=\"contentControl.invalid\">{{handlePasswordErrors()}}</mat-error>\n          </mat-form-field>\n        </mat-card-content>\n        <mat-card-actions>\n          <button type=\"submit\" mat-raised-button\n                  class=\"button-primary-color\">\n            Soumettre\n          </button>\n        </mat-card-actions>\n        <mat-error *ngIf=\"!connected\" style=\"text-align: center;\">{{connectionResponse}}</mat-error>\n      </mat-card>\n    </form>\n  </mat-tab>\n  <mat-tab label=\"Prévisualisation\">\n    <mat-card [ngStyle]=\"formStyle\" *ngIf=\"titleControl.valid || contentControl.valid\">\n      <mat-card-header>\n        <mat-card-title *ngIf=\"titleControl.valid\">\n          {{titleControl.value}}\n        </mat-card-title>\n      </mat-card-header>\n      <mat-card-content *ngIf=\"contentControl.valid\" [innerHTML]=\"contentControl.value\"></mat-card-content>\n    </mat-card>\n  </mat-tab>\n</mat-tab-group>\n");
 
 /***/ }),
 
@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"ad-page-content\">\n  <mat-card class=\"ad-card-article\">\n    <mat-card-title class=\"ad-card-title\">\n      Mettre à jour un article\n    </mat-card-title>\n  </mat-card>\n\n  <div *ngIf=\"allArticles.length > 0\">\n    <mat-card class=\"content-article-update-form\">\n      <form [formGroup]=\"formOptions\" (ngSubmit)=\"onUpdate()\" #form>\n        <mat-form-field appearance=\"outline\" style=\"width: 100%;\">\n          <mat-label>Titre</mat-label>\n          <input matInput\n                 [formControl]=\"titleControl\"\n                 autocomplete=\"on\"\n                 value=\"{{articleToUpdate.title}}\">\n        </mat-form-field>\n        <mat-form-field appearance=\"outline\" style=\"width: 100%;\">\n          <mat-label>Contenu</mat-label>\n          <textarea rows=\"30\"\n                    matInput\n                    [formControl]=\"contentControl\"\n                    value=\"{{articleToUpdate.content}}\"\n                    autocomplete=\"on\">\n          </textarea>\n        </mat-form-field>\n        <button [disabled]=\"!(titleChanged || contentChange)\" type=\"submit\" mat-raised-button color=\"accent\" style=\"width: 100%;\"> Mettre à jour </button>\n      </form>\n    </mat-card>\n  </div>\n\n  <div>\n    <mat-card class=\"content-articles-list\"\n              tabindex=\"0\"\n              role=\"region\"\n              *ngFor=\"let article of allArticles\" (click)=\"onSelect(article.id)\">\n      <mat-card-title>{{article.title}}</mat-card-title>\n      <mat-card-content>\n        {{article.content | slice: 0 : 80 }} ...\n      </mat-card-content>\n    </mat-card>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"ad-page-content\">\n  <div style=\"text-align: center;\">\n    <h2> Mettre à jour un articles </h2>\n  </div>\n  <mat-divider></mat-divider>\n\n  <div *ngIf=\"allArticles.length > 0\" style=\"margin-top: 3%;\">\n    <mat-card class=\"content-article-update-form\">\n      <form [formGroup]=\"formOptions\" (ngSubmit)=\"onUpdate()\" #form>\n        <mat-form-field appearance=\"outline\" style=\"width: 100%;\">\n          <mat-label>Titre</mat-label>\n          <input matInput\n                 [formControl]=\"titleControl\"\n                 autocomplete=\"on\"\n                 value=\"{{articleToUpdate.title}}\">\n        </mat-form-field>\n        <mat-form-field appearance=\"outline\" style=\"width: 100%;\">\n          <mat-label>Contenu</mat-label>\n          <textarea rows=\"30\"\n                    matInput\n                    [formControl]=\"contentControl\"\n                    value=\"{{articleToUpdate.content}}\"\n                    autocomplete=\"on\">\n          </textarea>\n        </mat-form-field>\n        <button [disabled]=\"!(titleChanged || contentChange)\"\n                type=\"submit\"\n                mat-raised-button\n                class=\"button-primary-color\">\n          Mettre à jour\n        </button>\n      </form>\n    </mat-card>\n  </div>\n\n  <div>\n    <mat-card class=\"content-articles-list\"\n              tabindex=\"0\"\n              role=\"region\"\n              *ngFor=\"let article of allArticles\" (click)=\"onSelect(article.id)\">\n      <mat-card-title>{{article.title}}</mat-card-title>\n      <mat-card-content>\n        {{article.content | slice: 0 : 80 }} ...\n      </mat-card-content>\n    </mat-card>\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -84,7 +84,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<form [formGroup]=\"formOptions\" (ngSubmit)=\"onSubmit()\" [ngStyle]=\"formStyle\">\n  <mat-card>\n    <mat-card-header>\n      <mat-card-title>Console d'administration</mat-card-title>\n    </mat-card-header>\n    <mat-card-content>\n      <mat-form-field appearance=\"standard\" class=\"blog-admin-login-form-field\">\n        <mat-label>Login</mat-label>\n        <input matInput\n               placeholder=\"Saisir l'identifiant\"\n               [formControl]=\"loginControl\"\n               autocomplete=\"username\"\n               required>\n        <mat-error *ngIf=\"loginControl.invalid\">{{handleLoginErrors()}}</mat-error>\n      </mat-form-field>\n      <br>\n      <mat-form-field appearance=\"standard\" class=\"blog-admin-login-form-field\">\n        <mat-label>Mot de passe</mat-label>\n        <input matInput\n               placeholder=\"Saisir le mot de passe\"\n               [type]=\"hide ? 'password' : 'text'\"\n               [formControl]=\"passwordControl\"\n               autocomplete=\"current-password\"\n               required>\n        <mat-error *ngIf=\"passwordControl.invalid\">{{handlePasswordErrors()}}</mat-error>\n        <button type=\"button\" mat-icon-button matSuffix (click)=\"hide = !hide\" [attr.aria-label]=\"'Cachez le mot de pass'\" [attr.aria-pressed]=\"hide\">\n          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\n        </button>\n      </mat-form-field>\n    </mat-card-content>\n    <mat-card-actions>\n      <button type=\"submit\" mat-raised-button color=\"accent\" style=\"width: 96%; margin: 2%;\"> Connexion </button>\n    </mat-card-actions>\n    <mat-error *ngIf=\"!connected\" style=\"text-align: center;\">{{connectionResponse}}</mat-error>\n  </mat-card>\n</form>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<form [formGroup]=\"formOptions\" (ngSubmit)=\"onSubmit()\" [ngStyle]=\"formStyle\">\n  <mat-card>\n    <mat-card-header>\n      <mat-card-title>Console d'administration</mat-card-title>\n    </mat-card-header>\n    <mat-card-content>\n      <mat-form-field appearance=\"standard\" class=\"blog-admin-login-form-field\">\n        <mat-label>Login</mat-label>\n        <input matInput\n               placeholder=\"Saisir l'identifiant\"\n               [formControl]=\"loginControl\"\n               autocomplete=\"username\"\n               required>\n        <mat-error *ngIf=\"loginControl.invalid\">{{handleLoginErrors()}}</mat-error>\n      </mat-form-field>\n      <br>\n      <mat-form-field appearance=\"standard\" class=\"blog-admin-login-form-field\">\n        <mat-label>Mot de passe</mat-label>\n        <input matInput\n               placeholder=\"Saisir le mot de passe\"\n               [type]=\"hide ? 'password' : 'text'\"\n               [formControl]=\"passwordControl\"\n               autocomplete=\"current-password\"\n               required>\n        <mat-error *ngIf=\"passwordControl.invalid\">{{handlePasswordErrors()}}</mat-error>\n        <button type=\"button\" mat-icon-button matSuffix (click)=\"hide = !hide\" [attr.aria-label]=\"'Cachez le mot de pass'\" [attr.aria-pressed]=\"hide\">\n          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\n        </button>\n      </mat-form-field>\n    </mat-card-content>\n    <mat-card-actions>\n      <button type=\"submit\" mat-raised-button\n              class=\"button-primary-color\">\n        Connexion\n      </button>\n    </mat-card-actions>\n    <mat-error *ngIf=\"!connected\" style=\"text-align: center;\">{{connectionResponse}}</mat-error>\n  </mat-card>\n</form>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/content/article-details/article-details.component.html":
+/*!********************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/content/article-details/article-details.component.html ***!
+  \********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"height: 100vh;\">\n  <mat-card style=\"margin: 25px 0;\">\n    <ul class=\"breadcrumb\">\n      <li><a routerLink=\"/articles\"> Articles </a></li>\n      <li>{{articleDetails.title}}</li>\n    </ul>\n  </mat-card>\n  <mat-card class=\"ad-card-article\">\n    <mat-card-title> {{articleDetails.title}} </mat-card-title>\n    <mat-card-subtitle>\n      <span> Publié le {{articleDetails.releaseDate}} par {{articleDetails.author}} - Thématiques: </span>\n      <span *ngFor=\"let topic of articleDetails.topics\"> {{topic.label}} </span>\n    </mat-card-subtitle>\n    <mat-card-content>\n      {{articleDetails.content}}\n    </mat-card-content>\n    <mat-card-actions>\n      <a mat-button routerLink=\"/articles\">\n        <mat-icon mat-list-icon>arrow_back</mat-icon>\n        <span> Retour </span>\n      </a>\n    </mat-card-actions>\n  </mat-card>\n</div>\n");
 
 /***/ }),
 
@@ -97,7 +110,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"ad-page-content\">\n  <mat-card class=\"ad-card-title\">\n    <mat-card-title>\n      Afroproneur Digital\n    </mat-card-title>\n    <mat-card-content>\n      <h3>Le blog des afropreneurs du web</h3>\n    </mat-card-content>\n  </mat-card>\n\n  <div *ngIf=\"!displayArticleDetails\">\n    <mat-grid-list [cols]=\"dateFilterCols\" [rowHeight]=\"dateFilterRows\">\n      <mat-grid-tile>\n        <mat-form-field style=\"width: 100%;\">\n          <mat-label>Filtrer par date</mat-label>\n          <mat-select [formControl]=\"dateFilterControl\" (ngModelChange)=\"onFilterChange()\">\n            <mat-option *ngFor=\"let criteria of dateFilter\" [value]=\"criteria.value\">\n              {{criteria.viewValue}}\n            </mat-option>\n          </mat-select>\n        </mat-form-field>\n      </mat-grid-tile>\n    </mat-grid-list>\n\n    <mat-card class=\"ad-card-article\" *ngFor=\"let article of articles\">\n      <mat-card-title> {{article.title}} </mat-card-title>\n      <mat-card-subtitle>\n        <span> Publié le {{article.releaseDate}} par {{article.author}} - Thématiques: </span>\n        <span *ngFor=\"let topic of article.topics\"> {{topic.label}} </span>\n      </mat-card-subtitle>\n      <mat-card-content>\n        {{article.content | slice: 0 : 240 }} ...\n      </mat-card-content>\n      <mat-card-actions>\n        <a mat-button [routerLink]=\"['/articles', article.id]\" (click)=\"onShowArticleDetails(article.id)\"> Lire l'article </a>\n      </mat-card-actions>\n    </mat-card>\n  </div>\n\n  <div *ngIf=\"displayArticleDetails\">\n    <mat-card class=\"ad-card-article\">\n      <mat-card-title> {{articleDetails.title}} </mat-card-title>\n      <mat-card-subtitle>\n        <span> Publié le {{articleDetails.releaseDate}} par {{articleDetails.author}} - Thématiques: </span>\n        <span *ngFor=\"let topic of articleDetails.topics\"> {{topic.label}} </span>\n      </mat-card-subtitle>\n      <mat-card-content>\n        {{articleDetails.content}}\n      </mat-card-content>\n      <mat-card-actions>\n        <a mat-button (click)=\"onNavigateBack()\">\n          <mat-icon mat-list-icon>arrow_back</mat-icon>\n          <span> Retour </span>\n        </a>\n      </mat-card-actions>\n    </mat-card>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"height: 100vh;\">\n  <h2 style=\"text-align: center;\"> Les derniers articles</h2>\n  <mat-divider></mat-divider>\n  <div style=\"margin-top: 3%;\">\n    <mat-grid-list cols=\"{{cols}}\" rowHeight=\"{{rowHeight}}\">\n      <mat-grid-tile  *ngFor=\"let article of articles\">\n        <mat-card style=\"width: 90%; height: 90%;\">\n          <mat-card-title> {{article.title}} </mat-card-title>\n          <mat-card-subtitle>\n            <span> par {{article.author}} le {{article.releaseDate}} | </span>\n            <span *ngFor=\"let topic of article.topics\"> {{topic.label}} </span>\n          </mat-card-subtitle>\n          <mat-card-content>\n            <p> {{article.content | slice: 0 : 240 }} ... </p>\n          </mat-card-content>\n          <mat-card-actions>\n            <a mat-button [routerLink]=\"['/articles', article.id]\"> Lire l'article </a>\n          </mat-card-actions>\n        </mat-card>\n      </mat-grid-tile>\n    </mat-grid-list>\n  </div>\n</div>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/content/contact/contact.component.html":
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/content/contact/contact.component.html ***!
+  \****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"height: 100vh;\">\n  <div style=\"text-align: center;\">\n    <h2>Page de contact</h2>\n  </div>\n  <mat-divider></mat-divider>\n  <form [formGroup]=\"formOptions\" (ngSubmit)=\"onSubmit()\" [ngStyle]=\"formStyle\" style=\"background-color: white; margin-top: 3%;\">\n    <mat-card>\n      <mat-card-header>\n        <mat-card-title style=\"text-align: center;\">Contactez-nous via ce formulaire</mat-card-title>\n      </mat-card-header>\n      <mat-card-content>\n        <mat-form-field appearance=\"outline\" style=\"width: 100%;\">\n          <mat-label>Email</mat-label>\n          <input matInput\n                 placeholder=\"Votre email\"\n                 [formControl]=\"emailControl\"\n                 autocomplete=\"email\"\n                 required>\n          <mat-error *ngIf=\"emailControl.invalid\">{{handleEmailError()}}</mat-error>\n        </mat-form-field>\n        <br>\n        <mat-form-field appearance=\"outline\" style=\"width: 100%;\">\n          <mat-label>Message</mat-label>\n          <textarea matInput rows=\"15\"\n                    placeholder=\"Votre message\"\n                    [formControl]=\"messageControl\"\n                    autocomplete=\"message\"\n                    required>\n        </textarea>\n          <mat-error *ngIf=\"messageControl.invalid\">{{handleMessageError()}}</mat-error>\n        </mat-form-field>\n      </mat-card-content>\n      <mat-card-actions>\n        <button type=\"submit\" mat-raised-button class=\"button-primary-color\"> Envoyer </button>\n      </mat-card-actions>\n    </mat-card>\n  </form>\n</div>\n");
 
 /***/ }),
 
@@ -110,7 +136,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-drawer-container class=\"blog-main-container\">\n  <mat-drawer class=\"blog-left-section\" mode=\"side\" [opened]=\"menuOpened\">\n    <app-menu></app-menu>\n  </mat-drawer>\n  <mat-drawer-content class=\"blog-right-section\">\n    <router-outlet></router-outlet>\n  </mat-drawer-content>\n</mat-drawer-container>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"main\" *ngIf=\"!smallScreen\">\n  <div></div>\n  <div style=\"width: 50%;\">\n    <router-outlet></router-outlet>\n  </div>\n  <div></div>\n</div>\n\n<div *ngIf=\"smallScreen\">\n  <router-outlet></router-outlet>\n</div>\n\n");
 
 /***/ }),
 
@@ -123,7 +149,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-toolbar>\n  <mat-toolbar-row>\n    <button mat-icon-button (click)=\"onMenuToggle()\">\n      <mat-icon mat-list-icon>menu</mat-icon>\n    </button>\n    <div id=\"logo\">\n      <a mat-button routerLink=\"/\"><h2>Afropreneur <span style=\"color: orange;\">Digital</span></h2></a>\n    </div>\n  </mat-toolbar-row>\n</mat-toolbar>\n\n\n<div *ngIf=\"toolbarMenuOpened\">\n  <div *ngIf=\"!switchToAdminMenu\">\n    <mat-toolbar>\n      <mat-toolbar-row style=\"font-size: small;\">Le blog</mat-toolbar-row>\n      <mat-toolbar-row mat-line>\n        <mat-icon mat-list-icon>home</mat-icon>\n        <a mat-button routerLink=\"/articles\"\n           routerLinkActive=\"link-active\"\n           [routerLinkActiveOptions]=\"{exact: true}\">\n          Accueil\n        </a>\n      </mat-toolbar-row>\n      <mat-toolbar-row mat-line>\n        <mat-icon mat-list-icon>info</mat-icon>\n        <a mat-button routerLink=\"/infos\"\n           routerLinkActive=\"link-active\"\n           [routerLinkActiveOptions]=\"{exact: true}\">\n          A propos\n        </a>\n      </mat-toolbar-row>\n      <mat-toolbar-row style=\"font-size: small;\">Les thématiques</mat-toolbar-row>\n      <mat-toolbar-row mat-line>\n        <mat-icon mat-list-icon>school</mat-icon>\n        <a mat-button [routerLink]=\"['/articles', 'education']\"\n           routerLinkActive=\"link-active\"\n           [routerLinkActiveOptions]=\"{exact: true}\">\n          Education\n        </a>\n      </mat-toolbar-row>\n      <mat-toolbar-row mat-line>\n        <mat-icon mat-list-icon>local_hospital</mat-icon>\n        <a mat-button [routerLink]=\"['/articles', 'healthcare']\"\n           routerLinkActive=\"link-active\"\n           [routerLinkActiveOptions]=\"{exact: true}\">\n          Santé\n        </a>\n      </mat-toolbar-row>\n      <mat-toolbar-row mat-line>\n        <mat-icon mat-list-icon>trending_up</mat-icon>\n        <a mat-button [routerLink]=\"['/articles', 'fintech']\"\n           routerLinkActive=\"link-active\"\n           [routerLinkActiveOptions]=\"{exact: true}\">\n          FinTech\n        </a>\n      </mat-toolbar-row>\n    </mat-toolbar>\n  </div>\n\n  <div *ngIf=\"switchToAdminMenu\">\n    <mat-toolbar>\n      <mat-toolbar-row style=\"font-size: small;\">Console d'administration</mat-toolbar-row>\n      <mat-toolbar-row mat-line>\n        <mat-icon mat-list-icon>article</mat-icon>\n        <a mat-button routerLink=\"/admin/new-article\"\n           routerLinkActive=\"link-active\"\n           [routerLinkActiveOptions]=\"{exact: true}\">\n          Nouvel article\n        </a>\n      </mat-toolbar-row>\n      <mat-toolbar-row mat-line>\n        <mat-icon mat-list-icon>update</mat-icon>\n        <a mat-button routerLink=\"/admin\"\n           routerLinkActive=\"link-active\"\n           [routerLinkActiveOptions]=\"{exact: true}\">\n          Modifier article\n        </a>\n      </mat-toolbar-row>\n    </mat-toolbar>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-toolbar class=\"header-styles\">\n  <mat-toolbar-row class=\"header-content-alignment\" *ngIf=\"!smallScreen\">\n    <div></div>\n    <div style=\"width: 50%; display: flex; flex: auto;\">\n      <a mat-button routerLink=\"/\">\n        <h1>Afropreneur Digital</h1>\n      </a>\n      <div style=\"width: 70%; text-align: right;\">\n        <a mat-button routerLink=\"/articles\"\n           routerLinkActive=\"link-active\"\n           [routerLinkActiveOptions]=\"{exact: true}\">\n          Articles\n        </a>\n        <a mat-button routerLink=\"/infos\"\n           routerLinkActive=\"link-active\"\n           [routerLinkActiveOptions]=\"{exact: true}\">\n          A propos\n        </a>\n        <a mat-button routerLink=\"/contact\"\n           routerLinkActive=\"link-active\"\n           [routerLinkActiveOptions]=\"{exact: true}\">\n          Contact\n        </a>\n      </div>\n    </div>\n    <div></div>\n  </mat-toolbar-row>\n  <mat-toolbar-row *ngIf=\"smallScreen\">\n    <button mat-icon-button class=\"example-icon\" aria-label=\"Example icon-button with menu icon\" (click)=\"onMenuToggle()\">\n      <mat-icon>menu</mat-icon>\n    </button>\n    <a mat-button routerLink=\"/\">\n      <h1>Afropreneur Digital</h1>\n    </a>\n  </mat-toolbar-row>\n</mat-toolbar>\n");
 
 /***/ }),
 
@@ -136,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"!switchToAdminDashboard\">\n  <mat-list class=\"blog-left-menu-content\">\n    <div class=\"logo\">\n      <a mat-button routerLink=\"/\"><h2>Afropreneur <span style=\"color: orange;\">Digital</span></h2></a>\n    </div>\n    <div mat-subheader class=\"blog-left-menu-subheader\">Le blog</div>\n    <mat-list-item routerLink=\"/articles\" routerLinkActive=\"link-active\" [routerLinkActiveOptions]=\"{exact: true}\">\n      <mat-icon mat-list-icon>home</mat-icon>\n      <div mat-line> Accueil </div>\n    </mat-list-item>\n    <mat-list-item routerLink=\"/infos\" routerLinkActive=\"link-active\">\n      <mat-icon mat-list-icon>info</mat-icon>\n      <div mat-line> A propos </div>\n    </mat-list-item>\n    <div mat-subheader class=\"blog-left-menu-subheader\">Les thématiques </div>\n    <mat-list-item [routerLink]=\"['/articles', 'education']\"\n                   routerLinkActive=\"link-active\"\n                   [routerLinkActiveOptions]=\"{exact: true}\">\n      <mat-icon mat-list-icon>school</mat-icon>\n      <div mat-line>Education</div>\n    </mat-list-item>\n    <mat-list-item [routerLink]=\"['/articles', 'healthcare']\"\n                   routerLinkActive=\"link-active\"\n                   [routerLinkActiveOptions]=\"{exact: true}\">\n      <mat-icon mat-list-icon>local_hospital</mat-icon>\n      <div mat-line>Santé</div>\n    </mat-list-item>\n    <mat-list-item [routerLink]=\"['/articles', 'fintech']\"\n                   routerLinkActive=\"link-active\"\n                   [routerLinkActiveOptions]=\"{exact: true}\">\n      <mat-icon mat-list-icon>trending_up</mat-icon>\n      <div mat-line>FinTech</div>\n    </mat-list-item>\n  </mat-list>\n</div>\n\n<div *ngIf=\"switchToAdminDashboard\">\n  <mat-list class=\"blog-left-menu-content\">\n    <div class=\"logo\">\n      <a mat-button routerLink=\"/admin\"><h2>Afropreneur <span style=\"color: orange;\">Digital</span></h2></a>\n    </div>\n    <div mat-subheader class=\"blog-left-menu-subheader\">Console d'administration</div>\n    <mat-list-item routerLink=\"/admin/articles/add\" routerLinkActive=\"link-active\" [routerLinkActiveOptions]=\"{exact: true}\">\n      <mat-icon mat-list-icon>article</mat-icon>\n      <div mat-line> Nouvel article </div>\n    </mat-list-item>\n    <mat-list-item routerLink=\"/admin/articles/all\" routerLinkActive=\"link-active\" [routerLinkActiveOptions]=\"{exact: true}\">\n      <mat-icon mat-list-icon>update</mat-icon>\n      <div mat-line> Modifier article </div>\n    </mat-list-item>\n  </mat-list>\n\n  <ul class=\"admin-page-user-infos\">\n    <li>{{user.fullName}}</li>\n    <li>\n      <a mat-button (click)=\"onDisconnect()\">Déconnexion</a>\n    </li>\n  </ul>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"!switchToAdminDashboard\">\n  <mat-list class=\"blog-left-menu-content\">\n    <div class=\"logo\">\n      <a mat-button routerLink=\"/\"><h2>Afropreneur <span style=\"color: orange;\">Digital</span></h2></a>\n    </div>\n    <div mat-subheader class=\"blog-left-menu-subheader\">Le blog</div>\n    <mat-list-item routerLink=\"/articles\" routerLinkActive=\"link-active\" [routerLinkActiveOptions]=\"{exact: true}\">\n      <mat-icon mat-list-icon>home</mat-icon>\n      <div mat-line> Accueil </div>\n    </mat-list-item>\n    <mat-list-item routerLink=\"/infos\" routerLinkActive=\"link-active\">\n      <mat-icon mat-list-icon>info</mat-icon>\n      <div mat-line> A propos </div>\n    </mat-list-item>\n    <div mat-subheader class=\"blog-left-menu-subheader\">Les thématiques </div>\n    <mat-list-item [routerLink]=\"['/articles', 'education']\"\n                   routerLinkActive=\"link-active\"\n                   [routerLinkActiveOptions]=\"{exact: true}\">\n      <mat-icon mat-list-icon>school</mat-icon>\n      <div mat-line>Education</div>\n    </mat-list-item>\n    <mat-list-item [routerLink]=\"['/articles', 'healthcare']\"\n                   routerLinkActive=\"link-active\"\n                   [routerLinkActiveOptions]=\"{exact: true}\">\n      <mat-icon mat-list-icon>local_hospital</mat-icon>\n      <div mat-line>Santé</div>\n    </mat-list-item>\n    <mat-list-item [routerLink]=\"['/articles', 'fintech']\"\n                   routerLinkActive=\"link-active\"\n                   [routerLinkActiveOptions]=\"{exact: true}\">\n      <mat-icon mat-list-icon>trending_up</mat-icon>\n      <div mat-line>FinTech</div>\n    </mat-list-item>\n  </mat-list>\n</div>\n\n<div *ngIf=\"switchToAdminDashboard\">\n  <mat-list class=\"blog-left-menu-content\">\n    <div class=\"logo\">\n      <a mat-button routerLink=\"/admin\"><h2>Afropreneur <span style=\"color: orange;\">Digital</span></h2></a>\n    </div>\n    <div mat-subheader class=\"blog-left-menu-subheader\">Console d'administration</div>\n    <mat-list-item routerLink=\"/admin/articles/add\" routerLinkActive=\"link-active\" [routerLinkActiveOptions]=\"{exact: true}\">\n      <mat-icon mat-list-icon>article</mat-icon>\n      <div mat-line> Nouvel article </div>\n    </mat-list-item>\n    <mat-list-item routerLink=\"/admin/articles\" routerLinkActive=\"link-active\" [routerLinkActiveOptions]=\"{exact: true}\">\n      <mat-icon mat-list-icon>update</mat-icon>\n      <div mat-line> Modifier article </div>\n    </mat-list-item>\n  </mat-list>\n\n  <ul class=\"admin-page-user-infos\">\n    <li>{{user.fullName}}</li>\n    <li>\n      <a mat-button (click)=\"onDisconnect()\">Déconnexion</a>\n    </li>\n  </ul>\n</div>\n");
 
 /***/ }),
 
@@ -413,6 +439,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_content_admin_article_creation_article_creation_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/content/admin/article-creation/article-creation.component */ "./src/app/pages/content/admin/article-creation/article-creation.component.ts");
 /* harmony import */ var _pages_content_admin_article_update_deletion_article_update_deletion_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/content/admin/article-update-deletion/article-update-deletion.component */ "./src/app/pages/content/admin/article-update-deletion/article-update-deletion.component.ts");
 /* harmony import */ var _services_CanActivateAdmin__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./services/CanActivateAdmin */ "./src/app/services/CanActivateAdmin.ts");
+/* harmony import */ var _pages_content_article_details_article_details_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/content/article-details/article-details.component */ "./src/app/pages/content/article-details/article-details.component.ts");
+/* harmony import */ var _pages_content_contact_contact_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/content/contact/contact.component */ "./src/app/pages/content/contact/contact.component.ts");
+
+
 
 
 
@@ -424,14 +454,11 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', redirectTo: 'articles', pathMatch: 'full' },
-    { path: 'articles', component: _pages_content_articles_articles_component__WEBPACK_IMPORTED_MODULE_3__["ArticlesComponent"],
-        children: [
-            { path: ':id', component: _pages_content_articles_articles_component__WEBPACK_IMPORTED_MODULE_3__["ArticlesComponent"] },
-            { path: ':name', component: _pages_content_articles_articles_component__WEBPACK_IMPORTED_MODULE_3__["ArticlesComponent"] }
-        ]
-    },
+    { path: 'articles', component: _pages_content_articles_articles_component__WEBPACK_IMPORTED_MODULE_3__["ArticlesComponent"] },
+    { path: 'articles/:id', component: _pages_content_article_details_article_details_component__WEBPACK_IMPORTED_MODULE_9__["ArticleDetailsComponent"] },
     { path: 'infos', component: _pages_content_about_about_component__WEBPACK_IMPORTED_MODULE_4__["AboutComponent"] },
-    { path: 'admin', component: _pages_content_admin_login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
+    { path: 'contact', component: _pages_content_contact_contact_component__WEBPACK_IMPORTED_MODULE_10__["ContactComponent"] },
+    { path: 'admin/login', component: _pages_content_admin_login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
     { path: 'admin/articles/add', component: _pages_content_admin_article_creation_article_creation_component__WEBPACK_IMPORTED_MODULE_6__["ArticleCreationComponent"], canActivate: [_services_CanActivateAdmin__WEBPACK_IMPORTED_MODULE_8__["CanActivateAdmin"]] },
     { path: 'admin/articles/all', component: _pages_content_admin_article_update_deletion_article_update_deletion_component__WEBPACK_IMPORTED_MODULE_7__["ArticleUpdateDeletionComponent"], canActivate: [_services_CanActivateAdmin__WEBPACK_IMPORTED_MODULE_8__["CanActivateAdmin"]] }
 ];
@@ -457,7 +484,7 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".logo {\n  text-align: left;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBZ0I7QUFDbEIiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5sb2dvIHtcbiAgdGV4dC1hbGlnbjogbGVmdDtcbn1cbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".logo {\n  text-align: left;\n}\n#myApp {\n  overflow-x: hidden;\n}\n.mobile-devices-left-menu {\n  width: 100vw;\n  height: 100vh;\n  background-color: #0050a5;\n}\n.desktop-devices-left-menu {\n  width: 15%;\n  height: 100vh;\n  background-color: #ffffff;\n}\n.menu-link-active {\n  background-color: #014794;\n}\n.mat-list-web-item {\n  color: white;\n}\n.mat-list-admin-item {\n  color: black;\n}\n.link-active {\n  background-color: #dddddd;\n}\n.mat-list-item:hover {\n  background-color: #dddddd;\n}\n.blog-left-menu-content .mat-list-item, .blog-left-menu-subheader {\n  color: whitesmoke;\n}\n.admin-page-user-infos {\n  list-style-type: none;\n  position: fixed;\n  bottom: 25px;\n}\n.button-primary-color {\n  width: 98%;\n  margin: 1%;\n  background-color: #0050a5;\n  color: white;\n}\n.button-primary-color:hover {\n  background-color: #00438f;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYix5QkFBeUI7QUFDM0I7QUFFQTtFQUNFLFVBQVU7RUFDVixhQUFhO0VBQ2IseUJBQXlCO0FBQzNCO0FBRUE7RUFDRSx5QkFBeUI7QUFDM0I7QUFFQTtFQUNFLFlBQVk7QUFDZDtBQUVBO0VBQ0UsWUFBWTtBQUNkO0FBRUE7RUFDRSx5QkFBeUI7QUFDM0I7QUFFQTtFQUNFLHlCQUF5QjtBQUMzQjtBQUVBO0VBQ0UsaUJBQWlCO0FBQ25CO0FBRUE7RUFDRSxxQkFBcUI7RUFDckIsZUFBZTtFQUNmLFlBQVk7QUFDZDtBQUVBO0VBQ0UsVUFBVTtFQUNWLFVBQVU7RUFDVix5QkFBeUI7RUFDekIsWUFBWTtBQUNkO0FBRUE7RUFDRSx5QkFBeUI7QUFDM0IiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5sb2dvIHtcbiAgdGV4dC1hbGlnbjogbGVmdDtcbn1cbiNteUFwcCB7XG4gIG92ZXJmbG93LXg6IGhpZGRlbjtcbn1cbi5tb2JpbGUtZGV2aWNlcy1sZWZ0LW1lbnUge1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIGJhY2tncm91bmQtY29sb3I6ICMwMDUwYTU7XG59XG5cbi5kZXNrdG9wLWRldmljZXMtbGVmdC1tZW51IHtcbiAgd2lkdGg6IDE1JTtcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZmZmZjtcbn1cblxuLm1lbnUtbGluay1hY3RpdmUge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDE0Nzk0O1xufVxuXG4ubWF0LWxpc3Qtd2ViLWl0ZW0ge1xuICBjb2xvcjogd2hpdGU7XG59XG5cbi5tYXQtbGlzdC1hZG1pbi1pdGVtIHtcbiAgY29sb3I6IGJsYWNrO1xufVxuXG4ubGluay1hY3RpdmUge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZGRkZGRkO1xufVxuXG4ubWF0LWxpc3QtaXRlbTpob3ZlciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNkZGRkZGQ7XG59XG5cbi5ibG9nLWxlZnQtbWVudS1jb250ZW50IC5tYXQtbGlzdC1pdGVtLCAuYmxvZy1sZWZ0LW1lbnUtc3ViaGVhZGVyIHtcbiAgY29sb3I6IHdoaXRlc21va2U7XG59XG5cbi5hZG1pbi1wYWdlLXVzZXItaW5mb3Mge1xuICBsaXN0LXN0eWxlLXR5cGU6IG5vbmU7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgYm90dG9tOiAyNXB4O1xufVxuXG4uYnV0dG9uLXByaW1hcnktY29sb3Ige1xuICB3aWR0aDogOTglO1xuICBtYXJnaW46IDElO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDA1MGE1O1xuICBjb2xvcjogd2hpdGU7XG59XG5cbi5idXR0b24tcHJpbWFyeS1jb2xvcjpob3ZlciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMwMDQzOGY7XG59XG4iXX0= */");
 
 /***/ }),
 
@@ -473,24 +500,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/layout */ "./node_modules/@angular/cdk/esm2015/layout.js");
+/* harmony import */ var _services_AppServices__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/AppServices */ "./src/app/services/AppServices.ts");
 
 
 
 let AppComponent = class AppComponent {
-    constructor(mobileDevicesObserver) {
-        this.mobileDevicesObserver = mobileDevicesObserver;
-        this.leftMenuOpened = true;
-        mobileDevicesObserver
-            .observe([_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_2__["Breakpoints"].Handset, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_2__["Breakpoints"].Tablet, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_2__["Breakpoints"].WebPortrait])
-            .subscribe(result => {
-            this.leftMenuOpened = !result.matches;
+    constructor(appServices) {
+        this.appServices = appServices;
+        this.leftMenuOpened = false;
+        this.isAdminConsole = false;
+    }
+    ngOnInit() {
+        this.appServices
+            .getMobileDevicesMenuObserver()
+            .subscribe(opened => {
+            this.leftMenuOpened = opened;
+        });
+        this.appServices
+            .getOpenAdminConsoleSubjectObserver()
+            .subscribe(opened => {
+            this.isAdminConsole = opened;
+            if (this.isAdminConsole) {
+                console.log('Admin Console Opened');
+            }
         });
     }
-    ngOnInit() { }
+    onMenuClosed() {
+        this.leftMenuOpened = !this.leftMenuOpened;
+    }
+    onDisconnect() { }
 };
 AppComponent.ctorParameters = () => [
-    { type: _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_2__["BreakpointObserver"] }
+    { type: _services_AppServices__WEBPACK_IMPORTED_MODULE_2__["AppServices"] }
 ];
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -543,6 +584,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_content_admin_login_login_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./pages/content/admin/login/login.component */ "./src/app/pages/content/admin/login/login.component.ts");
 /* harmony import */ var _pages_content_admin_article_creation_article_creation_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./pages/content/admin/article-creation/article-creation.component */ "./src/app/pages/content/admin/article-creation/article-creation.component.ts");
 /* harmony import */ var _pages_content_admin_article_update_deletion_article_update_deletion_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./pages/content/admin/article-update-deletion/article-update-deletion.component */ "./src/app/pages/content/admin/article-update-deletion/article-update-deletion.component.ts");
+/* harmony import */ var _pages_content_article_details_article_details_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./pages/content/article-details/article-details.component */ "./src/app/pages/content/article-details/article-details.component.ts");
+/* harmony import */ var _pages_content_contact_contact_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./pages/content/contact/contact.component */ "./src/app/pages/content/contact/contact.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+
+
+
 
 
 
@@ -585,7 +632,9 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _pages_content_articles_articles_component__WEBPACK_IMPORTED_MODULE_25__["ArticlesComponent"],
             _pages_content_admin_login_login_component__WEBPACK_IMPORTED_MODULE_26__["LoginComponent"],
             _pages_content_admin_article_creation_article_creation_component__WEBPACK_IMPORTED_MODULE_27__["ArticleCreationComponent"],
-            _pages_content_admin_article_update_deletion_article_update_deletion_component__WEBPACK_IMPORTED_MODULE_28__["ArticleUpdateDeletionComponent"]
+            _pages_content_admin_article_update_deletion_article_update_deletion_component__WEBPACK_IMPORTED_MODULE_28__["ArticleUpdateDeletionComponent"],
+            _pages_content_article_details_article_details_component__WEBPACK_IMPORTED_MODULE_29__["ArticleDetailsComponent"],
+            _pages_content_contact_contact_component__WEBPACK_IMPORTED_MODULE_30__["ContactComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -606,36 +655,14 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_material_tabs__WEBPACK_IMPORTED_MODULE_17__["MatTabsModule"],
             _angular_material_expansion__WEBPACK_IMPORTED_MODULE_18__["MatExpansionModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_15__["FormsModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_19__["HttpClientModule"]
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_19__["HttpClientModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_31__["MatTableModule"]
         ],
         providers: [],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_20__["AppComponent"]]
     })
 ], AppModule);
 
-
-
-/***/ }),
-
-/***/ "./src/app/enums/ArticlesTopics.ts":
-/*!*****************************************!*\
-  !*** ./src/app/enums/ArticlesTopics.ts ***!
-  \*****************************************/
-/*! exports provided: Topics */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Topics", function() { return Topics; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-
-var Topics;
-(function (Topics) {
-    Topics["ALL"] = "ALL";
-    Topics["EDUCATION"] = "education";
-    Topics["HEALTHCARE"] = "healthcare";
-    Topics["FINTECH"] = "fintech";
-})(Topics || (Topics = {}));
 
 
 /***/ }),
@@ -711,22 +738,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _services_AuthenticationServices__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../services/AuthenticationServices */ "./src/app/services/AuthenticationServices.ts");
-/* harmony import */ var _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/cdk/layout */ "./node_modules/@angular/cdk/esm2015/layout.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _services_AppServices__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../services/AppServices */ "./src/app/services/AppServices.ts");
-
-
+/* harmony import */ var _services_AppServices__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../services/AppServices */ "./src/app/services/AppServices.ts");
 
 
 
 
 
 let ArticleCreationComponent = class ArticleCreationComponent {
-    constructor(fb, authenticationServices, mobileDeviceObserver, router, appServices) {
+    constructor(fb, authenticationServices, appServices) {
         this.fb = fb;
         this.authenticationServices = authenticationServices;
-        this.mobileDeviceObserver = mobileDeviceObserver;
-        this.router = router;
         this.appServices = appServices;
         this.titleControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]);
         this.contentControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(10)]);
@@ -740,15 +761,8 @@ let ArticleCreationComponent = class ArticleCreationComponent {
             hideRequired: this.hideRequiredControl,
             floatLabel: this.floatLabelControl
         });
-        mobileDeviceObserver
-            .observe([_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__["Breakpoints"].Handset, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__["Breakpoints"].Tablet, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__["Breakpoints"].WebPortrait])
-            .subscribe(results => {
-            if (results.matches) {
-                this.formStyle = this.mobileFormStyle;
-            }
-            else {
-                this.formStyle = this.desktopFormStyle;
-            }
+        appServices.observeMobileDevices().subscribe(results => {
+            this.formStyle = results.matches ? this.mobileFormStyle : this.desktopFormStyle;
         });
     }
     ngOnInit() {
@@ -776,15 +790,13 @@ let ArticleCreationComponent = class ArticleCreationComponent {
 ArticleCreationComponent.ctorParameters = () => [
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
     { type: _services_AuthenticationServices__WEBPACK_IMPORTED_MODULE_3__["AuthenticationServices"] },
-    { type: _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__["BreakpointObserver"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
-    { type: _services_AppServices__WEBPACK_IMPORTED_MODULE_6__["AppServices"] }
+    { type: _services_AppServices__WEBPACK_IMPORTED_MODULE_4__["AppServices"] }
 ];
 ArticleCreationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-article-creation',
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./article-creation.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/content/admin/article-creation/article-creation.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./article-creation.component.css */ "./src/app/pages/content/admin/article-creation/article-creation.component.css")).default, tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ../../main-content/main-content.component.css */ "./src/app/pages/content/main-content/main-content.component.css")).default]
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./article-creation.component.css */ "./src/app/pages/content/admin/article-creation/article-creation.component.css")).default, tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ../../main-content/main-content.component.css */ "./src/app/pages/content/main-content/main-content.component.css")).default, tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ../../../../app.component.css */ "./src/app/app.component.css")).default]
     })
 ], ArticleCreationComponent);
 
@@ -884,7 +896,7 @@ ArticleUpdateDeletionComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-article-update-deletion',
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./article-update-deletion.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/content/admin/article-update-deletion/article-update-deletion.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./article-update-deletion.component.css */ "./src/app/pages/content/admin/article-update-deletion/article-update-deletion.component.css")).default, tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ../../main-content/main-content.component.css */ "./src/app/pages/content/main-content/main-content.component.css")).default]
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./article-update-deletion.component.css */ "./src/app/pages/content/admin/article-update-deletion/article-update-deletion.component.css")).default, tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ../../main-content/main-content.component.css */ "./src/app/pages/content/main-content/main-content.component.css")).default, tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ../../../../app.component.css */ "./src/app/app.component.css")).default]
     })
 ], ArticleUpdateDeletionComponent);
 
@@ -937,14 +949,14 @@ let LoginComponent = class LoginComponent {
         this.router = router;
         this.appServices = appServices;
         this.loginControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]);
-        this.passwordControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(10)]);
+        this.passwordControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(1)]);
         this.hide = true;
         this.hideRequiredControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](false);
         this.floatLabelControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('auto');
         this.connected = false;
         this.connectionResponse = '';
         this.mobileFormStyle = { width: '90%', 'margin-left': '5%', 'margin-top': '10%' };
-        this.desktopFormStyle = { width: '30%', 'margin-left': '30%', 'margin-top': '10%' };
+        this.desktopFormStyle = { width: '45%', 'margin-left': '30%', 'margin-top': '10%' };
         this.formOptions = fb.group({
             hideRequired: this.hideRequiredControl,
             floatLabel: this.floatLabelControl
@@ -954,7 +966,6 @@ let LoginComponent = class LoginComponent {
             .subscribe(results => {
             if (results.matches) {
                 this.formStyle = this.mobileFormStyle;
-                this.appServices.switchToAdminMenu(this.connected);
             }
             else {
                 this.formStyle = this.desktopFormStyle;
@@ -987,6 +998,7 @@ let LoginComponent = class LoginComponent {
             if (response.ok) {
                 this.connected = true;
                 this.connectionResponse = response.message;
+                this.appServices.enableAdminConsole(true);
                 this.router
                     .navigate(['/admin', 'articles', 'add'])
                     .then(res => {
@@ -1014,9 +1026,67 @@ LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-login',
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./login.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/content/admin/login/login.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./login.component.css */ "./src/app/pages/content/admin/login/login.component.css")).default]
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./login.component.css */ "./src/app/pages/content/admin/login/login.component.css")).default, tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ../../../../app.component.css */ "./src/app/app.component.css")).default]
     })
 ], LoginComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/content/article-details/article-details.component.css":
+/*!*****************************************************************************!*\
+  !*** ./src/app/pages/content/article-details/article-details.component.css ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("ul.breadcrumb {\n  padding: 10px 16px;\n  list-style: none;\n  background-color: white;\n}\nul.breadcrumb li {\n  display: inline;\n  font-size: 15px;\n}\nul.breadcrumb li+li:before {\n  content: \"/\\00a0\";\n}\nul.breadcrumb li a {\n  color: #0275d8;\n  text-decoration: none;\n}\nul.breadcrumb li a:hover {\n  color: #01447e;\n  text-decoration: underline;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvY29udGVudC9hcnRpY2xlLWRldGFpbHMvYXJ0aWNsZS1kZXRhaWxzLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLHVCQUF1QjtBQUN6QjtBQUNBO0VBQ0UsZUFBZTtFQUNmLGVBQWU7QUFDakI7QUFDQTtFQUNFLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0UsY0FBYztFQUNkLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UsY0FBYztFQUNkLDBCQUEwQjtBQUM1QiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2NvbnRlbnQvYXJ0aWNsZS1kZXRhaWxzL2FydGljbGUtZGV0YWlscy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsidWwuYnJlYWRjcnVtYiB7XG4gIHBhZGRpbmc6IDEwcHggMTZweDtcbiAgbGlzdC1zdHlsZTogbm9uZTtcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XG59XG51bC5icmVhZGNydW1iIGxpIHtcbiAgZGlzcGxheTogaW5saW5lO1xuICBmb250LXNpemU6IDE1cHg7XG59XG51bC5icmVhZGNydW1iIGxpK2xpOmJlZm9yZSB7XG4gIGNvbnRlbnQ6IFwiL1xcMDBhMFwiO1xufVxudWwuYnJlYWRjcnVtYiBsaSBhIHtcbiAgY29sb3I6ICMwMjc1ZDg7XG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbn1cbnVsLmJyZWFkY3J1bWIgbGkgYTpob3ZlciB7XG4gIGNvbG9yOiAjMDE0NDdlO1xuICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTtcbn1cbiJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/pages/content/article-details/article-details.component.ts":
+/*!****************************************************************************!*\
+  !*** ./src/app/pages/content/article-details/article-details.component.ts ***!
+  \****************************************************************************/
+/*! exports provided: ArticleDetailsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArticleDetailsComponent", function() { return ArticleDetailsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_ArticlesServices__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/ArticlesServices */ "./src/app/services/ArticlesServices.ts");
+
+
+
+
+let ArticleDetailsComponent = class ArticleDetailsComponent {
+    constructor(activatedRoute, articlesServices) {
+        this.activatedRoute = activatedRoute;
+        this.articlesServices = articlesServices;
+    }
+    ngOnInit() {
+        this.activatedRoute.params.subscribe(params => {
+            this.articleDetails = this.articlesServices.findArticleById(+params.id);
+        });
+    }
+};
+ArticleDetailsComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: _services_ArticlesServices__WEBPACK_IMPORTED_MODULE_3__["ArticlesServices"] }
+];
+ArticleDetailsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-article-details',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./article-details.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/content/article-details/article-details.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./article-details.component.css */ "./src/app/pages/content/article-details/article-details.component.css")).default]
+    })
+], ArticleDetailsComponent);
 
 
 
@@ -1031,7 +1101,7 @@ LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2NvbnRlbnQvYXJ0aWNsZXMvYXJ0aWNsZXMuY29tcG9uZW50LmNzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = (".avatar-image {\n  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');\n  background-size: cover;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvY29udGVudC9hcnRpY2xlcy9hcnRpY2xlcy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsbUZBQW1GO0VBQ25GLHNCQUFzQjtBQUN4QiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2NvbnRlbnQvYXJ0aWNsZXMvYXJ0aWNsZXMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5hdmF0YXItaW1hZ2Uge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoJ2h0dHBzOi8vbWF0ZXJpYWwuYW5ndWxhci5pby9hc3NldHMvaW1nL2V4YW1wbGVzL3NoaWJhMS5qcGcnKTtcbiAgYmFja2dyb3VuZC1zaXplOiBjb3Zlcjtcbn1cbiJdfQ== */");
 
 /***/ }),
 
@@ -1048,90 +1118,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _services_ArticlesServices__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/ArticlesServices */ "./src/app/services/ArticlesServices.ts");
-/* harmony import */ var _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/cdk/layout */ "./node_modules/@angular/cdk/esm2015/layout.js");
-/* harmony import */ var _services_AuthenticationServices__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../services/AuthenticationServices */ "./src/app/services/AuthenticationServices.ts");
-
-
+/* harmony import */ var _services_ArticlesServices__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/ArticlesServices */ "./src/app/services/ArticlesServices.ts");
+/* harmony import */ var _services_AppServices__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/AppServices */ "./src/app/services/AppServices.ts");
 
 
 
 
 
 let ArticlesComponent = class ArticlesComponent {
-    constructor(router, activatedRoute, articlesServices, mobileDevicesObserver, authenticationServices) {
+    constructor(router, activatedRoute, articlesServices, appServices) {
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.articlesServices = articlesServices;
-        this.mobileDevicesObserver = mobileDevicesObserver;
-        this.authenticationServices = authenticationServices;
-        this.ORDER_ASC = 'ASC';
-        this.ORDER_DESC = 'DESC';
-        this.dateFilterControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]();
-        this.dateFilter = [
-            { value: this.ORDER_DESC, viewValue: 'Les plus récents d\'abord' },
-            { value: this.ORDER_ASC, viewValue: 'Les plus anciens d\'abord' }
-        ];
-        this.displayArticleDetails = false;
-        mobileDevicesObserver
-            .observe([_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_5__["Breakpoints"].Handset, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_5__["Breakpoints"].Tablet, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_5__["Breakpoints"].WebPortrait])
-            .subscribe(results => {
-            if (results.matches) {
-                this.dateFilterCols = 1;
-                this.dateFilterRows = '4:1';
-            }
-            else {
-                this.dateFilterCols = 3;
-                this.dateFilterRows = '3:1';
+        this.appServices = appServices;
+        appServices.observeWebLandscape().subscribe(res => {
+            if (res.matches) {
+                this.cols = 3;
+                this.rowHeight = '1:1';
             }
         });
-        authenticationServices.switchToAdminConsole(false);
+        appServices.observeTablet().subscribe(res => {
+            if (res.matches) {
+                this.cols = 2;
+                this.rowHeight = '9:10';
+            }
+        });
+        appServices.observePhone().subscribe(res => {
+            if (res.matches) {
+                this.cols = 1;
+                this.rowHeight = '9:10';
+            }
+        });
     }
     ngOnInit() {
-        if (this.articles === undefined) {
-            this.articles = this.articlesServices.findAll();
-        }
-        this.articles = this.articlesServices.sortArticlesByDateDescending();
-    }
-    ngDoCheck() {
-        this.router.events.subscribe(event => {
-            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_1__["NavigationEnd"]) {
-                this.articles = this.articlesServices.filterResultsBasedOnTopic(this.articlesServices.getTopicBasedOnUrl(event.url));
-            }
-        });
-    }
-    onFilterChange() {
-        const selected = this.dateFilterControl.value;
-        if (selected === this.ORDER_ASC) {
-            this.articles = this.articlesServices.sortArticlesByDateAscending();
-        }
-        if (selected === this.ORDER_DESC) {
-            this.articles = this.articlesServices.sortArticlesByDateDescending();
-        }
-    }
-    onShowArticleDetails(id) {
-        this.articleDetails = this.articlesServices.findArticleById(id);
-        this.displayArticleDetails = !this.displayArticleDetails;
-    }
-    onNavigateBack() {
-        this.displayArticleDetails = !this.displayArticleDetails;
-        this.router
-            .navigate(['/articles'])
-            .then(value => {
-            console.log('navigation succeed');
-        })
-            .catch(reason => {
-            console.log('Something went wrong during the navigation. Reason [' + reason + ']');
-        });
+        this.articles = this.articlesServices.findAll();
+        this.articles = this.articlesServices.sortArticlesByDateDescending(this.articles);
     }
 };
 ArticlesComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"] },
-    { type: _services_ArticlesServices__WEBPACK_IMPORTED_MODULE_4__["ArticlesServices"] },
-    { type: _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_5__["BreakpointObserver"] },
-    { type: _services_AuthenticationServices__WEBPACK_IMPORTED_MODULE_6__["AuthenticationServices"] }
+    { type: _services_ArticlesServices__WEBPACK_IMPORTED_MODULE_3__["ArticlesServices"] },
+    { type: _services_AppServices__WEBPACK_IMPORTED_MODULE_4__["AppServices"] }
 ];
 ArticlesComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -1140,6 +1168,98 @@ ArticlesComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./articles.component.css */ "./src/app/pages/content/articles/articles.component.css")).default, tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ../main-content/main-content.component.css */ "./src/app/pages/content/main-content/main-content.component.css")).default]
     })
 ], ArticlesComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/content/contact/contact.component.css":
+/*!*************************************************************!*\
+  !*** ./src/app/pages/content/contact/contact.component.css ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2NvbnRlbnQvY29udGFjdC9jb250YWN0LmNvbXBvbmVudC5jc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/pages/content/contact/contact.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/pages/content/contact/contact.component.ts ***!
+  \************************************************************/
+/*! exports provided: ContactComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactComponent", function() { return ContactComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _services_AppServices__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/AppServices */ "./src/app/services/AppServices.ts");
+
+
+
+
+let ContactComponent = class ContactComponent {
+    constructor(fb, appServices) {
+        this.fb = fb;
+        this.appServices = appServices;
+        this.emailControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email]);
+        this.messageControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(10)]);
+        this.hide = true;
+        this.hideRequiredControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](false);
+        this.floatLabelControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('auto');
+        this.mobileFormStyle = { width: '100%', 'margin-top': '3%' };
+        this.desktopFormStyle = { width: '100%', 'margin-top': '3%' };
+        this.formOptions = fb.group({
+            hideRequired: this.hideRequiredControl,
+            floatLabel: this.floatLabelControl
+        });
+        appServices
+            .observeMobileDevices()
+            .subscribe(results => {
+            this.formStyle = results.matches ? this.mobileFormStyle : this.desktopFormStyle;
+        });
+    }
+    ngOnInit() {
+    }
+    onSubmit() {
+        console.log(this.emailControl.value);
+    }
+    handleEmailError() {
+        if (this.emailControl.hasError('required')) {
+            return 'Email obligatoire';
+        }
+        if (this.emailControl.hasError('email')) {
+            return 'Format email non valide';
+        }
+        return '';
+    }
+    handleMessageError() {
+        if (this.messageControl.hasError('required')) {
+            return 'Le message est obligatoire';
+        }
+        if (this.messageControl.hasError('minLength')) {
+            return 'Votre message est trop court. Dites-nous en un peu plus!';
+        }
+        return '';
+    }
+};
+ContactComponent.ctorParameters = () => [
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
+    { type: _services_AppServices__WEBPACK_IMPORTED_MODULE_3__["AppServices"] }
+];
+ContactComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-contact',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./contact.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/content/contact/contact.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./contact.component.css */ "./src/app/pages/content/contact/contact.component.css")).default, tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ../../../app.component.css */ "./src/app/app.component.css")).default]
+    })
+], ContactComponent);
 
 
 
@@ -1154,7 +1274,7 @@ ArticlesComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".blog-main-container {\n  width: 100vw;\n  height: 100vh;\n  overflow: hidden;\n}\n\n.blog-left-section {\n  width: 15%;\n  height: 100%;\n  color: whitesmoke;\n  background-color: #003748;\n}\n\n.blog-right-section {\n  background-color: whitesmoke;\n}\n\n.mat-drawer-content {\n  overflow-y: scroll;\n}\n\n.ad-page-content {\n  padding: 25px 5%;\n}\n\n.ad-card-title {\n  text-align: center;\n  margin-bottom: 25px;\n}\n\n.ad-card-article {\n  text-align: left;\n  margin-bottom: 25px;\n}\n\n.ad-article-avatar {\n  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');\n  background-size: cover;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvY29udGVudC9tYWluLWNvbnRlbnQvbWFpbi1jb250ZW50LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLFVBQVU7RUFDVixZQUFZO0VBQ1osaUJBQWlCO0VBQ2pCLHlCQUF5QjtBQUMzQjs7QUFFQTtFQUNFLDRCQUE0QjtBQUM5Qjs7QUFFQTtFQUNFLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLGtCQUFrQjtFQUNsQixtQkFBbUI7QUFDckI7O0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsbUJBQW1CO0FBQ3JCOztBQUVBO0VBQ0UsbUZBQW1GO0VBQ25GLHNCQUFzQjtBQUN4QiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2NvbnRlbnQvbWFpbi1jb250ZW50L21haW4tY29udGVudC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmJsb2ctbWFpbi1jb250YWluZXIge1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG5cbi5ibG9nLWxlZnQtc2VjdGlvbiB7XG4gIHdpZHRoOiAxNSU7XG4gIGhlaWdodDogMTAwJTtcbiAgY29sb3I6IHdoaXRlc21va2U7XG4gIGJhY2tncm91bmQtY29sb3I6ICMwMDM3NDg7XG59XG5cbi5ibG9nLXJpZ2h0LXNlY3Rpb24ge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZXNtb2tlO1xufVxuXG4ubWF0LWRyYXdlci1jb250ZW50IHtcbiAgb3ZlcmZsb3cteTogc2Nyb2xsO1xufVxuXG4uYWQtcGFnZS1jb250ZW50IHtcbiAgcGFkZGluZzogMjVweCA1JTtcbn1cblxuLmFkLWNhcmQtdGl0bGUge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIG1hcmdpbi1ib3R0b206IDI1cHg7XG59XG5cbi5hZC1jYXJkLWFydGljbGUge1xuICB0ZXh0LWFsaWduOiBsZWZ0O1xuICBtYXJnaW4tYm90dG9tOiAyNXB4O1xufVxuXG4uYWQtYXJ0aWNsZS1hdmF0YXIge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoJ2h0dHBzOi8vbWF0ZXJpYWwuYW5ndWxhci5pby9hc3NldHMvaW1nL2V4YW1wbGVzL3NoaWJhMS5qcGcnKTtcbiAgYmFja2dyb3VuZC1zaXplOiBjb3Zlcjtcbn1cbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".blog-main-container {\n  width: 100vw;\n  height: 100vh;\n  overflow: hidden;\n}\n\n.blog-left-section {\n  width: 15%;\n  height: 100%;\n  color: whitesmoke;\n  background-color: #003748;\n}\n\n.blog-right-section {\n  background-color: whitesmoke;\n}\n\n.mat-drawer-content {\n  overflow-x: hidden;\n  overflow-y: scroll;\n}\n\n.ad-page-content {\n  padding: 25px 5%;\n}\n\n.ad-card-title {\n  text-align: center;\n  margin-bottom: 25px;\n}\n\n.ad-card-article {\n  text-align: left;\n  margin-bottom: 25px;\n}\n\n.ad-article-avatar {\n  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');\n  background-size: cover;\n}\n\n#main {\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  background-color: whitesmoke;\n  overflow: hidden;;\n}\n\n#main div {\n  flex: auto;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvY29udGVudC9tYWluLWNvbnRlbnQvbWFpbi1jb250ZW50LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLFVBQVU7RUFDVixZQUFZO0VBQ1osaUJBQWlCO0VBQ2pCLHlCQUF5QjtBQUMzQjs7QUFFQTtFQUNFLDRCQUE0QjtBQUM5Qjs7QUFFQTtFQUNFLGtCQUFrQjtFQUNsQixrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsbUJBQW1CO0FBQ3JCOztBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLG1CQUFtQjtBQUNyQjs7QUFFQTtFQUNFLG1GQUFtRjtFQUNuRixzQkFBc0I7QUFDeEI7O0FBR0E7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLGFBQWE7RUFDYiw0QkFBNEI7RUFDNUIsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsVUFBVTtBQUNaIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvY29udGVudC9tYWluLWNvbnRlbnQvbWFpbi1jb250ZW50LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYmxvZy1tYWluLWNvbnRhaW5lciB7XG4gIHdpZHRoOiAxMDB2dztcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cblxuLmJsb2ctbGVmdC1zZWN0aW9uIHtcbiAgd2lkdGg6IDE1JTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBjb2xvcjogd2hpdGVzbW9rZTtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzAwMzc0ODtcbn1cblxuLmJsb2ctcmlnaHQtc2VjdGlvbiB7XG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlc21va2U7XG59XG5cbi5tYXQtZHJhd2VyLWNvbnRlbnQge1xuICBvdmVyZmxvdy14OiBoaWRkZW47XG4gIG92ZXJmbG93LXk6IHNjcm9sbDtcbn1cblxuLmFkLXBhZ2UtY29udGVudCB7XG4gIHBhZGRpbmc6IDI1cHggNSU7XG59XG5cbi5hZC1jYXJkLXRpdGxlIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBtYXJnaW4tYm90dG9tOiAyNXB4O1xufVxuXG4uYWQtY2FyZC1hcnRpY2xlIHtcbiAgdGV4dC1hbGlnbjogbGVmdDtcbiAgbWFyZ2luLWJvdHRvbTogMjVweDtcbn1cblxuLmFkLWFydGljbGUtYXZhdGFyIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKCdodHRwczovL21hdGVyaWFsLmFuZ3VsYXIuaW8vYXNzZXRzL2ltZy9leGFtcGxlcy9zaGliYTEuanBnJyk7XG4gIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG59XG5cblxuI21haW4ge1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlc21va2U7XG4gIG92ZXJmbG93OiBoaWRkZW47O1xufVxuXG4jbWFpbiBkaXYge1xuICBmbGV4OiBhdXRvO1xufVxuIl19 */");
 
 /***/ }),
 
@@ -1170,12 +1290,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainContentComponent", function() { return MainContentComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/layout */ "./node_modules/@angular/cdk/esm2015/layout.js");
+
 
 
 let MainContentComponent = class MainContentComponent {
-    constructor() { }
-    ngOnInit() { }
+    constructor(mobileDeviceObserver) {
+        this.mobileDeviceObserver = mobileDeviceObserver;
+        this.smallScreen = false;
+    }
+    ngOnInit() {
+        this.mobileDeviceObserver
+            .observe([_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_2__["Breakpoints"].Handset, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_2__["Breakpoints"].WebPortrait, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_2__["Breakpoints"].TabletPortrait])
+            .subscribe(res => {
+            this.smallScreen = res.matches;
+        });
+    }
 };
+MainContentComponent.ctorParameters = () => [
+    { type: _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_2__["BreakpointObserver"] }
+];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
 ], MainContentComponent.prototype, "menuOpened", void 0);
@@ -1200,7 +1334,7 @@ MainContentComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".mat-toolbar {\n  color: white;\n  background-color: #003748;\n}\n\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBWTtFQUNaLHlCQUF5QjtBQUMzQiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2hlYWRlci9oZWFkZXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5tYXQtdG9vbGJhciB7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzAwMzc0ODtcbn1cblxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".header-styles {\n  overflow-scrolling: unset;\n  color: white;\n  background-color: #0050a5; /* another color: #003748 */\n}\n\n.header-content-alignment {\n  width: 100vw;\n  display: flex;\n}\n\n.header-content-alignment div {\n  flex: auto;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWix5QkFBeUIsRUFBRSwyQkFBMkI7QUFDeEQ7O0FBRUE7RUFDRSxZQUFZO0VBQ1osYUFBYTtBQUNmOztBQUVBO0VBQ0UsVUFBVTtBQUNaIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmhlYWRlci1zdHlsZXMge1xuICBvdmVyZmxvdy1zY3JvbGxpbmc6IHVuc2V0O1xuICBjb2xvcjogd2hpdGU7XG4gIGJhY2tncm91bmQtY29sb3I6ICMwMDUwYTU7IC8qIGFub3RoZXIgY29sb3I6ICMwMDM3NDggKi9cbn1cblxuLmhlYWRlci1jb250ZW50LWFsaWdubWVudCB7XG4gIHdpZHRoOiAxMDB2dztcbiAgZGlzcGxheTogZmxleDtcbn1cblxuLmhlYWRlci1jb250ZW50LWFsaWdubWVudCBkaXYge1xuICBmbGV4OiBhdXRvO1xufVxuIl19 */");
 
 /***/ }),
 
@@ -1227,12 +1361,9 @@ let HeaderComponent = class HeaderComponent {
         this.router = router;
         this.appServices = appServices;
         this.toolbarMenuOpened = undefined;
-        this.switchToAdminMenu = false;
-        appServices
-            .getAppMenuObserver()
-            .subscribe(canSwitch => {
-            this.switchToAdminMenu = canSwitch;
-        });
+        this.smallScreen = false;
+        this.mobileDeviceMenuOpened = false;
+        appServices.observeMobileDevices().subscribe(res => this.smallScreen = res.matches);
     }
     ngOnInit() {
         this.router.events.subscribe(value => {
@@ -1242,13 +1373,17 @@ let HeaderComponent = class HeaderComponent {
         });
     }
     onMenuToggle() {
-        this.toolbarMenuOpened = !this.toolbarMenuOpened;
+        this.mobileDeviceMenuOpened = !this.mobileDeviceMenuOpened;
+        this.appServices.openMenuForMobileDevices(this.mobileDeviceMenuOpened);
     }
 };
 HeaderComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _services_AppServices__WEBPACK_IMPORTED_MODULE_3__["AppServices"] }
 ];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], HeaderComponent.prototype, "mobileDeviceMenuOpened", void 0);
 HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-header',
@@ -1340,20 +1475,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/cdk/layout */ "./node_modules/@angular/cdk/esm2015/layout.js");
+
 
 
 
 let AppServices = class AppServices {
-    constructor() {
-        this.appMenuSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+    constructor(mobileDeviceObserver, phoneObserver, tabletObserver, webLandscapeObserver) {
+        this.mobileDeviceObserver = mobileDeviceObserver;
+        this.phoneObserver = phoneObserver;
+        this.tabletObserver = tabletObserver;
+        this.webLandscapeObserver = webLandscapeObserver;
+        this.openAdminConsoleSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        this.mobileDevicesMenuSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
     }
-    getAppMenuObserver() {
-        return this.appMenuSubject.asObservable();
+    getOpenAdminConsoleSubjectObserver() {
+        return this.openAdminConsoleSubject.asObservable();
     }
-    switchToAdminMenu(canSwitch) {
-        this.appMenuSubject.next(canSwitch);
+    enableAdminConsole(enable) {
+        this.openAdminConsoleSubject.next(enable);
+    }
+    getMobileDevicesMenuObserver() {
+        return this.mobileDevicesMenuSubject.asObservable();
+    }
+    openMenuForMobileDevices(opened) {
+        this.mobileDevicesMenuSubject.next(opened);
+    }
+    observeMobileDevices() {
+        return this.mobileDeviceObserver.observe([_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_3__["Breakpoints"].Handset, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_3__["Breakpoints"].Tablet, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_3__["Breakpoints"].WebPortrait]);
+    }
+    observePhone() {
+        return this.phoneObserver.observe([_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_3__["Breakpoints"].Handset]);
+    }
+    observeTablet() {
+        return this.tabletObserver.observe([_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_3__["Breakpoints"].Tablet, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_3__["Breakpoints"].WebPortrait]);
+    }
+    observeWebLandscape() {
+        return this.webLandscapeObserver.observe([_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_3__["Breakpoints"].WebLandscape]);
     }
 };
+AppServices.ctorParameters = () => [
+    { type: _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_3__["BreakpointObserver"] },
+    { type: _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_3__["BreakpointObserver"] },
+    { type: _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_3__["BreakpointObserver"] },
+    { type: _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_3__["BreakpointObserver"] }
+];
 AppServices = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
         providedIn: 'root'
@@ -1378,9 +1544,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _articles_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./articles.json */ "./src/app/services/articles.json");
 var _articles_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./articles.json */ "./src/app/services/articles.json", 1);
-/* harmony import */ var _enums_ArticlesTopics__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../enums/ArticlesTopics */ "./src/app/enums/ArticlesTopics.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 
 
 
@@ -1391,60 +1555,39 @@ let ArticlesServices = class ArticlesServices {
         this.API_ARTICLE_URL = 'http://localhost:8080/api/v1/articles';
     }
     findAll() {
-        if (this.articles !== null && this.articles.length > 0) {
+        if (this.articles !== null && this.articles !== undefined && this.articles.length > 0) {
             return this.articles;
         }
         this.articles = _articles_json__WEBPACK_IMPORTED_MODULE_2___namespace[Object.keys(_articles_json__WEBPACK_IMPORTED_MODULE_2___namespace).shift()];
-        this.http
+        /*this.http
             .get(this.API_ARTICLE_URL)
-            .subscribe(response => {
-            console.log('ok');
-        });
+            .subscribe( response => {
+              console.log('ok');
+            }); */
         return this.articles;
     }
-    sortArticlesByDateAscending() {
-        this.articles = this.articles.sort((a, b) => {
+    sortArticlesByDateAscending(articles) {
+        articles = articles.sort((a, b) => {
             const da = Date.parse(a.releaseDate);
             const db = Date.parse(b.releaseDate);
             return da - db;
         });
-        return this.articles;
+        return articles;
     }
-    sortArticlesByDateDescending() {
-        this.articles = this.articles.sort((a, b) => {
+    sortArticlesByDateDescending(articles) {
+        articles = articles.sort((a, b) => {
             const da = Date.parse(a.releaseDate);
             const db = Date.parse(b.releaseDate);
             return db - da;
         });
-        return this.articles;
-    }
-    filterResultsBasedOnTopic(searchTopic) {
-        if (searchTopic === _enums_ArticlesTopics__WEBPACK_IMPORTED_MODULE_3__["Topics"].ALL) {
-            this.articles = this.findAll();
-        }
-        else {
-            this.articles = this.findAll().filter(a => a.topics.find(tpc => tpc.value === searchTopic) !== undefined);
-        }
-        return this.articles;
-    }
-    getTopicBasedOnUrl(url) {
-        if (url.includes(_enums_ArticlesTopics__WEBPACK_IMPORTED_MODULE_3__["Topics"].EDUCATION)) {
-            return _enums_ArticlesTopics__WEBPACK_IMPORTED_MODULE_3__["Topics"].EDUCATION;
-        }
-        if (url.includes(_enums_ArticlesTopics__WEBPACK_IMPORTED_MODULE_3__["Topics"].HEALTHCARE)) {
-            return _enums_ArticlesTopics__WEBPACK_IMPORTED_MODULE_3__["Topics"].HEALTHCARE;
-        }
-        if (url.includes(_enums_ArticlesTopics__WEBPACK_IMPORTED_MODULE_3__["Topics"].FINTECH)) {
-            return _enums_ArticlesTopics__WEBPACK_IMPORTED_MODULE_3__["Topics"].FINTECH;
-        }
-        return _enums_ArticlesTopics__WEBPACK_IMPORTED_MODULE_3__["Topics"].ALL;
+        return articles;
     }
     findArticleById(id) {
         return this.findAll().find(article => article.id === id);
     }
 };
 ArticlesServices.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] }
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
 ];
 ArticlesServices = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -1595,7 +1738,7 @@ module.exports = JSON.parse("[{\"id\":7326452,\"title\":\"Les enjeux de l'entrep
 /*! exports provided: 0, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("[{\"id\":98776564,\"fullName\":\"Mohamed Toure\",\"login\":\"TouremBlog\",\"email\":\"contact@afropreneurdigital.com\",\"password\":\"m123456789\"}]");
+module.exports = JSON.parse("[{\"id\":98776564,\"fullName\":\"Mohamed Toure\",\"login\":\"TouremBlog\",\"email\":\"contact@afropreneurdigital.com\",\"password\":\"0000\"}]");
 
 /***/ }),
 
@@ -1673,3 +1816,4 @@ module.exports = __webpack_require__(/*! /Users/demahom/java/blog/src/main/ui/sr
 /***/ })
 
 },[[0,"runtime","vendor"]]]);
+//# sourceMappingURL=main-es2015.js.map

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/api/v1")
 @Slf4j
 public class AuthorController {
     private final AuthorService authorService;
@@ -20,12 +20,12 @@ public class AuthorController {
         this.authorService = service;
     }
 
-    @GetMapping("/all")
+    @GetMapping("/authors")
     List<Author> findAll() {
         return authorService.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/authors/{id}")
     Author findOne(@PathVariable Long id) {
         try {
             return authorService.findOne(id);
