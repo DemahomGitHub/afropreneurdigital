@@ -70,23 +70,33 @@ export class LoginComponent implements OnInit {
     const password = this.passwordControl.value;
 
     if (!this.loginControl.invalid && !this.passwordControl.invalid) {
-      const response = this.authenticationServices.login(login, password);
-      if (response.ok) {
-        this.connected = true;
-        this.connectionResponse = response.message;
-        this.appServices.enableAdminConsole(true);
-        this.router
-          .navigate(['/admin', 'articles', 'add'])
-          .then(res => {
-            console.log('Navigation succeed: ' + res);
-          })
-          .catch(err => {
-            console.log('Navigation failed: ' + err);
+      this.authenticationServices
+          .login(login, password)
+          .subscribe(response => {
+            if (response.status === 'OK') {
+              this.connected = true;
+              this.connectionResponse = response.message;
+              this.authenticationServices.setLoggedIn(this.connected);
+              this.authenticationServices.setAdmin(response.data);
+              this.router
+                .navigate(['/admin', 'articles', 'add'])
+                .then(ok => {
+                  console.log('Open console ?', ok);
+                  if (ok) {
+                    this.appServices.enableAdminConsole(ok);
+                    console.log('Opening admin console');
+                  } else {
+                    console.log('Unable to open the admin console');
+                  }
+                })
+                .catch(err => {
+                  console.log('Something went wrong: ' + err);
+                });
+            } else {
+              this.connected = false;
+              this.connectionResponse = response.message;
+            }
           });
-      } else {
-        this.connected = false;
-        this.connectionResponse = response.message;
-      }
     }
   }
 }

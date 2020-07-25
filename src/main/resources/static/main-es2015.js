@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"myApp\">\n  <mat-drawer-container *ngIf=\"!isAdminConsole\">\n    <mat-drawer class=\"mobile-devices-left-menu\" [opened]=\"leftMenuOpened\" mode=\"over\">\n      <mat-list>\n        <div mat-subheader style=\"width: 100%; color: white;\">\n          <span style=\"width: 50%; text-align: left;\">Menu</span>\n          <span style=\"width: 50%; text-align: right;\">\n          <button mat-button (click)=\"onMenuClosed()\">\n            <mat-icon>close</mat-icon>\n          </button>\n        </span>\n        </div>\n        <mat-list-item routerLink=\"/articles\"\n                       routerLinkActive=\"menu-link-active\"\n                       class=\"mat-list-web-item\"\n                       [routerLinkActiveOptions]=\"{exact: true}\" (click)=\"onMenuClosed()\">\n          <mat-icon mat-list-icon>home</mat-icon>\n          <div mat-line> Articles </div>\n        </mat-list-item>\n        <mat-list-item routerLink=\"/infos\" routerLinkActive=\"menu-link-active\" (click)=\"onMenuClosed()\" class=\"mat-list-web-item\">\n          <mat-icon mat-list-icon>info</mat-icon>\n          <div mat-line> A propos </div>\n        </mat-list-item>\n        <mat-list-item routerLink=\"/contact\" routerLinkActive=\"menu-link-active\" (click)=\"onMenuClosed()\" class=\"mat-list-web-item\">\n          <mat-icon mat-list-icon>mail</mat-icon>\n          <div mat-line> Contact </div>\n        </mat-list-item>\n      </mat-list>\n    </mat-drawer>\n    <mat-drawer-content>\n      <app-header [mobileDeviceMenuOpened]=\"leftMenuOpened\"></app-header>\n      <app-main-content></app-main-content>\n    </mat-drawer-content>\n  </mat-drawer-container>\n\n  <div *ngIf=\"isAdminConsole\">\n    <app-header [mobileDeviceMenuOpened]=\"leftMenuOpened\"></app-header>\n    <mat-drawer-container style=\"height: 100vh;\">\n      <mat-drawer [opened]=\"true\" mode=\"side\" class=\"desktop-devices-left-menu\">\n        <mat-list>\n          <div mat-subheader style=\"width: 100%; color: black;\">Console d'administration</div>\n          <mat-list-item routerLink=\"/admin/articles/add\" class=\"mat-list-admin-item\"\n                         routerLinkActive=\"link-active\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <mat-icon mat-list-icon>article</mat-icon>\n            <div mat-line> Nouvel article </div>\n          </mat-list-item>\n          <mat-list-item routerLink=\"/admin/articles/all\" class=\"mat-list-admin-item\"\n                         routerLinkActive=\"link-active\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <mat-icon mat-list-icon>update</mat-icon>\n            <div mat-line> Modifier article </div>\n          </mat-list-item>\n        </mat-list>\n        <ul class=\"admin-page-user-infos\">\n          <li>Mohamed Toure</li>\n          <li>\n            <a mat-button (click)=\"onDisconnect()\">Déconnexion</a>\n          </li>\n        </ul>\n      </mat-drawer>\n      <mat-drawer-content>\n        <router-outlet></router-outlet>\n      </mat-drawer-content>\n    </mat-drawer-container>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"myApp\">\n  <mat-drawer-container *ngIf=\"!isAdminConsole\">\n    <mat-drawer class=\"mobile-devices-left-menu\" [opened]=\"leftMenuOpened\" mode=\"over\">\n      <mat-list>\n        <div mat-subheader style=\"width: 100%; color: white;\">\n          <span style=\"width: 50%; text-align: left;\">Menu</span>\n          <span style=\"width: 50%; text-align: right;\">\n          <button mat-button (click)=\"onMenuClosed()\">\n            <mat-icon>close</mat-icon>\n          </button>\n        </span>\n        </div>\n        <mat-list-item routerLink=\"/articles\"\n                       routerLinkActive=\"menu-link-active\"\n                       class=\"mat-list-web-item\"\n                       [routerLinkActiveOptions]=\"{exact: true}\" (click)=\"onMenuClosed()\">\n          <mat-icon mat-list-icon>home</mat-icon>\n          <div mat-line> Articles </div>\n        </mat-list-item>\n        <mat-list-item routerLink=\"/infos\" routerLinkActive=\"menu-link-active\" (click)=\"onMenuClosed()\" class=\"mat-list-web-item\">\n          <mat-icon mat-list-icon>info</mat-icon>\n          <div mat-line> A propos </div>\n        </mat-list-item>\n        <mat-list-item routerLink=\"/contact\" routerLinkActive=\"menu-link-active\" (click)=\"onMenuClosed()\" class=\"mat-list-web-item\">\n          <mat-icon mat-list-icon>mail</mat-icon>\n          <div mat-line> Contact </div>\n        </mat-list-item>\n      </mat-list>\n    </mat-drawer>\n    <mat-drawer-content>\n      <app-header [mobileDeviceMenuOpened]=\"leftMenuOpened\"></app-header>\n      <app-main-content></app-main-content>\n    </mat-drawer-content>\n  </mat-drawer-container>\n\n  <div *ngIf=\"isAdminConsole\">\n    <app-header [mobileDeviceMenuOpened]=\"leftMenuOpened\"></app-header>\n    <mat-drawer-container style=\"height: 100vh;\">\n      <mat-drawer [opened]=\"true\" mode=\"side\" class=\"desktop-devices-left-menu\">\n        <mat-list>\n          <div mat-subheader style=\"width: 100%; color: black;\">Console d'administration</div>\n          <mat-list-item routerLink=\"/admin/articles/add\" class=\"mat-list-admin-item\"\n                         routerLinkActive=\"link-active\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <mat-icon mat-list-icon>article</mat-icon>\n            <div mat-line> Nouvel article </div>\n          </mat-list-item>\n          <mat-list-item routerLink=\"/admin/articles/all\" class=\"mat-list-admin-item\"\n                         routerLinkActive=\"link-active\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <mat-icon mat-list-icon>update</mat-icon>\n            <div mat-line> Modifier article </div>\n          </mat-list-item>\n        </mat-list>\n        <ul class=\"admin-page-user-infos\">\n          <li>{{admin.fullName}}</li>\n          <li>\n            <a mat-button (click)=\"onDisconnect()\">Déconnexion</a>\n          </li>\n        </ul>\n      </mat-drawer>\n      <mat-drawer-content>\n        <router-outlet></router-outlet>\n      </mat-drawer-content>\n    </mat-drawer-container>\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -500,13 +500,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_AppServices__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/AppServices */ "./src/app/services/AppServices.ts");
+/* harmony import */ var _services_AuthenticationServices__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/AuthenticationServices */ "./src/app/services/AuthenticationServices.ts");
+/* harmony import */ var _services_AppServices__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/AppServices */ "./src/app/services/AppServices.ts");
+
 
 
 
 let AppComponent = class AppComponent {
-    constructor(appServices) {
+    constructor(appServices, authenticationServices) {
         this.appServices = appServices;
+        this.authenticationServices = authenticationServices;
         this.leftMenuOpened = false;
         this.isAdminConsole = false;
     }
@@ -520,18 +523,25 @@ let AppComponent = class AppComponent {
             .getOpenAdminConsoleSubjectObserver()
             .subscribe(opened => {
             this.isAdminConsole = opened;
-            if (this.isAdminConsole) {
+            this.admin = this.authenticationServices.getAdmin();
+            if (opened) {
                 console.log('Admin Console Opened');
+            }
+            else {
+                console.log('Admin Console Closed');
             }
         });
     }
     onMenuClosed() {
         this.leftMenuOpened = !this.leftMenuOpened;
     }
-    onDisconnect() { }
+    onDisconnect() {
+        this.authenticationServices.disconnect();
+    }
 };
 AppComponent.ctorParameters = () => [
-    { type: _services_AppServices__WEBPACK_IMPORTED_MODULE_2__["AppServices"] }
+    { type: _services_AppServices__WEBPACK_IMPORTED_MODULE_3__["AppServices"] },
+    { type: _services_AuthenticationServices__WEBPACK_IMPORTED_MODULE_2__["AuthenticationServices"] }
 ];
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -994,24 +1004,35 @@ let LoginComponent = class LoginComponent {
         const login = this.loginControl.value;
         const password = this.passwordControl.value;
         if (!this.loginControl.invalid && !this.passwordControl.invalid) {
-            const response = this.authenticationServices.login(login, password);
-            if (response.ok) {
-                this.connected = true;
-                this.connectionResponse = response.message;
-                this.appServices.enableAdminConsole(true);
-                this.router
-                    .navigate(['/admin', 'articles', 'add'])
-                    .then(res => {
-                    console.log('Navigation succeed: ' + res);
-                })
-                    .catch(err => {
-                    console.log('Navigation failed: ' + err);
-                });
-            }
-            else {
-                this.connected = false;
-                this.connectionResponse = response.message;
-            }
+            this.authenticationServices
+                .login(login, password)
+                .subscribe(response => {
+                if (response.status === 'OK') {
+                    this.connected = true;
+                    this.connectionResponse = response.message;
+                    this.authenticationServices.setLoggedIn(this.connected);
+                    this.authenticationServices.setAdmin(response.data);
+                    this.router
+                        .navigate(['/admin', 'articles', 'add'])
+                        .then(ok => {
+                        console.log('Open console ?', ok);
+                        if (ok) {
+                            this.appServices.enableAdminConsole(ok);
+                            console.log('Opening admin console');
+                        }
+                        else {
+                            console.log('Unable to open the admin console');
+                        }
+                    })
+                        .catch(err => {
+                        console.log('Something went wrong: ' + err);
+                    });
+                }
+                else {
+                    this.connected = false;
+                    this.connectionResponse = response.message;
+                }
+            });
         }
     }
 };
@@ -1438,7 +1459,7 @@ let MenuComponent = class MenuComponent {
             .getAuthServiceMessage()
             .subscribe(canSwitch => {
             this.switchToAdminDashboard = canSwitch;
-            this.user = this.authenticationServices.findUser();
+            this.user = this.authenticationServices.getAdmin();
         });
     }
     onDisconnect() {
@@ -1611,50 +1632,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthenticationServices", function() { return AuthenticationServices; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _user_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user.json */ "./src/app/services/user.json");
-var _user_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./user.json */ "./src/app/services/user.json", 1);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 
 
 
 
 let AuthenticationServices = class AuthenticationServices {
-    constructor() {
-        this.result = { ok: false, code: '', message: '' };
-        this.authServiceMessage = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+    constructor(http) {
+        this.http = http;
+        this.authServiceMessage = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
         this.loggedIn = false;
+        this.BASE_URL = 'http://localhost:8080/api/v1/authors/';
     }
     login(login, password) {
-        const user = this.findUser();
-        if (user.login !== login) {
-            this.result = {
-                ok: false,
-                code: 'INCORRECT_LOGIN',
-                message: 'Login incorrect. Veuillez réssayer'
-            };
-        }
-        else if (user.password !== password) {
-            this.result = {
-                ok: false,
-                code: 'INCORRECT_PASSWORD',
-                message: 'Mot de passe incorrect. Veuillez réssayer'
-            };
-        }
-        else {
-            this.result = {
-                ok: true,
-                code: 'CONNECTION_SUCCEED',
-                message: 'Connexion réussie !'
-            };
-            this.loggedIn = true;
-        }
-        return this.result;
+        return this.http.get(this.BASE_URL + login + '/' + password);
     }
-    findUser() {
-        if (this.admin === undefined || this.admin === null) {
-            this.admin = _user_json__WEBPACK_IMPORTED_MODULE_2___namespace[Object.keys(_user_json__WEBPACK_IMPORTED_MODULE_2___namespace).shift()].shift();
-        }
+    getAdmin() {
         return this.admin;
+    }
+    setAdmin(newAdmin) {
+        this.admin = newAdmin;
     }
     switchToAdminConsole(canSwitch) {
         this.authServiceMessage.next(canSwitch);
@@ -1665,13 +1663,18 @@ let AuthenticationServices = class AuthenticationServices {
     connected() {
         return this.loggedIn;
     }
+    setLoggedIn(logged) {
+        this.loggedIn = logged;
+    }
     disconnect() {
         this.loggedIn = false;
         this.admin = null;
-        this.result = null;
         this.switchToAdminConsole(false);
     }
 };
+AuthenticationServices.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
+];
 AuthenticationServices = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
         providedIn: 'root'
@@ -1728,17 +1731,6 @@ CanActivateAdmin = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /***/ (function(module) {
 
 module.exports = JSON.parse("[{\"id\":7326452,\"title\":\"Les enjeux de l'entrepreneuriat en Afrique\",\"releaseDate\":\"2020/05/20\",\"author\":\"Mohamed Toure\",\"topics\":[{\"label\":\"Education\",\"value\":\"education\"}],\"content\":\" Lorem ipsum dolor sit amet, consectetur adipiscing elit.\\n      la quam velit, vulputate eu pharetra nec, mattis ac neque.\\n      Duis vulputate commodo lectus, ac blandit elit tincidunt id.\\n      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.\\n      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.\\n      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.\\n      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.\\n      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.\\n      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.\"},{\"id\":7566452,\"title\":\"Les enjeux de l'entrepreneuriat Dans le monde\",\"releaseDate\":\"2020/05/21\",\"author\":\"Mohamed Toure\",\"topics\":[{\"label\":\"Education\",\"value\":\"education\"}],\"content\":\" Lorem ipsum dolor sit amet, consectetur adipiscing elit.\\n      la quam velit, vulputate eu pharetra nec, mattis ac neque.\\n      Duis vulputate commodo lectus, ac blandit elit tincidunt id.\\n      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.\\n      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.\\n      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.\\n      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.\\n      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.\\n      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.\"},{\"id\":73632452,\"title\":\"Les enjeux de l'entrepreneuriat en Afrique\",\"releaseDate\":\"2020/05/22\",\"author\":\"Mohamed Toure\",\"topics\":[{\"label\":\"Education\",\"value\":\"education\"}],\"content\":\" Lorem ipsum dolor sit amet, consectetur adipiscing elit.\\n      la quam velit, vulputate eu pharetra nec, mattis ac neque.\\n      Duis vulputate commodo lectus, ac blandit elit tincidunt id.\\n      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.\\n      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.\\n      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.\\n      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.\\n      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.\\n      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.\"},{\"id\":73632459,\"title\":\"L'entrepreneuriat dans la santé\",\"releaseDate\":\"2020/05/23\",\"author\":\"Mohamed Toure\",\"topics\":[{\"label\":\"Santé\",\"value\":\"healthcare\"}],\"content\":\" Lorem ipsum dolor sit amet, consectetur adipiscing elit.\\n      la quam velit, vulputate eu pharetra nec, mattis ac neque.\\n      Duis vulputate commodo lectus, ac blandit elit tincidunt id.\\n      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.\\n      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.\\n      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.\\n      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.\\n      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.\\n      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.\"},{\"id\":73632449,\"title\":\"Les enjeux de l'entrepreneuriat en Afrique\",\"releaseDate\":\"2020/05/24\",\"author\":\"Mohamed Toure\",\"topics\":[{\"label\":\"Fin Tech\",\"value\":\"fintech\"},{\"label\":\"Santé\",\"value\":\"healthcare\"}],\"content\":\" Lorem ipsum dolor sit amet, consectetur adipiscing elit.\\n      la quam velit, vulputate eu pharetra nec, mattis ac neque.\\n      Duis vulputate commodo lectus, ac blandit elit tincidunt id.\\n      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.\\n      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.\\n      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.\\n      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.\\n      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.\\n      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.\"}]");
-
-/***/ }),
-
-/***/ "./src/app/services/user.json":
-/*!************************************!*\
-  !*** ./src/app/services/user.json ***!
-  \************************************/
-/*! exports provided: 0, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("[{\"id\":98776564,\"fullName\":\"Mohamed Toure\",\"login\":\"TouremBlog\",\"email\":\"contact@afropreneurdigital.com\",\"password\":\"0000\"}]");
 
 /***/ }),
 

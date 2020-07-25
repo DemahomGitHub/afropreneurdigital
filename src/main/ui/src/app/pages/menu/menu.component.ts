@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
       .getAuthServiceMessage()
       .subscribe(canSwitch => {
         this.switchToAdminDashboard = canSwitch;
-        this.user = this.authenticationServices.findUser();
+        this.user = this.authenticationServices.getAdmin();
       });
   }
 

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {AuthenticationServices} from './services/AuthenticationServices';
 import {AppServices} from './services/AppServices';
+import {User} from './model/User';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +11,12 @@ import {AppServices} from './services/AppServices';
 export class AppComponent implements OnInit {
   leftMenuOpened = false;
   isAdminConsole = false;
+  admin: User;
 
-  constructor(private appServices: AppServices) {}
+  constructor(
+    private appServices: AppServices,
+    private authenticationServices: AuthenticationServices
+  ) {}
 
   ngOnInit() {
     this.appServices
@@ -24,8 +28,11 @@ export class AppComponent implements OnInit {
         .getOpenAdminConsoleSubjectObserver()
         .subscribe(opened => {
           this.isAdminConsole = opened;
-          if (this.isAdminConsole) {
+          this.admin = this.authenticationServices.getAdmin();
+          if (opened) {
             console.log('Admin Console Opened');
+          } else {
+            console.log('Admin Console Closed');
           }
         });
   }
@@ -34,5 +41,7 @@ export class AppComponent implements OnInit {
     this.leftMenuOpened = !this.leftMenuOpened;
   }
 
-  onDisconnect() {}
+  onDisconnect() {
+    this.authenticationServices.disconnect();
+  }
 }

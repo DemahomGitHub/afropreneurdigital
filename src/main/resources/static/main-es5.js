@@ -51,7 +51,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div id=\"myApp\">\n  <mat-drawer-container *ngIf=\"!isAdminConsole\">\n    <mat-drawer class=\"mobile-devices-left-menu\" [opened]=\"leftMenuOpened\" mode=\"over\">\n      <mat-list>\n        <div mat-subheader style=\"width: 100%; color: white;\">\n          <span style=\"width: 50%; text-align: left;\">Menu</span>\n          <span style=\"width: 50%; text-align: right;\">\n          <button mat-button (click)=\"onMenuClosed()\">\n            <mat-icon>close</mat-icon>\n          </button>\n        </span>\n        </div>\n        <mat-list-item routerLink=\"/articles\"\n                       routerLinkActive=\"menu-link-active\"\n                       class=\"mat-list-web-item\"\n                       [routerLinkActiveOptions]=\"{exact: true}\" (click)=\"onMenuClosed()\">\n          <mat-icon mat-list-icon>home</mat-icon>\n          <div mat-line> Articles </div>\n        </mat-list-item>\n        <mat-list-item routerLink=\"/infos\" routerLinkActive=\"menu-link-active\" (click)=\"onMenuClosed()\" class=\"mat-list-web-item\">\n          <mat-icon mat-list-icon>info</mat-icon>\n          <div mat-line> A propos </div>\n        </mat-list-item>\n        <mat-list-item routerLink=\"/contact\" routerLinkActive=\"menu-link-active\" (click)=\"onMenuClosed()\" class=\"mat-list-web-item\">\n          <mat-icon mat-list-icon>mail</mat-icon>\n          <div mat-line> Contact </div>\n        </mat-list-item>\n      </mat-list>\n    </mat-drawer>\n    <mat-drawer-content>\n      <app-header [mobileDeviceMenuOpened]=\"leftMenuOpened\"></app-header>\n      <app-main-content></app-main-content>\n    </mat-drawer-content>\n  </mat-drawer-container>\n\n  <div *ngIf=\"isAdminConsole\">\n    <app-header [mobileDeviceMenuOpened]=\"leftMenuOpened\"></app-header>\n    <mat-drawer-container style=\"height: 100vh;\">\n      <mat-drawer [opened]=\"true\" mode=\"side\" class=\"desktop-devices-left-menu\">\n        <mat-list>\n          <div mat-subheader style=\"width: 100%; color: black;\">Console d'administration</div>\n          <mat-list-item routerLink=\"/admin/articles/add\" class=\"mat-list-admin-item\"\n                         routerLinkActive=\"link-active\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <mat-icon mat-list-icon>article</mat-icon>\n            <div mat-line> Nouvel article </div>\n          </mat-list-item>\n          <mat-list-item routerLink=\"/admin/articles/all\" class=\"mat-list-admin-item\"\n                         routerLinkActive=\"link-active\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <mat-icon mat-list-icon>update</mat-icon>\n            <div mat-line> Modifier article </div>\n          </mat-list-item>\n        </mat-list>\n        <ul class=\"admin-page-user-infos\">\n          <li>Mohamed Toure</li>\n          <li>\n            <a mat-button (click)=\"onDisconnect()\">Déconnexion</a>\n          </li>\n        </ul>\n      </mat-drawer>\n      <mat-drawer-content>\n        <router-outlet></router-outlet>\n      </mat-drawer-content>\n    </mat-drawer-container>\n  </div>\n</div>\n";
+    __webpack_exports__["default"] = "<div id=\"myApp\">\n  <mat-drawer-container *ngIf=\"!isAdminConsole\">\n    <mat-drawer class=\"mobile-devices-left-menu\" [opened]=\"leftMenuOpened\" mode=\"over\">\n      <mat-list>\n        <div mat-subheader style=\"width: 100%; color: white;\">\n          <span style=\"width: 50%; text-align: left;\">Menu</span>\n          <span style=\"width: 50%; text-align: right;\">\n          <button mat-button (click)=\"onMenuClosed()\">\n            <mat-icon>close</mat-icon>\n          </button>\n        </span>\n        </div>\n        <mat-list-item routerLink=\"/articles\"\n                       routerLinkActive=\"menu-link-active\"\n                       class=\"mat-list-web-item\"\n                       [routerLinkActiveOptions]=\"{exact: true}\" (click)=\"onMenuClosed()\">\n          <mat-icon mat-list-icon>home</mat-icon>\n          <div mat-line> Articles </div>\n        </mat-list-item>\n        <mat-list-item routerLink=\"/infos\" routerLinkActive=\"menu-link-active\" (click)=\"onMenuClosed()\" class=\"mat-list-web-item\">\n          <mat-icon mat-list-icon>info</mat-icon>\n          <div mat-line> A propos </div>\n        </mat-list-item>\n        <mat-list-item routerLink=\"/contact\" routerLinkActive=\"menu-link-active\" (click)=\"onMenuClosed()\" class=\"mat-list-web-item\">\n          <mat-icon mat-list-icon>mail</mat-icon>\n          <div mat-line> Contact </div>\n        </mat-list-item>\n      </mat-list>\n    </mat-drawer>\n    <mat-drawer-content>\n      <app-header [mobileDeviceMenuOpened]=\"leftMenuOpened\"></app-header>\n      <app-main-content></app-main-content>\n    </mat-drawer-content>\n  </mat-drawer-container>\n\n  <div *ngIf=\"isAdminConsole\">\n    <app-header [mobileDeviceMenuOpened]=\"leftMenuOpened\"></app-header>\n    <mat-drawer-container style=\"height: 100vh;\">\n      <mat-drawer [opened]=\"true\" mode=\"side\" class=\"desktop-devices-left-menu\">\n        <mat-list>\n          <div mat-subheader style=\"width: 100%; color: black;\">Console d'administration</div>\n          <mat-list-item routerLink=\"/admin/articles/add\" class=\"mat-list-admin-item\"\n                         routerLinkActive=\"link-active\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <mat-icon mat-list-icon>article</mat-icon>\n            <div mat-line> Nouvel article </div>\n          </mat-list-item>\n          <mat-list-item routerLink=\"/admin/articles/all\" class=\"mat-list-admin-item\"\n                         routerLinkActive=\"link-active\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <mat-icon mat-list-icon>update</mat-icon>\n            <div mat-line> Modifier article </div>\n          </mat-list-item>\n        </mat-list>\n        <ul class=\"admin-page-user-infos\">\n          <li>{{admin.fullName}}</li>\n          <li>\n            <a mat-button (click)=\"onDisconnect()\">Déconnexion</a>\n          </li>\n        </ul>\n      </mat-drawer>\n      <mat-drawer-content>\n        <router-outlet></router-outlet>\n      </mat-drawer-content>\n    </mat-drawer-container>\n  </div>\n</div>\n";
     /***/
   },
 
@@ -1039,15 +1039,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _services_AppServices__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _services_AuthenticationServices__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./services/AuthenticationServices */
+    "./src/app/services/AuthenticationServices.ts");
+    /* harmony import */
+
+
+    var _services_AppServices__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ./services/AppServices */
     "./src/app/services/AppServices.ts");
 
     var AppComponent = /*#__PURE__*/function () {
-      function AppComponent(appServices) {
+      function AppComponent(appServices, authenticationServices) {
         _classCallCheck(this, AppComponent);
 
         this.appServices = appServices;
+        this.authenticationServices = authenticationServices;
         this.leftMenuOpened = false;
         this.isAdminConsole = false;
       }
@@ -1062,9 +1069,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
           this.appServices.getOpenAdminConsoleSubjectObserver().subscribe(function (opened) {
             _this.isAdminConsole = opened;
+            _this.admin = _this.authenticationServices.getAdmin();
 
-            if (_this.isAdminConsole) {
+            if (opened) {
               console.log('Admin Console Opened');
+            } else {
+              console.log('Admin Console Closed');
             }
           });
         }
@@ -1075,7 +1085,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       }, {
         key: "onDisconnect",
-        value: function onDisconnect() {}
+        value: function onDisconnect() {
+          this.authenticationServices.disconnect();
+        }
       }]);
 
       return AppComponent;
@@ -1083,7 +1095,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     AppComponent.ctorParameters = function () {
       return [{
-        type: _services_AppServices__WEBPACK_IMPORTED_MODULE_2__["AppServices"]
+        type: _services_AppServices__WEBPACK_IMPORTED_MODULE_3__["AppServices"]
+      }, {
+        type: _services_AuthenticationServices__WEBPACK_IMPORTED_MODULE_2__["AuthenticationServices"]
       }];
     };
 
@@ -1891,25 +1905,39 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onSubmit",
         value: function onSubmit() {
+          var _this7 = this;
+
           var login = this.loginControl.value;
           var password = this.passwordControl.value;
 
           if (!this.loginControl.invalid && !this.passwordControl.invalid) {
-            var response = this.authenticationServices.login(login, password);
+            this.authenticationServices.login(login, password).subscribe(function (response) {
+              if (response.status === 'OK') {
+                _this7.connected = true;
+                _this7.connectionResponse = response.message;
 
-            if (response.ok) {
-              this.connected = true;
-              this.connectionResponse = response.message;
-              this.appServices.enableAdminConsole(true);
-              this.router.navigate(['/admin', 'articles', 'add']).then(function (res) {
-                console.log('Navigation succeed: ' + res);
-              })["catch"](function (err) {
-                console.log('Navigation failed: ' + err);
-              });
-            } else {
-              this.connected = false;
-              this.connectionResponse = response.message;
-            }
+                _this7.authenticationServices.setLoggedIn(_this7.connected);
+
+                _this7.authenticationServices.setAdmin(response.data);
+
+                _this7.router.navigate(['/admin', 'articles', 'add']).then(function (ok) {
+                  console.log('Open console ?', ok);
+
+                  if (ok) {
+                    _this7.appServices.enableAdminConsole(ok);
+
+                    console.log('Opening admin console');
+                  } else {
+                    console.log('Unable to open the admin console');
+                  }
+                })["catch"](function (err) {
+                  console.log('Something went wrong: ' + err);
+                });
+              } else {
+                _this7.connected = false;
+                _this7.connectionResponse = response.message;
+              }
+            });
           }
         }
       }]);
@@ -2020,10 +2048,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(ArticleDetailsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this7 = this;
+          var _this8 = this;
 
           this.activatedRoute.params.subscribe(function (params) {
-            _this7.articleDetails = _this7.articlesServices.findArticleById(+params.id);
+            _this8.articleDetails = _this8.articlesServices.findArticleById(+params.id);
           });
         }
       }]);
@@ -2123,7 +2151,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var ArticlesComponent = /*#__PURE__*/function () {
       function ArticlesComponent(router, activatedRoute, articlesServices, appServices) {
-        var _this8 = this;
+        var _this9 = this;
 
         _classCallCheck(this, ArticlesComponent);
 
@@ -2133,20 +2161,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.appServices = appServices;
         appServices.observeWebLandscape().subscribe(function (res) {
           if (res.matches) {
-            _this8.cols = 3;
-            _this8.rowHeight = '1:1';
+            _this9.cols = 3;
+            _this9.rowHeight = '1:1';
           }
         });
         appServices.observeTablet().subscribe(function (res) {
           if (res.matches) {
-            _this8.cols = 2;
-            _this8.rowHeight = '9:10';
+            _this9.cols = 2;
+            _this9.rowHeight = '9:10';
           }
         });
         appServices.observePhone().subscribe(function (res) {
           if (res.matches) {
-            _this8.cols = 1;
-            _this8.rowHeight = '9:10';
+            _this9.cols = 1;
+            _this9.rowHeight = '9:10';
           }
         });
       }
@@ -2254,7 +2282,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var ContactComponent = /*#__PURE__*/function () {
       function ContactComponent(fb, appServices) {
-        var _this9 = this;
+        var _this10 = this;
 
         _classCallCheck(this, ContactComponent);
 
@@ -2278,7 +2306,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           floatLabel: this.floatLabelControl
         });
         appServices.observeMobileDevices().subscribe(function (results) {
-          _this9.formStyle = results.matches ? _this9.mobileFormStyle : _this9.desktopFormStyle;
+          _this10.formStyle = results.matches ? _this10.mobileFormStyle : _this10.desktopFormStyle;
         });
       }
 
@@ -2412,10 +2440,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(MainContentComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this10 = this;
+          var _this11 = this;
 
           this.mobileDeviceObserver.observe([_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_2__["Breakpoints"].Handset, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_2__["Breakpoints"].WebPortrait, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_2__["Breakpoints"].TabletPortrait]).subscribe(function (res) {
-            _this10.smallScreen = res.matches;
+            _this11.smallScreen = res.matches;
           });
         }
       }]);
@@ -2508,7 +2536,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var HeaderComponent = /*#__PURE__*/function () {
       function HeaderComponent(router, appServices) {
-        var _this11 = this;
+        var _this12 = this;
 
         _classCallCheck(this, HeaderComponent);
 
@@ -2518,18 +2546,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.smallScreen = false;
         this.mobileDeviceMenuOpened = false;
         appServices.observeMobileDevices().subscribe(function (res) {
-          return _this11.smallScreen = res.matches;
+          return _this12.smallScreen = res.matches;
         });
       }
 
       _createClass(HeaderComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this12 = this;
+          var _this13 = this;
 
           this.router.events.subscribe(function (value) {
             if (value instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
-              _this12.toolbarMenuOpened = false;
+              _this13.toolbarMenuOpened = false;
             }
           });
         }
@@ -2641,11 +2669,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(MenuComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this13 = this;
+          var _this14 = this;
 
           this.authenticationServices.getAuthServiceMessage().subscribe(function (canSwitch) {
-            _this13.switchToAdminDashboard = canSwitch;
-            _this13.user = _this13.authenticationServices.findUser();
+            _this14.switchToAdminDashboard = canSwitch;
+            _this14.user = _this14.authenticationServices.getAdmin();
           });
         }
       }, {
@@ -2950,69 +2978,40 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _user_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ./user.json */
-    "./src/app/services/user.json");
-
-    var _user_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(
-    /*! ./user.json */
-    "./src/app/services/user.json", 1);
+    var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
     /* harmony import */
 
 
-    var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! rxjs */
-    "./node_modules/rxjs/_esm2015/index.js");
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/fesm2015/http.js");
 
     var AuthenticationServices = /*#__PURE__*/function () {
-      function AuthenticationServices() {
+      function AuthenticationServices(http) {
         _classCallCheck(this, AuthenticationServices);
 
-        this.result = {
-          ok: false,
-          code: '',
-          message: ''
-        };
-        this.authServiceMessage = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+        this.http = http;
+        this.authServiceMessage = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
         this.loggedIn = false;
+        this.BASE_URL = 'http://localhost:8080/api/v1/authors/';
       }
 
       _createClass(AuthenticationServices, [{
         key: "login",
         value: function login(_login, password) {
-          var user = this.findUser();
-
-          if (user.login !== _login) {
-            this.result = {
-              ok: false,
-              code: 'INCORRECT_LOGIN',
-              message: 'Login incorrect. Veuillez réssayer'
-            };
-          } else if (user.password !== password) {
-            this.result = {
-              ok: false,
-              code: 'INCORRECT_PASSWORD',
-              message: 'Mot de passe incorrect. Veuillez réssayer'
-            };
-          } else {
-            this.result = {
-              ok: true,
-              code: 'CONNECTION_SUCCEED',
-              message: 'Connexion réussie !'
-            };
-            this.loggedIn = true;
-          }
-
-          return this.result;
+          return this.http.get(this.BASE_URL + _login + '/' + password);
         }
       }, {
-        key: "findUser",
-        value: function findUser() {
-          if (this.admin === undefined || this.admin === null) {
-            this.admin = _user_json__WEBPACK_IMPORTED_MODULE_2___namespace[Object.keys(_user_json__WEBPACK_IMPORTED_MODULE_2___namespace).shift()].shift();
-          }
-
+        key: "getAdmin",
+        value: function getAdmin() {
           return this.admin;
+        }
+      }, {
+        key: "setAdmin",
+        value: function setAdmin(newAdmin) {
+          this.admin = newAdmin;
         }
       }, {
         key: "switchToAdminConsole",
@@ -3030,17 +3029,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return this.loggedIn;
         }
       }, {
+        key: "setLoggedIn",
+        value: function setLoggedIn(logged) {
+          this.loggedIn = logged;
+        }
+      }, {
         key: "disconnect",
         value: function disconnect() {
           this.loggedIn = false;
           this.admin = null;
-          this.result = null;
           this.switchToAdminConsole(false);
         }
       }]);
 
       return AuthenticationServices;
     }();
+
+    AuthenticationServices.ctorParameters = function () {
+      return [{
+        type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]
+      }];
+    };
 
     AuthenticationServices = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
       providedIn: 'root'
@@ -3127,20 +3136,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   /***/
   function srcAppServicesArticlesJson(module) {
     module.exports = JSON.parse("[{\"id\":7326452,\"title\":\"Les enjeux de l'entrepreneuriat en Afrique\",\"releaseDate\":\"2020/05/20\",\"author\":\"Mohamed Toure\",\"topics\":[{\"label\":\"Education\",\"value\":\"education\"}],\"content\":\" Lorem ipsum dolor sit amet, consectetur adipiscing elit.\\n      la quam velit, vulputate eu pharetra nec, mattis ac neque.\\n      Duis vulputate commodo lectus, ac blandit elit tincidunt id.\\n      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.\\n      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.\\n      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.\\n      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.\\n      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.\\n      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.\"},{\"id\":7566452,\"title\":\"Les enjeux de l'entrepreneuriat Dans le monde\",\"releaseDate\":\"2020/05/21\",\"author\":\"Mohamed Toure\",\"topics\":[{\"label\":\"Education\",\"value\":\"education\"}],\"content\":\" Lorem ipsum dolor sit amet, consectetur adipiscing elit.\\n      la quam velit, vulputate eu pharetra nec, mattis ac neque.\\n      Duis vulputate commodo lectus, ac blandit elit tincidunt id.\\n      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.\\n      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.\\n      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.\\n      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.\\n      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.\\n      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.\"},{\"id\":73632452,\"title\":\"Les enjeux de l'entrepreneuriat en Afrique\",\"releaseDate\":\"2020/05/22\",\"author\":\"Mohamed Toure\",\"topics\":[{\"label\":\"Education\",\"value\":\"education\"}],\"content\":\" Lorem ipsum dolor sit amet, consectetur adipiscing elit.\\n      la quam velit, vulputate eu pharetra nec, mattis ac neque.\\n      Duis vulputate commodo lectus, ac blandit elit tincidunt id.\\n      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.\\n      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.\\n      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.\\n      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.\\n      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.\\n      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.\"},{\"id\":73632459,\"title\":\"L'entrepreneuriat dans la santé\",\"releaseDate\":\"2020/05/23\",\"author\":\"Mohamed Toure\",\"topics\":[{\"label\":\"Santé\",\"value\":\"healthcare\"}],\"content\":\" Lorem ipsum dolor sit amet, consectetur adipiscing elit.\\n      la quam velit, vulputate eu pharetra nec, mattis ac neque.\\n      Duis vulputate commodo lectus, ac blandit elit tincidunt id.\\n      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.\\n      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.\\n      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.\\n      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.\\n      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.\\n      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.\"},{\"id\":73632449,\"title\":\"Les enjeux de l'entrepreneuriat en Afrique\",\"releaseDate\":\"2020/05/24\",\"author\":\"Mohamed Toure\",\"topics\":[{\"label\":\"Fin Tech\",\"value\":\"fintech\"},{\"label\":\"Santé\",\"value\":\"healthcare\"}],\"content\":\" Lorem ipsum dolor sit amet, consectetur adipiscing elit.\\n      la quam velit, vulputate eu pharetra nec, mattis ac neque.\\n      Duis vulputate commodo lectus, ac blandit elit tincidunt id.\\n      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.\\n      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.\\n      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.\\n      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.\\n      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.\\n      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.\"}]");
-    /***/
-  },
-
-  /***/
-  "./src/app/services/user.json":
-  /*!************************************!*\
-    !*** ./src/app/services/user.json ***!
-    \************************************/
-
-  /*! exports provided: 0, default */
-
-  /***/
-  function srcAppServicesUserJson(module) {
-    module.exports = JSON.parse("[{\"id\":98776564,\"fullName\":\"Mohamed Toure\",\"login\":\"TouremBlog\",\"email\":\"contact@afropreneurdigital.com\",\"password\":\"0000\"}]");
     /***/
   },
 
