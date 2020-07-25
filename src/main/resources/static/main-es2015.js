@@ -502,14 +502,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_AuthenticationServices__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/AuthenticationServices */ "./src/app/services/AuthenticationServices.ts");
 /* harmony import */ var _services_AppServices__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/AppServices */ "./src/app/services/AppServices.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
 
 
 
 
 let AppComponent = class AppComponent {
-    constructor(appServices, authenticationServices) {
+    constructor(appServices, authenticationServices, router) {
         this.appServices = appServices;
         this.authenticationServices = authenticationServices;
+        this.router = router;
         this.leftMenuOpened = false;
         this.isAdminConsole = false;
     }
@@ -528,7 +531,13 @@ let AppComponent = class AppComponent {
                 console.log('Admin Console Opened');
             }
             else {
-                console.log('Admin Console Closed');
+                this.router
+                    .navigate(['/admin/login'])
+                    .then(ok => console.log('Admin Console Closed', ok))
+                    .catch(err => {
+                    console.log('Something went wrong while trying to close the admin console');
+                    console.log('Error message: ', err);
+                });
             }
         });
     }
@@ -536,12 +545,14 @@ let AppComponent = class AppComponent {
         this.leftMenuOpened = !this.leftMenuOpened;
     }
     onDisconnect() {
+        console.log('Disconnecting from the admin');
         this.authenticationServices.disconnect();
     }
 };
 AppComponent.ctorParameters = () => [
     { type: _services_AppServices__WEBPACK_IMPORTED_MODULE_3__["AppServices"] },
-    { type: _services_AuthenticationServices__WEBPACK_IMPORTED_MODULE_2__["AuthenticationServices"] }
+    { type: _services_AuthenticationServices__WEBPACK_IMPORTED_MODULE_2__["AuthenticationServices"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
 ];
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -776,7 +787,7 @@ let ArticleCreationComponent = class ArticleCreationComponent {
         });
     }
     ngOnInit() {
-        this.authenticationServices.switchToAdminConsole(true);
+        // this.authenticationServices.switchToAdminConsole(true);
     }
     handleLoginErrors() {
         if (this.titleControl.hasError('required')) {
@@ -1516,6 +1527,9 @@ let AppServices = class AppServices {
     enableAdminConsole(enable) {
         this.openAdminConsoleSubject.next(enable);
     }
+    disableAdminConsole() {
+        this.enableAdminConsole(false);
+    }
     getMobileDevicesMenuObserver() {
         return this.mobileDevicesMenuSubject.asObservable();
     }
@@ -1634,13 +1648,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _AppServices__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AppServices */ "./src/app/services/AppServices.ts");
+
 
 
 
 
 let AuthenticationServices = class AuthenticationServices {
-    constructor(http) {
+    constructor(http, appServices) {
         this.http = http;
+        this.appServices = appServices;
         this.authServiceMessage = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
         this.loggedIn = false;
         this.BASE_URL = 'http://localhost:8080/api/v1/authors/';
@@ -1669,11 +1686,12 @@ let AuthenticationServices = class AuthenticationServices {
     disconnect() {
         this.loggedIn = false;
         this.admin = null;
-        this.switchToAdminConsole(false);
+        this.appServices.disableAdminConsole();
     }
 };
 AuthenticationServices.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] },
+    { type: _AppServices__WEBPACK_IMPORTED_MODULE_4__["AppServices"] }
 ];
 AuthenticationServices = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({

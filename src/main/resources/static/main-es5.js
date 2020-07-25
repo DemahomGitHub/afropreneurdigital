@@ -1048,13 +1048,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _services_AppServices__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ./services/AppServices */
     "./src/app/services/AppServices.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
 
     var AppComponent = /*#__PURE__*/function () {
-      function AppComponent(appServices, authenticationServices) {
+      function AppComponent(appServices, authenticationServices, router) {
         _classCallCheck(this, AppComponent);
 
         this.appServices = appServices;
         this.authenticationServices = authenticationServices;
+        this.router = router;
         this.leftMenuOpened = false;
         this.isAdminConsole = false;
       }
@@ -1074,7 +1081,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (opened) {
               console.log('Admin Console Opened');
             } else {
-              console.log('Admin Console Closed');
+              _this.router.navigate(['/admin/login']).then(function (ok) {
+                return console.log('Admin Console Closed', ok);
+              })["catch"](function (err) {
+                console.log('Something went wrong while trying to close the admin console');
+                console.log('Error message: ', err);
+              });
             }
           });
         }
@@ -1086,6 +1098,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onDisconnect",
         value: function onDisconnect() {
+          console.log('Disconnecting from the admin');
           this.authenticationServices.disconnect();
         }
       }]);
@@ -1098,6 +1111,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _services_AppServices__WEBPACK_IMPORTED_MODULE_3__["AppServices"]
       }, {
         type: _services_AuthenticationServices__WEBPACK_IMPORTED_MODULE_2__["AuthenticationServices"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
       }];
     };
 
@@ -1523,8 +1538,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       _createClass(ArticleCreationComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {
-          this.authenticationServices.switchToAdminConsole(true);
+        value: function ngOnInit() {// this.authenticationServices.switchToAdminConsole(true);
         }
       }, {
         key: "handleLoginErrors",
@@ -2776,6 +2790,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.openAdminConsoleSubject.next(enable);
         }
       }, {
+        key: "disableAdminConsole",
+        value: function disableAdminConsole() {
+          this.enableAdminConsole(false);
+        }
+      }, {
         key: "getMobileDevicesMenuObserver",
         value: function getMobileDevicesMenuObserver() {
           return this.mobileDevicesMenuSubject.asObservable();
@@ -2987,12 +3006,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/common/http */
     "./node_modules/@angular/common/fesm2015/http.js");
+    /* harmony import */
+
+
+    var _AppServices__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./AppServices */
+    "./src/app/services/AppServices.ts");
 
     var AuthenticationServices = /*#__PURE__*/function () {
-      function AuthenticationServices(http) {
+      function AuthenticationServices(http, appServices) {
         _classCallCheck(this, AuthenticationServices);
 
         this.http = http;
+        this.appServices = appServices;
         this.authServiceMessage = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
         this.loggedIn = false;
         this.BASE_URL = 'http://localhost:8080/api/v1/authors/';
@@ -3038,7 +3064,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function disconnect() {
           this.loggedIn = false;
           this.admin = null;
-          this.switchToAdminConsole(false);
+          this.appServices.disableAdminConsole();
         }
       }]);
 
@@ -3048,6 +3074,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     AuthenticationServices.ctorParameters = function () {
       return [{
         type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]
+      }, {
+        type: _AppServices__WEBPACK_IMPORTED_MODULE_4__["AppServices"]
       }];
     };
 

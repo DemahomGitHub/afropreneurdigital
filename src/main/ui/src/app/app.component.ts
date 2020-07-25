@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthenticationServices} from './services/AuthenticationServices';
 import {AppServices} from './services/AppServices';
 import {User} from './model/User';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private appServices: AppServices,
-    private authenticationServices: AuthenticationServices
+    private authenticationServices: AuthenticationServices,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -32,7 +34,13 @@ export class AppComponent implements OnInit {
           if (opened) {
             console.log('Admin Console Opened');
           } else {
-            console.log('Admin Console Closed');
+            this.router
+                .navigate(['/admin/login'])
+                .then(ok => console.log('Admin Console Closed', ok))
+                .catch(err => {
+                  console.log('Something went wrong while trying to close the admin console');
+                  console.log('Error message: ', err);
+                });
           }
         });
   }
@@ -42,6 +50,7 @@ export class AppComponent implements OnInit {
   }
 
   onDisconnect() {
+    console.log('Disconnecting from the admin');
     this.authenticationServices.disconnect();
   }
 }

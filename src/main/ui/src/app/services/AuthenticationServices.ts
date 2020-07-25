@@ -3,6 +3,7 @@ import {User} from '../model/User';
 import {Observable, Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {ResponseEntity} from '../model/ResponseEntity';
+import {AppServices} from './AppServices';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AuthenticationServices {
   private loggedIn = false;
   private BASE_URL = 'http://localhost:8080/api/v1/authors/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private appServices: AppServices) {}
 
   login(login: string, password: string): Observable<ResponseEntity> {
     return this.http.get<ResponseEntity>(this.BASE_URL + login + '/' + password);
@@ -46,6 +47,6 @@ export class AuthenticationServices {
   disconnect() {
     this.loggedIn = false;
     this.admin = null;
-    this.switchToAdminConsole(false);
+    this.appServices.disableAdminConsole();
   }
 }

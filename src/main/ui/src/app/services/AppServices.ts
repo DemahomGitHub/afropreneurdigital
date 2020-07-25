@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {getMatIconFailedToSanitizeLiteralError} from '@angular/material';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,10 @@ export class AppServices {
   }
   enableAdminConsole(enable: boolean) {
     this.openAdminConsoleSubject.next(enable);
+  }
+
+  disableAdminConsole() {
+    this.enableAdminConsole(false);
   }
 
   getMobileDevicesMenuObserver(): Observable<boolean> {

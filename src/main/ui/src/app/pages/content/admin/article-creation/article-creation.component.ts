@@ -34,7 +34,7 @@ export class ArticleCreationComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.authenticationServices.switchToAdminConsole(true);
+    // this.authenticationServices.switchToAdminConsole(true);
   }
 
   handleLoginErrors() {
