@@ -26,8 +26,8 @@ export class MenuComponent implements OnInit {
   }
 
   onDisconnect() {
-    this.authenticationServices.disconnect();
-    this.router.navigate(['/admin']).then(r => console.log(r));
+    this.authenticationServices.logout();
+    // this.router.navigate(['/admin']).then(r => console.log(r));
   }
 
 }

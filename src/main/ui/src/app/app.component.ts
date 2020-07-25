@@ -34,13 +34,6 @@ export class AppComponent implements OnInit {
           if (opened) {
             console.log('Admin Console Opened');
           } else {
-            this.router
-                .navigate(['/admin/login'])
-                .then(ok => console.log('Admin Console Closed', ok))
-                .catch(err => {
-                  console.log('Something went wrong while trying to close the admin console');
-                  console.log('Error message: ', err);
-                });
           }
         });
   }
@@ -51,6 +44,18 @@ export class AppComponent implements OnInit {
 
   onDisconnect() {
     console.log('Disconnecting from the admin');
-    this.authenticationServices.disconnect();
+    this.authenticationServices.logout();
+    if (!this.authenticationServices.connected()) {
+      this.router
+        .navigate(['/admin/login'])
+        .then(ok => {
+          this.appServices.enableAdminConsole(false);
+          console.log('Admin console closed', ok);
+        })
+        .catch(err => {
+          console.log('Something went wrong while trying to close the admin console');
+          console.log('Error message: ', err);
+        });
+    }
   }
 }

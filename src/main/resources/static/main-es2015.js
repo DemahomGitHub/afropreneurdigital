@@ -531,13 +531,6 @@ let AppComponent = class AppComponent {
                 console.log('Admin Console Opened');
             }
             else {
-                this.router
-                    .navigate(['/admin/login'])
-                    .then(ok => console.log('Admin Console Closed', ok))
-                    .catch(err => {
-                    console.log('Something went wrong while trying to close the admin console');
-                    console.log('Error message: ', err);
-                });
             }
         });
     }
@@ -546,7 +539,19 @@ let AppComponent = class AppComponent {
     }
     onDisconnect() {
         console.log('Disconnecting from the admin');
-        this.authenticationServices.disconnect();
+        this.authenticationServices.logout();
+        if (!this.authenticationServices.connected()) {
+            this.router
+                .navigate(['/admin/login'])
+                .then(ok => {
+                this.appServices.enableAdminConsole(false);
+                console.log('Admin console closed', ok);
+            })
+                .catch(err => {
+                console.log('Something went wrong while trying to close the admin console');
+                console.log('Error message: ', err);
+            });
+        }
     }
 };
 AppComponent.ctorParameters = () => [
@@ -1474,8 +1479,8 @@ let MenuComponent = class MenuComponent {
         });
     }
     onDisconnect() {
-        this.authenticationServices.disconnect();
-        this.router.navigate(['/admin']).then(r => console.log(r));
+        this.authenticationServices.logout();
+        // this.router.navigate(['/admin']).then(r => console.log(r));
     }
 };
 MenuComponent.ctorParameters = () => [
@@ -1526,9 +1531,6 @@ let AppServices = class AppServices {
     }
     enableAdminConsole(enable) {
         this.openAdminConsoleSubject.next(enable);
-    }
-    disableAdminConsole() {
-        this.enableAdminConsole(false);
     }
     getMobileDevicesMenuObserver() {
         return this.mobileDevicesMenuSubject.asObservable();
@@ -1648,22 +1650,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _AppServices__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AppServices */ "./src/app/services/AppServices.ts");
-
 
 
 
 
 let AuthenticationServices = class AuthenticationServices {
-    constructor(http, appServices) {
+    constructor(http) {
         this.http = http;
-        this.appServices = appServices;
         this.authServiceMessage = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
         this.loggedIn = false;
         this.BASE_URL = 'http://localhost:8080/api/v1/authors/';
     }
     login(login, password) {
         return this.http.get(this.BASE_URL + login + '/' + password);
+    }
+    logout() {
+        this.loggedIn = false;
+        this.admin = null;
     }
     getAdmin() {
         return this.admin;
@@ -1683,15 +1686,9 @@ let AuthenticationServices = class AuthenticationServices {
     setLoggedIn(logged) {
         this.loggedIn = logged;
     }
-    disconnect() {
-        this.loggedIn = false;
-        this.admin = null;
-        this.appServices.disableAdminConsole();
-    }
 };
 AuthenticationServices.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] },
-    { type: _AppServices__WEBPACK_IMPORTED_MODULE_4__["AppServices"] }
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
 ];
 AuthenticationServices = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({

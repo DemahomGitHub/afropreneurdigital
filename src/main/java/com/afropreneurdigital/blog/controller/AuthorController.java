@@ -6,8 +6,10 @@ import com.afropreneurdigital.blog.model.Author;
 import com.afropreneurdigital.blog.model.ResponseEntity;
 import com.afropreneurdigital.blog.services.AuthorService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.realm.AuthenticatedUserRealm;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 

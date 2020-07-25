@@ -1080,14 +1080,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             if (opened) {
               console.log('Admin Console Opened');
-            } else {
-              _this.router.navigate(['/admin/login']).then(function (ok) {
-                return console.log('Admin Console Closed', ok);
-              })["catch"](function (err) {
-                console.log('Something went wrong while trying to close the admin console');
-                console.log('Error message: ', err);
-              });
-            }
+            } else {}
           });
         }
       }, {
@@ -1098,8 +1091,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onDisconnect",
         value: function onDisconnect() {
+          var _this2 = this;
+
           console.log('Disconnecting from the admin');
-          this.authenticationServices.disconnect();
+          this.authenticationServices.logout();
+
+          if (!this.authenticationServices.connected()) {
+            this.router.navigate(['/admin/login']).then(function (ok) {
+              _this2.appServices.enableAdminConsole(false);
+
+              console.log('Admin console closed', ok);
+            })["catch"](function (err) {
+              console.log('Something went wrong while trying to close the admin console');
+              console.log('Error message: ', err);
+            });
+          }
         }
       }]);
 
@@ -1504,7 +1510,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var ArticleCreationComponent = /*#__PURE__*/function () {
       function ArticleCreationComponent(fb, authenticationServices, appServices) {
-        var _this2 = this;
+        var _this3 = this;
 
         _classCallCheck(this, ArticleCreationComponent);
 
@@ -1532,7 +1538,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           floatLabel: this.floatLabelControl
         });
         appServices.observeMobileDevices().subscribe(function (results) {
-          _this2.formStyle = results.matches ? _this2.mobileFormStyle : _this2.desktopFormStyle;
+          _this3.formStyle = results.matches ? _this3.mobileFormStyle : _this3.desktopFormStyle;
         });
       }
 
@@ -1685,7 +1691,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(ArticleUpdateDeletionComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this3 = this;
+          var _this4 = this;
 
           this.authenticationServices.switchToAdminConsole(true);
           this.allArticles = this.articlesServices.findAll();
@@ -1699,32 +1705,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             floatLabel: this.floatLabelControl
           });
           this.titleControl.valueChanges.subscribe(function (value) {
-            _this3.titleChanged = true;
+            _this4.titleChanged = true;
           });
           this.contentControl.valueChanges.subscribe(function (value) {
-            _this3.contentChange = true;
+            _this4.contentChange = true;
           });
         }
       }, {
         key: "onSelect",
         value: function onSelect(id) {
-          var _this4 = this;
+          var _this5 = this;
 
           this.allArticles.forEach(function (a) {
             if (a.id === id) {
-              _this4.articleToUpdate = a;
+              _this5.articleToUpdate = a;
             }
           });
         }
       }, {
         key: "onUpdate",
         value: function onUpdate() {
-          var _this5 = this;
+          var _this6 = this;
 
           var newTitle = this.titleChanged ? this.titleControl.value : this.articleToUpdate.title;
           var newContent = this.contentChange ? this.contentControl.value : this.articleToUpdate.content;
           var updateIndex = this.allArticles.findIndex(function (a) {
-            return a.id === _this5.articleToUpdate.id;
+            return a.id === _this6.articleToUpdate.id;
           });
           Object.assign(this.allArticles[updateIndex], {
             id: this.articleToUpdate.id,
@@ -1850,7 +1856,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var LoginComponent = /*#__PURE__*/function () {
       function LoginComponent(fb, authenticationServices, mobileDeviceObserver, router, appServices) {
-        var _this6 = this;
+        var _this7 = this;
 
         _classCallCheck(this, LoginComponent);
 
@@ -1882,9 +1888,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         });
         mobileDeviceObserver.observe([_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__["Breakpoints"].Handset, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__["Breakpoints"].Tablet, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__["Breakpoints"].WebPortrait]).subscribe(function (results) {
           if (results.matches) {
-            _this6.formStyle = _this6.mobileFormStyle;
+            _this7.formStyle = _this7.mobileFormStyle;
           } else {
-            _this6.formStyle = _this6.desktopFormStyle;
+            _this7.formStyle = _this7.desktopFormStyle;
           }
         });
       }
@@ -1919,7 +1925,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this7 = this;
+          var _this8 = this;
 
           var login = this.loginControl.value;
           var password = this.passwordControl.value;
@@ -1927,18 +1933,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (!this.loginControl.invalid && !this.passwordControl.invalid) {
             this.authenticationServices.login(login, password).subscribe(function (response) {
               if (response.status === 'OK') {
-                _this7.connected = true;
-                _this7.connectionResponse = response.message;
+                _this8.connected = true;
+                _this8.connectionResponse = response.message;
 
-                _this7.authenticationServices.setLoggedIn(_this7.connected);
+                _this8.authenticationServices.setLoggedIn(_this8.connected);
 
-                _this7.authenticationServices.setAdmin(response.data);
+                _this8.authenticationServices.setAdmin(response.data);
 
-                _this7.router.navigate(['/admin', 'articles', 'add']).then(function (ok) {
+                _this8.router.navigate(['/admin', 'articles', 'add']).then(function (ok) {
                   console.log('Open console ?', ok);
 
                   if (ok) {
-                    _this7.appServices.enableAdminConsole(ok);
+                    _this8.appServices.enableAdminConsole(ok);
 
                     console.log('Opening admin console');
                   } else {
@@ -1948,8 +1954,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   console.log('Something went wrong: ' + err);
                 });
               } else {
-                _this7.connected = false;
-                _this7.connectionResponse = response.message;
+                _this8.connected = false;
+                _this8.connectionResponse = response.message;
               }
             });
           }
@@ -2062,10 +2068,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(ArticleDetailsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this8 = this;
+          var _this9 = this;
 
           this.activatedRoute.params.subscribe(function (params) {
-            _this8.articleDetails = _this8.articlesServices.findArticleById(+params.id);
+            _this9.articleDetails = _this9.articlesServices.findArticleById(+params.id);
           });
         }
       }]);
@@ -2165,7 +2171,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var ArticlesComponent = /*#__PURE__*/function () {
       function ArticlesComponent(router, activatedRoute, articlesServices, appServices) {
-        var _this9 = this;
+        var _this10 = this;
 
         _classCallCheck(this, ArticlesComponent);
 
@@ -2175,20 +2181,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.appServices = appServices;
         appServices.observeWebLandscape().subscribe(function (res) {
           if (res.matches) {
-            _this9.cols = 3;
-            _this9.rowHeight = '1:1';
+            _this10.cols = 3;
+            _this10.rowHeight = '1:1';
           }
         });
         appServices.observeTablet().subscribe(function (res) {
           if (res.matches) {
-            _this9.cols = 2;
-            _this9.rowHeight = '9:10';
+            _this10.cols = 2;
+            _this10.rowHeight = '9:10';
           }
         });
         appServices.observePhone().subscribe(function (res) {
           if (res.matches) {
-            _this9.cols = 1;
-            _this9.rowHeight = '9:10';
+            _this10.cols = 1;
+            _this10.rowHeight = '9:10';
           }
         });
       }
@@ -2296,7 +2302,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var ContactComponent = /*#__PURE__*/function () {
       function ContactComponent(fb, appServices) {
-        var _this10 = this;
+        var _this11 = this;
 
         _classCallCheck(this, ContactComponent);
 
@@ -2320,7 +2326,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           floatLabel: this.floatLabelControl
         });
         appServices.observeMobileDevices().subscribe(function (results) {
-          _this10.formStyle = results.matches ? _this10.mobileFormStyle : _this10.desktopFormStyle;
+          _this11.formStyle = results.matches ? _this11.mobileFormStyle : _this11.desktopFormStyle;
         });
       }
 
@@ -2454,10 +2460,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(MainContentComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this11 = this;
+          var _this12 = this;
 
           this.mobileDeviceObserver.observe([_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_2__["Breakpoints"].Handset, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_2__["Breakpoints"].WebPortrait, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_2__["Breakpoints"].TabletPortrait]).subscribe(function (res) {
-            _this11.smallScreen = res.matches;
+            _this12.smallScreen = res.matches;
           });
         }
       }]);
@@ -2550,7 +2556,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var HeaderComponent = /*#__PURE__*/function () {
       function HeaderComponent(router, appServices) {
-        var _this12 = this;
+        var _this13 = this;
 
         _classCallCheck(this, HeaderComponent);
 
@@ -2560,18 +2566,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.smallScreen = false;
         this.mobileDeviceMenuOpened = false;
         appServices.observeMobileDevices().subscribe(function (res) {
-          return _this12.smallScreen = res.matches;
+          return _this13.smallScreen = res.matches;
         });
       }
 
       _createClass(HeaderComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this13 = this;
+          var _this14 = this;
 
           this.router.events.subscribe(function (value) {
             if (value instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
-              _this13.toolbarMenuOpened = false;
+              _this14.toolbarMenuOpened = false;
             }
           });
         }
@@ -2683,20 +2689,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(MenuComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this14 = this;
+          var _this15 = this;
 
           this.authenticationServices.getAuthServiceMessage().subscribe(function (canSwitch) {
-            _this14.switchToAdminDashboard = canSwitch;
-            _this14.user = _this14.authenticationServices.getAdmin();
+            _this15.switchToAdminDashboard = canSwitch;
+            _this15.user = _this15.authenticationServices.getAdmin();
           });
         }
       }, {
         key: "onDisconnect",
         value: function onDisconnect() {
-          this.authenticationServices.disconnect();
-          this.router.navigate(['/admin']).then(function (r) {
-            return console.log(r);
-          });
+          this.authenticationServices.logout(); // this.router.navigate(['/admin']).then(r => console.log(r));
         }
       }]);
 
@@ -2788,11 +2791,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "enableAdminConsole",
         value: function enableAdminConsole(enable) {
           this.openAdminConsoleSubject.next(enable);
-        }
-      }, {
-        key: "disableAdminConsole",
-        value: function disableAdminConsole() {
-          this.enableAdminConsole(false);
         }
       }, {
         key: "getMobileDevicesMenuObserver",
@@ -3006,19 +3004,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/common/http */
     "./node_modules/@angular/common/fesm2015/http.js");
-    /* harmony import */
-
-
-    var _AppServices__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./AppServices */
-    "./src/app/services/AppServices.ts");
 
     var AuthenticationServices = /*#__PURE__*/function () {
-      function AuthenticationServices(http, appServices) {
+      function AuthenticationServices(http) {
         _classCallCheck(this, AuthenticationServices);
 
         this.http = http;
-        this.appServices = appServices;
         this.authServiceMessage = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
         this.loggedIn = false;
         this.BASE_URL = 'http://localhost:8080/api/v1/authors/';
@@ -3028,6 +3019,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "login",
         value: function login(_login, password) {
           return this.http.get(this.BASE_URL + _login + '/' + password);
+        }
+      }, {
+        key: "logout",
+        value: function logout() {
+          this.loggedIn = false;
+          this.admin = null;
         }
       }, {
         key: "getAdmin",
@@ -3059,13 +3056,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function setLoggedIn(logged) {
           this.loggedIn = logged;
         }
-      }, {
-        key: "disconnect",
-        value: function disconnect() {
-          this.loggedIn = false;
-          this.admin = null;
-          this.appServices.disableAdminConsole();
-        }
       }]);
 
       return AuthenticationServices;
@@ -3074,8 +3064,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     AuthenticationServices.ctorParameters = function () {
       return [{
         type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]
-      }, {
-        type: _AppServices__WEBPACK_IMPORTED_MODULE_4__["AppServices"]
       }];
     };
 

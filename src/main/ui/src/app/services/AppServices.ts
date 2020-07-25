@@ -23,10 +23,6 @@ export class AppServices {
     this.openAdminConsoleSubject.next(enable);
   }
 
-  disableAdminConsole() {
-    this.enableAdminConsole(false);
-  }
-
   getMobileDevicesMenuObserver(): Observable<boolean> {
     return this.mobileDevicesMenuSubject.asObservable();
   }
