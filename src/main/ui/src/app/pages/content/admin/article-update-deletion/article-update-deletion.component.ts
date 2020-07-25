@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationServices} from '../../../../services/AuthenticationServices';
 import {ArticlesServices} from '../../../../services/ArticlesServices';
-import {Article, Topic} from '../../../../model/Article';
-import {FormBuilder, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
+import {Article} from '../../../../model/Article';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-article-update-deletion',

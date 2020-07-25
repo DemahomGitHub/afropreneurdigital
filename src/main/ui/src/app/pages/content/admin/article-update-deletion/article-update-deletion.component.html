@@ -6,7 +6,7 @@
 
   <div *ngIf="allArticles.length > 0" style="margin-top: 3%;">
     <mat-card class="content-article-update-form">
-      <form [formGroup]="formOptions" (ngSubmit)="onUpdate()" #form>
+      <form [formGroup]="formOptions" (ngSubmit)="onUpdate()">
         <mat-form-field appearance="outline" style="width: 100%;">
           <mat-label>Titre</mat-label>
           <input matInput
