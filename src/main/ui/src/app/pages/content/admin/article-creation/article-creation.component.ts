@@ -22,7 +22,6 @@ export class ArticleCreationComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private authenticationServices: AuthenticationServices,
     private appServices: AppServices
   ) {
     this.formOptions = fb.group({
@@ -34,7 +33,7 @@ export class ArticleCreationComponent implements OnInit {
     });
   }
   ngOnInit() {
-    // this.authenticationServices.switchToAdminConsole(true);
+    this.appServices.enableAdminConsole(true);
   }
 
   handleLoginErrors() {

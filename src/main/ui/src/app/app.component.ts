@@ -44,8 +44,8 @@ export class AppComponent implements OnInit {
 
   onDisconnect() {
     console.log('Disconnecting from the admin');
-    this.authenticationServices.logout();
-    if (!this.authenticationServices.connected()) {
+    if (this.authenticationServices.connected()) {
+      this.authenticationServices.logout();
       this.router
         .navigate(['/admin/login'])
         .then(ok => {

@@ -45,7 +45,22 @@ export class LoginComponent implements OnInit {
       });
   }
   ngOnInit() {
-    this.authenticationServices.switchToAdminConsole(this.connected);
+    // this.authenticationServices.switchToAdminConsole(this.authenticationServices.connected());
+    if (this.authenticationServices.connected()) {
+      this.appServices.enableAdminConsole(true);
+      this.router
+          .navigate(['/admin/articles/add'])
+          .then(ok => {
+            if (ok) {
+              console.log('Redirecting to admin console');
+            } else {
+              console.log('Redirecting to login page');
+            }
+          })
+         .catch(err => {
+           console.log('Something went wrong.', err);
+         });
+    }
   }
 
   handleLoginErrors() {
@@ -71,32 +86,27 @@ export class LoginComponent implements OnInit {
 
     if (!this.loginControl.invalid && !this.passwordControl.invalid) {
       this.authenticationServices
-          .login(login, password)
-          .subscribe(response => {
-            if (response.status === 'OK') {
-              this.connected = true;
-              this.connectionResponse = response.message;
-              this.authenticationServices.setLoggedIn(this.connected);
-              this.authenticationServices.setAdmin(response.data);
-              this.router
-                .navigate(['/admin', 'articles', 'add'])
-                .then(ok => {
-                  console.log('Open console ?', ok);
-                  if (ok) {
-                    this.appServices.enableAdminConsole(ok);
-                    console.log('Opening admin console');
-                  } else {
-                    console.log('Unable to open the admin console');
-                  }
-                })
-                .catch(err => {
-                  console.log('Something went wrong: ' + err);
-                });
-            } else {
-              this.connected = false;
-              this.connectionResponse = response.message;
-            }
-          });
+        .login(login, password)
+        .subscribe(response => {
+          if (response.status === 'OK') {
+            this.authenticationServices.saveUserSession(response.data);
+            this.router
+              .navigate(['/admin/articles/add'])
+              .then(ok => {
+                console.log('Redirecting to admin console');
+                if (ok) {
+                  this.appServices.enableAdminConsole(ok);
+                } else {
+                  console.log('Unable to open the admin console');
+                }
+              })
+              .catch(err => {
+                console.log('Something went wrong: ' + err);
+              });
+          }
+          this.connected = this.authenticationServices.connected();
+          this.connectionResponse = response.message;
+        });
     }
   }
 }

@@ -3,6 +3,7 @@ import {AuthenticationServices} from '../../../../services/AuthenticationService
 import {ArticlesServices} from '../../../../services/ArticlesServices';
 import {Article} from '../../../../model/Article';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {AppServices} from '../../../../services/AppServices';
 
 @Component({
   selector: 'app-article-update-deletion',
@@ -23,11 +24,12 @@ export class ArticleUpdateDeletionComponent implements OnInit {
   constructor(
     private authenticationServices: AuthenticationServices,
     private articlesServices: ArticlesServices,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private appServices: AppServices
   ) { }
 
   ngOnInit() {
-    this.authenticationServices.switchToAdminConsole(true);
+    this.appServices.enableAdminConsole(true);
     this.allArticles = this.articlesServices.findAll();
     if (this.allArticles.length > 0) {
       this.articleToUpdate = this.allArticles[0];

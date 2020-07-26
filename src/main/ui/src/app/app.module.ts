@@ -30,6 +30,7 @@ import { ArticleUpdateDeletionComponent } from './pages/content/admin/article-up
 import { ArticleDetailsComponent } from './pages/content/article-details/article-details.component';
 import { ContactComponent } from './pages/content/contact/contact.component';
 import {MatTableModule} from '@angular/material';
+import {CookieService} from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,7 @@ import {MatTableModule} from '@angular/material';
         HttpClientModule,
         MatTableModule
     ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
