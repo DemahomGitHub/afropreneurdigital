@@ -31,6 +31,7 @@ import { ArticleDetailsComponent } from './pages/content/article-details/article
 import { ContactComponent } from './pages/content/contact/contact.component';
 import {MatTableModule} from '@angular/material';
 import {CookieService} from 'ngx-cookie-service';
+import { PageNotFoundComponent } from './pages/content/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {CookieService} from 'ngx-cookie-service';
     ArticleCreationComponent,
     ArticleUpdateDeletionComponent,
     ArticleDetailsComponent,
-    ContactComponent
+    ContactComponent,
+    PageNotFoundComponent
   ],
     imports: [
         BrowserModule,

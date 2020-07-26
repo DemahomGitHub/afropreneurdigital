@@ -8,6 +8,7 @@ import {ArticleUpdateDeletionComponent} from './pages/content/admin/article-upda
 import {CanActivateAdmin} from './services/CanActivateAdmin';
 import {ArticleDetailsComponent} from './pages/content/article-details/article-details.component';
 import {ContactComponent} from './pages/content/contact/contact.component';
+import {PageNotFoundComponent} from './pages/content/page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,9 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'admin/login', component: LoginComponent },
   { path: 'admin/articles/add', component: ArticleCreationComponent, canActivate: [CanActivateAdmin] },
-  { path: 'admin/articles/all', component: ArticleUpdateDeletionComponent, canActivate: [CanActivateAdmin] }
+  { path: 'admin/articles/all', component: ArticleUpdateDeletionComponent, canActivate: [CanActivateAdmin] },
+  { path: 'not-found', component: PageNotFoundComponent },
+  { path: '**', redirectTo: 'not-found', pathMatch: 'full' }
 ];
 
 @NgModule({
