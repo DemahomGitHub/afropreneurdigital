@@ -115,6 +115,12 @@
       var _pages_content_contact_contact_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./pages/content/contact/contact.component */
       "./src/app/pages/content/contact/contact.component.ts");
+      /* harmony import */
+
+
+      var _pages_content_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! ./pages/content/page-not-found/page-not-found.component */
+      "./src/app/pages/content/page-not-found/page-not-found.component.ts");
 
       var routes = [{
         path: '',
@@ -143,6 +149,13 @@
         path: 'admin/articles/all',
         component: _pages_content_admin_article_update_deletion_article_update_deletion_component__WEBPACK_IMPORTED_MODULE_6__["ArticleUpdateDeletionComponent"],
         canActivate: [_services_CanActivateAdmin__WEBPACK_IMPORTED_MODULE_7__["CanActivateAdmin"]]
+      }, {
+        path: 'not-found',
+        component: _pages_content_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_10__["PageNotFoundComponent"]
+      }, {
+        path: '**',
+        redirectTo: 'not-found',
+        pathMatch: 'full'
       }];
 
       var AppRoutingModule = function AppRoutingModule() {
@@ -871,6 +884,12 @@
       var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(
       /*! ngx-cookie-service */
       "./node_modules/ngx-cookie-service/__ivy_ngcc__/ngx-cookie-service.js");
+      /* harmony import */
+
+
+      var _pages_content_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(
+      /*! ./pages/content/page-not-found/page-not-found.component */
+      "./src/app/pages/content/page-not-found/page-not-found.component.ts");
 
       var AppModule = function AppModule() {
         _classCallCheck(this, AppModule);
@@ -890,7 +909,7 @@
 
       (function () {
         (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, {
-          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_19__["AppComponent"], _pages_header_header_component__WEBPACK_IMPORTED_MODULE_20__["HeaderComponent"], _pages_menu_menu_component__WEBPACK_IMPORTED_MODULE_21__["MenuComponent"], _pages_content_main_content_main_content_component__WEBPACK_IMPORTED_MODULE_22__["MainContentComponent"], _pages_content_about_about_component__WEBPACK_IMPORTED_MODULE_23__["AboutComponent"], _pages_content_articles_articles_component__WEBPACK_IMPORTED_MODULE_24__["ArticlesComponent"], _pages_content_admin_login_login_component__WEBPACK_IMPORTED_MODULE_25__["LoginComponent"], _pages_content_admin_article_creation_article_creation_component__WEBPACK_IMPORTED_MODULE_26__["ArticleCreationComponent"], _pages_content_admin_article_update_deletion_article_update_deletion_component__WEBPACK_IMPORTED_MODULE_27__["ArticleUpdateDeletionComponent"], _pages_content_article_details_article_details_component__WEBPACK_IMPORTED_MODULE_28__["ArticleDetailsComponent"], _pages_content_contact_contact_component__WEBPACK_IMPORTED_MODULE_29__["ContactComponent"]],
+          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_19__["AppComponent"], _pages_header_header_component__WEBPACK_IMPORTED_MODULE_20__["HeaderComponent"], _pages_menu_menu_component__WEBPACK_IMPORTED_MODULE_21__["MenuComponent"], _pages_content_main_content_main_content_component__WEBPACK_IMPORTED_MODULE_22__["MainContentComponent"], _pages_content_about_about_component__WEBPACK_IMPORTED_MODULE_23__["AboutComponent"], _pages_content_articles_articles_component__WEBPACK_IMPORTED_MODULE_24__["ArticlesComponent"], _pages_content_admin_login_login_component__WEBPACK_IMPORTED_MODULE_25__["LoginComponent"], _pages_content_admin_article_creation_article_creation_component__WEBPACK_IMPORTED_MODULE_26__["ArticleCreationComponent"], _pages_content_admin_article_update_deletion_article_update_deletion_component__WEBPACK_IMPORTED_MODULE_27__["ArticleUpdateDeletionComponent"], _pages_content_article_details_article_details_component__WEBPACK_IMPORTED_MODULE_28__["ArticleDetailsComponent"], _pages_content_contact_contact_component__WEBPACK_IMPORTED_MODULE_29__["ContactComponent"], _pages_content_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_32__["PageNotFoundComponent"]],
           imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_12__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_13__["BrowserAnimationsModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_2__["MatToolbarModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_3__["MatSidenavModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_4__["MatIconModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_5__["MatListModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_6__["MatCardModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_7__["MatButtonModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_9__["MatSelectModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__["MatFormFieldModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_14__["ReactiveFormsModule"], _angular_material_divider__WEBPACK_IMPORTED_MODULE_10__["MatDividerModule"], _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_11__["MatGridListModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_15__["MatInputModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_16__["MatTabsModule"], _angular_material_expansion__WEBPACK_IMPORTED_MODULE_17__["MatExpansionModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_14__["FormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_18__["HttpClientModule"], _angular_material__WEBPACK_IMPORTED_MODULE_30__["MatTableModule"]]
         });
       })();
@@ -901,7 +920,7 @@
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
           args: [{
-            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_19__["AppComponent"], _pages_header_header_component__WEBPACK_IMPORTED_MODULE_20__["HeaderComponent"], _pages_menu_menu_component__WEBPACK_IMPORTED_MODULE_21__["MenuComponent"], _pages_content_main_content_main_content_component__WEBPACK_IMPORTED_MODULE_22__["MainContentComponent"], _pages_content_about_about_component__WEBPACK_IMPORTED_MODULE_23__["AboutComponent"], _pages_content_articles_articles_component__WEBPACK_IMPORTED_MODULE_24__["ArticlesComponent"], _pages_content_admin_login_login_component__WEBPACK_IMPORTED_MODULE_25__["LoginComponent"], _pages_content_admin_article_creation_article_creation_component__WEBPACK_IMPORTED_MODULE_26__["ArticleCreationComponent"], _pages_content_admin_article_update_deletion_article_update_deletion_component__WEBPACK_IMPORTED_MODULE_27__["ArticleUpdateDeletionComponent"], _pages_content_article_details_article_details_component__WEBPACK_IMPORTED_MODULE_28__["ArticleDetailsComponent"], _pages_content_contact_contact_component__WEBPACK_IMPORTED_MODULE_29__["ContactComponent"]],
+            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_19__["AppComponent"], _pages_header_header_component__WEBPACK_IMPORTED_MODULE_20__["HeaderComponent"], _pages_menu_menu_component__WEBPACK_IMPORTED_MODULE_21__["MenuComponent"], _pages_content_main_content_main_content_component__WEBPACK_IMPORTED_MODULE_22__["MainContentComponent"], _pages_content_about_about_component__WEBPACK_IMPORTED_MODULE_23__["AboutComponent"], _pages_content_articles_articles_component__WEBPACK_IMPORTED_MODULE_24__["ArticlesComponent"], _pages_content_admin_login_login_component__WEBPACK_IMPORTED_MODULE_25__["LoginComponent"], _pages_content_admin_article_creation_article_creation_component__WEBPACK_IMPORTED_MODULE_26__["ArticleCreationComponent"], _pages_content_admin_article_update_deletion_article_update_deletion_component__WEBPACK_IMPORTED_MODULE_27__["ArticleUpdateDeletionComponent"], _pages_content_article_details_article_details_component__WEBPACK_IMPORTED_MODULE_28__["ArticleDetailsComponent"], _pages_content_contact_contact_component__WEBPACK_IMPORTED_MODULE_29__["ContactComponent"], _pages_content_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_32__["PageNotFoundComponent"]],
             imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_12__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_13__["BrowserAnimationsModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_2__["MatToolbarModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_3__["MatSidenavModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_4__["MatIconModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_5__["MatListModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_6__["MatCardModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_7__["MatButtonModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_9__["MatSelectModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__["MatFormFieldModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_14__["ReactiveFormsModule"], _angular_material_divider__WEBPACK_IMPORTED_MODULE_10__["MatDividerModule"], _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_11__["MatGridListModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_15__["MatInputModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_16__["MatTabsModule"], _angular_material_expansion__WEBPACK_IMPORTED_MODULE_17__["MatExpansionModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_14__["FormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_18__["HttpClientModule"], _angular_material__WEBPACK_IMPORTED_MODULE_30__["MatTableModule"]],
             providers: [ngx_cookie_service__WEBPACK_IMPORTED_MODULE_31__["CookieService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_19__["AppComponent"]]
@@ -1708,8 +1727,7 @@
           value: function ngOnInit() {
             var _this4 = this;
 
-            this.appServices.enableAdminConsole(true);
-            this.allArticles = this.articlesServices.findAll();
+            this.appServices.enableAdminConsole(true); // this.allArticles = this.articlesServices.findAll();
 
             if (this.allArticles.length > 0) {
               this.articleToUpdate = this.allArticles[0];
@@ -2707,7 +2725,18 @@
         _createClass(ArticlesComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            this.articles = this.articlesServices.findAll();
+            var _this11 = this;
+
+            this.articlesServices.findAll().subscribe(function (resp) {
+              console.log(resp);
+
+              if (resp.status === 'OK') {
+                console.log('OK');
+                _this11.articles = resp.data;
+              } else {
+                console.log(resp.message);
+              }
+            });
             this.articles = this.articlesServices.sortArticlesByDateDescending(this.articles);
           }
         }]);
@@ -2904,7 +2933,7 @@
 
       var ContactComponent = /*#__PURE__*/function () {
         function ContactComponent(fb, appServices) {
-          var _this11 = this;
+          var _this12 = this;
 
           _classCallCheck(this, ContactComponent);
 
@@ -2928,7 +2957,7 @@
             floatLabel: this.floatLabelControl
           });
           appServices.observeMobileDevices().subscribe(function (results) {
-            _this11.formStyle = results.matches ? _this11.mobileFormStyle : _this11.desktopFormStyle;
+            _this12.formStyle = results.matches ? _this12.mobileFormStyle : _this12.desktopFormStyle;
           });
         }
 
@@ -3200,10 +3229,10 @@
         _createClass(MainContentComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this12 = this;
+            var _this13 = this;
 
             this.mobileDeviceObserver.observe([_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_1__["Breakpoints"].Handset, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_1__["Breakpoints"].WebPortrait, _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_1__["Breakpoints"].TabletPortrait]).subscribe(function (res) {
-              _this12.smallScreen = res.matches;
+              _this13.smallScreen = res.matches;
             });
           }
         }]);
@@ -3261,6 +3290,123 @@
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
           }]
         });
+      })();
+      /***/
+
+    },
+
+    /***/
+    "./src/app/pages/content/page-not-found/page-not-found.component.ts":
+    /*!**************************************************************************!*\
+      !*** ./src/app/pages/content/page-not-found/page-not-found.component.ts ***!
+      \**************************************************************************/
+
+    /*! exports provided: PageNotFoundComponent */
+
+    /***/
+    function srcAppPagesContentPageNotFoundPageNotFoundComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "PageNotFoundComponent", function () {
+        return PageNotFoundComponent;
+      });
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_material_divider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/material/divider */
+      "./node_modules/@angular/material/__ivy_ngcc__/esm2015/divider.js");
+      /* harmony import */
+
+
+      var _angular_material_card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/material/card */
+      "./node_modules/@angular/material/__ivy_ngcc__/esm2015/card.js");
+
+      var PageNotFoundComponent = /*#__PURE__*/function () {
+        function PageNotFoundComponent() {
+          _classCallCheck(this, PageNotFoundComponent);
+        }
+
+        _createClass(PageNotFoundComponent, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {}
+        }]);
+
+        return PageNotFoundComponent;
+      }();
+
+      PageNotFoundComponent.ɵfac = function PageNotFoundComponent_Factory(t) {
+        return new (t || PageNotFoundComponent)();
+      };
+
+      PageNotFoundComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+        type: PageNotFoundComponent,
+        selectors: [["app-page-not-found"]],
+        decls: 10,
+        vars: 0,
+        consts: [[2, "height", "100vh"], [2, "text-align", "center"], [2, "background-color", "white", "width", "100%", "height", "40%", "margin-top", "3%", "text-align", "center"]],
+        template: function PageNotFoundComponent_Template(rf, ctx) {
+          if (rf & 1) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "h2");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, " Page Introuvable ");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "mat-divider");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "mat-card", 2);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "h1");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, " La page que vous recherchez est introuvable.");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "h2");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, " Assurez-vous que le lien est bien orthographi\xE9 ");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          }
+        },
+        directives: [_angular_material_divider__WEBPACK_IMPORTED_MODULE_1__["MatDivider"], _angular_material_card__WEBPACK_IMPORTED_MODULE_2__["MatCard"]],
+        styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2NvbnRlbnQvcGFnZS1ub3QtZm91bmQvcGFnZS1ub3QtZm91bmQuY29tcG9uZW50LmNzcyJ9 */"]
+      });
+      /*@__PURE__*/
+
+      (function () {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](PageNotFoundComponent, [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+          args: [{
+            selector: 'app-page-not-found',
+            templateUrl: './page-not-found.component.html',
+            styleUrls: ['./page-not-found.component.css']
+          }]
+        }], function () {
+          return [];
+        }, null);
       })();
       /***/
 
@@ -3436,7 +3582,7 @@
 
       var HeaderComponent = /*#__PURE__*/function () {
         function HeaderComponent(router, appServices) {
-          var _this13 = this;
+          var _this14 = this;
 
           _classCallCheck(this, HeaderComponent);
 
@@ -3446,18 +3592,18 @@
           this.smallScreen = false;
           this.mobileDeviceMenuOpened = false;
           appServices.observeMobileDevices().subscribe(function (res) {
-            return _this13.smallScreen = res.matches;
+            return _this14.smallScreen = res.matches;
           });
         }
 
         _createClass(HeaderComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this14 = this;
+            var _this15 = this;
 
             this.router.events.subscribe(function (value) {
               if (value instanceof _angular_router__WEBPACK_IMPORTED_MODULE_1__["NavigationEnd"]) {
-                _this14.toolbarMenuOpened = false;
+                _this15.toolbarMenuOpened = false;
               }
             });
           }
@@ -3891,11 +4037,11 @@
         _createClass(MenuComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this15 = this;
+            var _this16 = this;
 
             this.authenticationServices.getAuthServiceMessage().subscribe(function (canSwitch) {
-              _this15.switchToAdminDashboard = canSwitch;
-              _this15.user = _this15.authenticationServices.getAdmin();
+              _this16.switchToAdminDashboard = canSwitch;
+              _this16.user = _this16.authenticationServices.getAdmin();
             });
           }
         }, {
@@ -4114,17 +4260,7 @@
       /* harmony import */
 
 
-      var _articles_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! ./articles.json */
-      "./src/app/services/articles.json");
-
-      var _articles_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(
-      /*! ./articles.json */
-      "./src/app/services/articles.json", 1);
-      /* harmony import */
-
-
-      var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/common/http */
       "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 
@@ -4139,18 +4275,12 @@
         _createClass(ArticlesServices, [{
           key: "findAll",
           value: function findAll() {
+            /*
             if (this.articles !== null && this.articles !== undefined && this.articles.length > 0) {
               return this.articles;
             }
-
-            this.articles = _articles_json__WEBPACK_IMPORTED_MODULE_1___namespace[Object.keys(_articles_json__WEBPACK_IMPORTED_MODULE_1___namespace).shift()];
-            /*this.http
-                .get(this.API_ARTICLE_URL)
-                .subscribe( response => {
-                  console.log('ok');
-                }); */
-
-            return this.articles;
+            this.articles = fromArticles[Object.keys(fromArticles).shift()] as Article[];*/
+            return this.http.get(this.API_ARTICLE_URL);
           }
         }, {
           key: "sortArticlesByDateAscending",
@@ -4175,7 +4305,7 @@
         }, {
           key: "findArticleById",
           value: function findArticleById(id) {
-            return this.findAll().find(function (article) {
+            return this.articles.find(function (article) {
               return article.id === id;
             });
           }
@@ -4185,7 +4315,7 @@
       }();
 
       ArticlesServices.ɵfac = function ArticlesServices_Factory(t) {
-        return new (t || ArticlesServices)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]));
+        return new (t || ArticlesServices)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]));
       };
 
       ArticlesServices.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
@@ -4203,7 +4333,7 @@
           }]
         }], function () {
           return [{
-            type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+            type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]
           }];
         }, null);
       })();
@@ -4338,10 +4468,7 @@
         }, {
           key: "getUserSession",
           value: function getUserSession() {
-            console.log('Checking user session');
-
             if (this.cookieService.check(_model_CookieName__WEBPACK_IMPORTED_MODULE_2__["CookieName"].ID)) {
-              console.log('User session checked');
               this.admin = {
                 id: +this.cookieService.get(_model_CookieName__WEBPACK_IMPORTED_MODULE_2__["CookieName"].ID),
                 login: this.cookieService.get(_model_CookieName__WEBPACK_IMPORTED_MODULE_2__["CookieName"].LOGIN),
@@ -4352,7 +4479,6 @@
               return this.admin;
             }
 
-            console.log('No data found for user');
             return null;
           }
         }]);
@@ -4431,7 +4557,6 @@
         _createClass(CanActivateAdmin, [{
           key: "canActivate",
           value: function canActivate(route, state) {
-            console.log('CanActive?', this.authenticationServices.connected());
             return this.authenticationServices.connected();
           }
         }]);
@@ -4464,20 +4589,6 @@
       })();
       /***/
 
-    },
-
-    /***/
-    "./src/app/services/articles.json":
-    /*!****************************************!*\
-      !*** ./src/app/services/articles.json ***!
-      \****************************************/
-
-    /*! exports provided: 0, 1, 2, 3, 4, default */
-
-    /***/
-    function srcAppServicesArticlesJson(module) {
-      module.exports = JSON.parse("[{\"id\":7326452,\"title\":\"Les enjeux de l'entrepreneuriat en Afrique\",\"releaseDate\":\"2020/05/20\",\"author\":\"Mohamed Toure\",\"topics\":[{\"label\":\"Education\",\"value\":\"education\"}],\"content\":\" Lorem ipsum dolor sit amet, consectetur adipiscing elit.\\n      la quam velit, vulputate eu pharetra nec, mattis ac neque.\\n      Duis vulputate commodo lectus, ac blandit elit tincidunt id.\\n      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.\\n      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.\\n      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.\\n      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.\\n      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.\\n      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.\"},{\"id\":7566452,\"title\":\"Les enjeux de l'entrepreneuriat Dans le monde\",\"releaseDate\":\"2020/05/21\",\"author\":\"Mohamed Toure\",\"topics\":[{\"label\":\"Education\",\"value\":\"education\"}],\"content\":\" Lorem ipsum dolor sit amet, consectetur adipiscing elit.\\n      la quam velit, vulputate eu pharetra nec, mattis ac neque.\\n      Duis vulputate commodo lectus, ac blandit elit tincidunt id.\\n      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.\\n      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.\\n      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.\\n      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.\\n      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.\\n      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.\"},{\"id\":73632452,\"title\":\"Les enjeux de l'entrepreneuriat en Afrique\",\"releaseDate\":\"2020/05/22\",\"author\":\"Mohamed Toure\",\"topics\":[{\"label\":\"Education\",\"value\":\"education\"}],\"content\":\" Lorem ipsum dolor sit amet, consectetur adipiscing elit.\\n      la quam velit, vulputate eu pharetra nec, mattis ac neque.\\n      Duis vulputate commodo lectus, ac blandit elit tincidunt id.\\n      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.\\n      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.\\n      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.\\n      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.\\n      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.\\n      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.\"},{\"id\":73632459,\"title\":\"L'entrepreneuriat dans la santé\",\"releaseDate\":\"2020/05/23\",\"author\":\"Mohamed Toure\",\"topics\":[{\"label\":\"Santé\",\"value\":\"healthcare\"}],\"content\":\" Lorem ipsum dolor sit amet, consectetur adipiscing elit.\\n      la quam velit, vulputate eu pharetra nec, mattis ac neque.\\n      Duis vulputate commodo lectus, ac blandit elit tincidunt id.\\n      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.\\n      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.\\n      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.\\n      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.\\n      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.\\n      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.\"},{\"id\":73632449,\"title\":\"Les enjeux de l'entrepreneuriat en Afrique\",\"releaseDate\":\"2020/05/24\",\"author\":\"Mohamed Toure\",\"topics\":[{\"label\":\"Fin Tech\",\"value\":\"fintech\"},{\"label\":\"Santé\",\"value\":\"healthcare\"}],\"content\":\" Lorem ipsum dolor sit amet, consectetur adipiscing elit.\\n      la quam velit, vulputate eu pharetra nec, mattis ac neque.\\n      Duis vulputate commodo lectus, ac blandit elit tincidunt id.\\n      Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.\\n      Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam.\\n      Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit.\\n      Vivamus varius pretium ligula, a aliquam odio euismod sit amet.\\n      Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra.\\n      Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.\"}]");
-      /***/
     },
 
     /***/

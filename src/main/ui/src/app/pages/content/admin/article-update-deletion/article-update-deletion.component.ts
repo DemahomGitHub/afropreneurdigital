@@ -30,7 +30,7 @@ export class ArticleUpdateDeletionComponent implements OnInit {
 
   ngOnInit() {
     this.appServices.enableAdminConsole(true);
-    this.allArticles = this.articlesServices.findAll();
+    // this.allArticles = this.articlesServices.findAll();
     if (this.allArticles.length > 0) {
       this.articleToUpdate = this.allArticles[0];
     }

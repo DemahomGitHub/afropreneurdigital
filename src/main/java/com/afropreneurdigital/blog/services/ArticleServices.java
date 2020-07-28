@@ -2,7 +2,6 @@ package com.afropreneurdigital.blog.services;
 
 import com.afropreneurdigital.blog.model.Article;
 import com.afropreneurdigital.blog.repository.ArticleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

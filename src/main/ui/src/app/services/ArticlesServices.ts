@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import * as fromArticles from './articles.json';
 import {Article} from '../model/Article';
-import {Topics} from '../enums/ArticlesTopics';
 import {HttpClient} from '@angular/common/http';
+import {ResponseEntity} from '../model/ResponseEntity';
+import {Observable} from 'rxjs';
 
 
 @Injectable({
@@ -14,19 +14,16 @@ export class ArticlesServices {
 
   constructor(private http: HttpClient) {}
 
-  findAll() {
+  findAll(): Observable<ResponseEntity> {
+    /*
     if (this.articles !== null && this.articles !== undefined && this.articles.length > 0) {
       return this.articles;
     }
-    this.articles = fromArticles[Object.keys(fromArticles).shift()] as Article[];
-    /*this.http
-        .get(this.API_ARTICLE_URL)
-        .subscribe( response => {
-          console.log('ok');
-        }); */
-    return this.articles;
+    this.articles = fromArticles[Object.keys(fromArticles).shift()] as Article[];*/
+    return this.http.get<ResponseEntity>(this.API_ARTICLE_URL);
   }
-  sortArticlesByDateAscending(articles: Article[]) {
+
+  sortArticlesByDateAscending(articles: Article[]): Article[] {
     articles = articles.sort((a, b) => {
       const da = Date.parse(a.releaseDate);
       const db = Date.parse(b.releaseDate);
@@ -35,7 +32,7 @@ export class ArticlesServices {
     return articles;
   }
 
-  sortArticlesByDateDescending(articles: Article[]) {
+  sortArticlesByDateDescending(articles: Article[]): Article[] {
     articles = articles.sort((a, b) => {
       const da = Date.parse(a.releaseDate);
       const db = Date.parse(b.releaseDate);
@@ -45,6 +42,6 @@ export class ArticlesServices {
   }
 
   findArticleById(id: number): Article {
-    return this.findAll().find(article => article.id === id);
+    return this.articles.find(article => article.id === id);
   }
 }

@@ -1,7 +1,5 @@
-import {User} from './User';
-
 export interface ResponseEntity {
   status: string;
-  data: User;
+  data: any;
   message: string;
 }

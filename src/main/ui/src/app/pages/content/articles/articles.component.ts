@@ -39,8 +39,18 @@ export class ArticlesComponent implements OnInit {
       }
     });
   }
-  ngOnInit() {
-    this.articles = this.articlesServices.findAll();
+  ngOnInit(): void {
+    this.articlesServices
+      .findAll()
+      .subscribe(resp => {
+        console.log(resp);
+        if (resp.status === 'OK') {
+          console.log('OK');
+          this.articles = resp.data;
+        } else {
+          console.log(resp.message);
+        }
+      });
     this.articles = this.articlesServices.sortArticlesByDateDescending(this.articles);
   }
 }
