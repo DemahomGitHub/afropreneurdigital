@@ -15,11 +15,6 @@ export class ArticlesServices {
   constructor(private http: HttpClient) {}
 
   findAll(): Observable<ResponseEntity> {
-    /*
-    if (this.articles !== null && this.articles !== undefined && this.articles.length > 0) {
-      return this.articles;
-    }
-    this.articles = fromArticles[Object.keys(fromArticles).shift()] as Article[];*/
     return this.http.get<ResponseEntity>(this.API_ARTICLE_URL);
   }
 
@@ -43,5 +38,13 @@ export class ArticlesServices {
 
   findArticleById(id: number): Article {
     return this.articles.find(article => article.id === id);
+  }
+
+  setArticles(newArticles: Article[]): void {
+    this.articles = newArticles;
+  }
+
+  getArticles(): Article[] {
+    return this.articles;
   }
 }

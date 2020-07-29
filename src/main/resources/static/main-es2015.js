@@ -1382,19 +1382,25 @@ class ArticlesComponent {
         });
     }
     ngOnInit() {
-        this.articlesServices
-            .findAll()
-            .subscribe(resp => {
-            console.log(resp);
-            if (resp.status === 'OK') {
-                console.log('OK');
-                this.articles = resp.data;
-            }
-            else {
-                console.log(resp.message);
-            }
-        });
-        this.articles = this.articlesServices.sortArticlesByDateDescending(this.articles);
+        if (this.articlesServices.getArticles() != null) {
+            this.articles = this.articlesServices.getArticles();
+        }
+        else {
+            this.articlesServices
+                .findAll()
+                .subscribe(resp => {
+                console.log(resp);
+                if (resp.status === 'OK') {
+                    console.log('OK');
+                    this.articles = resp.data;
+                    this.articles = this.articlesServices.sortArticlesByDateDescending(this.articles);
+                    this.articlesServices.setArticles(this.articles);
+                }
+                else {
+                    console.log(resp.message);
+                }
+            });
+        }
     }
 }
 ArticlesComponent.ɵfac = function ArticlesComponent_Factory(t) { return new (t || ArticlesComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_ArticlesServices__WEBPACK_IMPORTED_MODULE_2__["ArticlesServices"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_AppServices__WEBPACK_IMPORTED_MODULE_3__["AppServices"])); };
@@ -2116,11 +2122,6 @@ class ArticlesServices {
         this.API_ARTICLE_URL = 'http://localhost:8080/api/v1/articles';
     }
     findAll() {
-        /*
-        if (this.articles !== null && this.articles !== undefined && this.articles.length > 0) {
-          return this.articles;
-        }
-        this.articles = fromArticles[Object.keys(fromArticles).shift()] as Article[];*/
         return this.http.get(this.API_ARTICLE_URL);
     }
     sortArticlesByDateAscending(articles) {
@@ -2141,6 +2142,12 @@ class ArticlesServices {
     }
     findArticleById(id) {
         return this.articles.find(article => article.id === id);
+    }
+    setArticles(newArticles) {
+        this.articles = newArticles;
+    }
+    getArticles() {
+        return this.articles;
     }
 }
 ArticlesServices.ɵfac = function ArticlesServices_Factory(t) { return new (t || ArticlesServices)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };

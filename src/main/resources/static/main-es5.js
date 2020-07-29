@@ -2727,17 +2727,23 @@
           value: function ngOnInit() {
             var _this11 = this;
 
-            this.articlesServices.findAll().subscribe(function (resp) {
-              console.log(resp);
+            if (this.articlesServices.getArticles() != null) {
+              this.articles = this.articlesServices.getArticles();
+            } else {
+              this.articlesServices.findAll().subscribe(function (resp) {
+                console.log(resp);
 
-              if (resp.status === 'OK') {
-                console.log('OK');
-                _this11.articles = resp.data;
-              } else {
-                console.log(resp.message);
-              }
-            });
-            this.articles = this.articlesServices.sortArticlesByDateDescending(this.articles);
+                if (resp.status === 'OK') {
+                  console.log('OK');
+                  _this11.articles = resp.data;
+                  _this11.articles = _this11.articlesServices.sortArticlesByDateDescending(_this11.articles);
+
+                  _this11.articlesServices.setArticles(_this11.articles);
+                } else {
+                  console.log(resp.message);
+                }
+              });
+            }
           }
         }]);
 
@@ -4275,11 +4281,6 @@
         _createClass(ArticlesServices, [{
           key: "findAll",
           value: function findAll() {
-            /*
-            if (this.articles !== null && this.articles !== undefined && this.articles.length > 0) {
-              return this.articles;
-            }
-            this.articles = fromArticles[Object.keys(fromArticles).shift()] as Article[];*/
             return this.http.get(this.API_ARTICLE_URL);
           }
         }, {
@@ -4308,6 +4309,16 @@
             return this.articles.find(function (article) {
               return article.id === id;
             });
+          }
+        }, {
+          key: "setArticles",
+          value: function setArticles(newArticles) {
+            this.articles = newArticles;
+          }
+        }, {
+          key: "getArticles",
+          value: function getArticles() {
+            return this.articles;
           }
         }]);
 

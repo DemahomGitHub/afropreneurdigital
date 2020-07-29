@@ -40,17 +40,22 @@ export class ArticlesComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.articlesServices
-      .findAll()
-      .subscribe(resp => {
-        console.log(resp);
-        if (resp.status === 'OK') {
-          console.log('OK');
-          this.articles = resp.data;
-        } else {
-          console.log(resp.message);
-        }
-      });
-    this.articles = this.articlesServices.sortArticlesByDateDescending(this.articles);
+    if (this.articlesServices.getArticles() != null) {
+      this.articles = this.articlesServices.getArticles();
+    } else {
+      this.articlesServices
+        .findAll()
+        .subscribe(resp => {
+          console.log(resp);
+          if (resp.status === 'OK') {
+            console.log('OK');
+            this.articles = resp.data;
+            this.articles = this.articlesServices.sortArticlesByDateDescending(this.articles);
+            this.articlesServices.setArticles(this.articles);
+          } else {
+            console.log(resp.message);
+          }
+        });
+    }
   }
 }
