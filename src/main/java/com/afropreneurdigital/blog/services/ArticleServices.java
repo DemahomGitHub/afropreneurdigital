@@ -1,10 +1,12 @@
 package com.afropreneurdigital.blog.services;
 
+import com.afropreneurdigital.blog.helper.AuthorHelper;
 import com.afropreneurdigital.blog.model.Article;
 import com.afropreneurdigital.blog.repository.ArticleRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ArticleServices {
@@ -13,7 +15,13 @@ public class ArticleServices {
         this.articleRepository = repository;
     }
     public List<Article> findAll() {
-        return this.articleRepository.findAll();
+        return this.articleRepository
+                .findAll()
+                .stream()
+                .peek(article -> {
+                    article.setAuthor(AuthorHelper.hideCriticalFields(article.getAuthor()));
+                })
+                .collect(Collectors.toList());
     }
     public Article newArticle(Article newArticle) {
         return this.articleRepository.save(newArticle);

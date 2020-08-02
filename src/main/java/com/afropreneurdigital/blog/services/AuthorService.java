@@ -1,14 +1,18 @@
 package com.afropreneurdigital.blog.services;
 
 import com.afropreneurdigital.blog.errorshandling.AuthorNotFoundException;
+import com.afropreneurdigital.blog.helper.AuthorHelper;
 import com.afropreneurdigital.blog.model.Author;
 import com.afropreneurdigital.blog.repository.AuthorRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 public class AuthorService {
     private final AuthorRepository authorRepository;
@@ -18,7 +22,11 @@ public class AuthorService {
     }
 
     public List<Author> findAll() {
-        return authorRepository.findAll();
+        return authorRepository
+                .findAll()
+                .stream()
+                .peek(AuthorHelper::hideCriticalFields)
+                .collect(Collectors.toList());
     }
 
     public Author findOne(Long id) throws AuthorNotFoundException {
@@ -28,6 +36,12 @@ public class AuthorService {
     }
 
     public Author findByLoginAndPassword(String login, String password) throws AuthorNotFoundException {
-        return authorRepository.findByLoginAndPassword(login, password).orElseThrow(AuthorNotFoundException::new);
+        return authorRepository
+                .findByLoginAndPassword(login, password)
+                .map(author -> {
+                    AuthorHelper.hideCriticalFields(author);
+                    return author;
+                 })
+                .orElseThrow(AuthorNotFoundException::new);
     }
 }
