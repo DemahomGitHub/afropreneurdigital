@@ -47,4 +47,8 @@ export class ArticlesServices {
   getArticles(): Article[] {
     return this.articles;
   }
+
+  hasArticles(): boolean {
+    return this.articles !== null && this.articles !== undefined && this.articles.length > 0;
+  }
 }

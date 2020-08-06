@@ -40,7 +40,7 @@ export class ArticlesComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    if (this.articlesServices.getArticles() != null) {
+    if (this.articlesServices.hasArticles()) {
       this.articles = this.articlesServices.getArticles();
     } else {
       this.articlesServices
@@ -48,7 +48,6 @@ export class ArticlesComponent implements OnInit {
         .subscribe(resp => {
           console.log(resp);
           if (resp.status === 'OK') {
-            console.log('OK');
             this.articles = resp.data;
             this.articles = this.articlesServices.sortArticlesByDateDescending(this.articles);
             this.articlesServices.setArticles(this.articles);

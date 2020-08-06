@@ -1,5 +1,5 @@
-import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import {ArticlesServices} from '../../../services/ArticlesServices';
 import {Article} from '../../../model/Article';
 
@@ -10,15 +10,38 @@ import {Article} from '../../../model/Article';
 })
 export class ArticleDetailsComponent implements OnInit {
   articleDetails: Article;
+  articles: Article[];
+  articleId: number;
+  loading = true;
   constructor(
     private activatedRoute: ActivatedRoute,
     private articlesServices: ArticlesServices
-  ) { }
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      this.articleDetails = this.articlesServices.findArticleById(+params.id);
+      this.articleId = +params.id;
     });
+
+    if (!this.articlesServices.hasArticles()) {
+      this.articlesServices.findAll().subscribe(resp => {
+        if (resp.status === 'OK') {
+          this.articles = resp.data;
+          this.articles = this.articlesServices.sortArticlesByDateDescending(this.articles);
+          this.articlesServices.setArticles(this.articles);
+        }
+        this.setArticleDetails();
+      });
+    } else {
+      this.setArticleDetails();
+    }
+  }
+
+  setArticleDetails(): void {
+    if (this.articleId) {
+      this.articleDetails = this.articlesServices.findArticleById(this.articleId);
+      this.loading = false;
+    }
   }
 
 }

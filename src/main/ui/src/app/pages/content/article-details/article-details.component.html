@@ -1,4 +1,4 @@
-<div style="height: 100vh;">
+<div style="height: 100vh;" *ngIf="!loading">
   <mat-card style="margin: 25px 0;">
     <ul class="breadcrumb">
       <li><a routerLink="/articles"> Articles </a></li>
@@ -8,12 +8,11 @@
   <mat-card class="ad-card-article">
     <mat-card-title> {{articleDetails.title}} </mat-card-title>
     <mat-card-subtitle>
-      <span> Publié le {{articleDetails.releaseDate}} par {{articleDetails.author}} - Thématiques: </span>
-      <span *ngFor="let topic of articleDetails.topics"> {{topic.label}} </span>
+      <span>Publié le {{articleDetails.releaseDate | date: 'shortDate' : 'fr'}}</span>
+      <span> par {{articleDetails.author.fullName}} - Thématiques: </span>
+      <span *ngFor="let topic of articleDetails.topics"> {{topic.value}} </span>
     </mat-card-subtitle>
-    <mat-card-content>
-      {{articleDetails.content}}
-    </mat-card-content>
+    <mat-card-content [innerHTML]="articleDetails.content"></mat-card-content>
     <mat-card-actions>
       <a mat-button routerLink="/articles">
         <mat-icon mat-list-icon>arrow_back</mat-icon>
