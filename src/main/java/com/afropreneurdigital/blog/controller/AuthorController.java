@@ -4,6 +4,7 @@ import com.afropreneurdigital.blog.enums.ResponseStatus;
 import com.afropreneurdigital.blog.errorshandling.AuthorNotFoundException;
 import com.afropreneurdigital.blog.model.Author;
 import com.afropreneurdigital.blog.model.ResponseEntity;
+import com.afropreneurdigital.blog.model.Token;
 import com.afropreneurdigital.blog.services.AuthorService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,9 +31,8 @@ public class AuthorController {
 
     @GetMapping("/authors/{id}")
     Author findOne(@PathVariable Long id) {
-        ResponseEntity<Author> response;
         try {
-           Author auth = authorService.findOne(id);
+           return authorService.findOne(id);
         } catch (Exception ex) {
             log.info("Author not found");
         }
@@ -40,11 +40,11 @@ public class AuthorController {
     }
 
     @GetMapping("/authors/{login}/{password}")
-    ResponseEntity<Author> findByLoginAndPassword(@PathVariable String login, @PathVariable String password) {
-        ResponseEntity<Author> response;
+    ResponseEntity<Token> findByLoginAndPassword(@PathVariable String login, @PathVariable String password) {
+        ResponseEntity<Token> response;
         try {
-            Author auth = authorService.findByLoginAndPassword(login, password);
-            response = new ResponseEntity<>(ResponseStatus.OK, auth);
+            Token newToken = authorService.findByLoginAndPassword(login, password);
+            response = new ResponseEntity<>(ResponseStatus.OK, newToken);
         } catch (AuthorNotFoundException ex) {
             log.info(ex.getMessage());
             response = new ResponseEntity<>(ResponseStatus.NOT_FOUND, ex.getMessage());

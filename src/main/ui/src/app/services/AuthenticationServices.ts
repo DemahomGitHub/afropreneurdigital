@@ -40,11 +40,6 @@ export class AuthenticationServices {
     }
     return null;
   }
-
-  setAdmin(newAdmin: User) {
-    this.admin = newAdmin;
-  }
-
   switchToAdminConsole(canSwitch: boolean) {
     this.authServiceMessage.next(canSwitch);
   }
@@ -56,11 +51,6 @@ export class AuthenticationServices {
   connected(): boolean {
     return this.getUserSession() != null;
   }
-
-  setLoggedIn(logged: boolean) {
-    this.loggedIn = logged;
-  }
-
   saveUserSession(data: User): void {
     const expiresIn = 1;
     this.cookieService.set(CookieName.ID, String(data.id), expiresIn, '/admin', 'localhost', false, 'Strict');
