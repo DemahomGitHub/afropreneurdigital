@@ -2239,9 +2239,6 @@ class AuthenticationServices {
         }
         return null;
     }
-    setAdmin(newAdmin) {
-        this.admin = newAdmin;
-    }
     switchToAdminConsole(canSwitch) {
         this.authServiceMessage.next(canSwitch);
     }
@@ -2250,9 +2247,6 @@ class AuthenticationServices {
     }
     connected() {
         return this.getUserSession() != null;
-    }
-    setLoggedIn(logged) {
-        this.loggedIn = logged;
     }
     saveUserSession(data) {
         const expiresIn = 1;

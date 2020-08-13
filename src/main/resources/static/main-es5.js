@@ -4483,11 +4483,6 @@
             return null;
           }
         }, {
-          key: "setAdmin",
-          value: function setAdmin(newAdmin) {
-            this.admin = newAdmin;
-          }
-        }, {
           key: "switchToAdminConsole",
           value: function switchToAdminConsole(canSwitch) {
             this.authServiceMessage.next(canSwitch);
@@ -4501,11 +4496,6 @@
           key: "connected",
           value: function connected() {
             return this.getUserSession() != null;
-          }
-        }, {
-          key: "setLoggedIn",
-          value: function setLoggedIn(logged) {
-            this.loggedIn = logged;
           }
         }, {
           key: "saveUserSession",
